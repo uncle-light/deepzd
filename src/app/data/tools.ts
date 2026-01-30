@@ -97,4 +97,11 @@ export const tools = [
     category: "办公",
     url: "https://gamma.app"
   },
+  {
+    slug: "descript",
+    name: "Descript",
+    desc: "AI视频编辑",
+    category: "视频",
+    url: "https://descript.com"
+  },
 ];
