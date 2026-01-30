@@ -38,9 +38,10 @@ function LatestContent() {
     <section className="py-20 px-6 border-t border-zinc-800">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-2xl font-bold mb-8">最新内容</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <ContentCard title="Midjourney 2025 完全入门指南" tag="教程" href="/tutorials/midjourney-guide" />
-          <ContentCard title="DeepSeek 发布新一代大模型" tag="资讯" href="/news/deepseek-new-model" />
+        <div className="grid md:grid-cols-3 gap-4">
+          <ContentCard title="Midjourney 入门指南" tag="教程" href="/tutorials/midjourney-guide" />
+          <ContentCard title="ChatGPT 使用技巧" tag="教程" href="/tutorials/chatgpt-tips" />
+          <ContentCard title="DeepSeek 新模型发布" tag="资讯" href="/news/deepseek-new-model" />
         </div>
       </div>
     </section>
