@@ -185,4 +185,18 @@ Suno 是AI音乐生成工具。
 
 根据需求选择合适工具`
   },
+  {
+    slug: "ai-translation",
+    title: "AI翻译工具使用指南",
+    tag: "翻译",
+    content: `## 推荐工具
+
+- DeepL
+- Google翻译
+- ChatGPT
+
+## 使用技巧
+
+提供上下文获得更准确翻译`
+  },
 ];
