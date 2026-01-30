@@ -76,4 +76,11 @@ export const tools = [
     category: "编程",
     url: "https://github.com/features/copilot"
   },
+  {
+    slug: "elevenlabs",
+    name: "ElevenLabs",
+    desc: "AI语音合成",
+    category: "音频",
+    url: "https://elevenlabs.io"
+  },
 ];
