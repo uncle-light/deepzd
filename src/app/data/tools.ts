@@ -111,4 +111,11 @@ export const tools = [
     category: "办公",
     url: "https://otter.ai"
   },
+  {
+    slug: "heygen",
+    name: "HeyGen",
+    desc: "AI数字人视频",
+    category: "视频",
+    url: "https://heygen.com"
+  },
 ];
