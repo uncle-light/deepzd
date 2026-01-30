@@ -55,4 +55,11 @@ export const tools = [
     category: "视频",
     url: "https://runway.ml"
   },
+  {
+    slug: "suno",
+    name: "Suno",
+    desc: "AI音乐生成",
+    category: "音乐",
+    url: "https://suno.ai"
+  },
 ];
