@@ -197,6 +197,12 @@ a {
   padding: 0.5em 1em;
 }
 
+/* 图片样式 */
+.prose img {
+  border-radius: 8px;
+  max-width: 100%;
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out;
 }
