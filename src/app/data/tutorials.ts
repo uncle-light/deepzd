@@ -3,74 +3,92 @@ export const tutorials = [
     slug: "midjourney-guide",
     title: "Midjourney 2025 完全入门指南",
     tag: "绘画",
-    content: `
-## 什么是 Midjourney
+    content: `## 什么是 Midjourney
 
-Midjourney 是一款强大的 AI 图像生成工具，以其卓越的生成速度、艺术质量和用户体验而闻名。
+Midjourney 是目前最强大的 AI 图像生成工具之一。
 
 ## 注册与准备
 
-1. 注册一个 Discord 账号
-2. 加入 Midjourney 官方频道
-3. 选择合适的订阅方案
+1. 注册 Discord 账号
+2. 加入 Midjourney 官方服务器
+3. 选择订阅方案
 
-## 基础操作
+## 基础命令
 
-在 Discord 中使用 /imagine 命令，输入你的提示词即可生成图片。
+/imagine prompt: [你的描述]
 
 ## 提示词技巧
 
-- 描述主体：人物、物体、场景
-- 添加风格：油画、水彩、赛博朋克
-- 调整参数：--ar 16:9 设置比例
-    `
+- 主体描述：清晰描述你想要的内容
+- 风格关键词：oil painting, watercolor, cyberpunk
+- 参数调整：--ar 16:9 设置比例`
   },
   {
     slug: "chatgpt-tips",
     title: "ChatGPT 高效使用技巧",
     tag: "对话",
-    content: `
-## 模型选择
+    content: `## 模型选择
 
 - GPT-4o：日常对话首选
-- GPT-5：复杂推理任务
-- GPT-5 Pro：专业级多模态
+- GPT-4 Turbo：复杂任务
+- GPT-5：最新模型
 
 ## 高效提问技巧
 
-1. **让 AI 先提问**：说"在回答前，先问我几个问题"
-2. **设定角色**：给 AI 一个具体身份
-3. **明确受众**：说明内容是给谁看的
-4. **逐步推理**：要求 AI 解释思考过程
-
-## 订阅方案
-
-- Go ($8/月)：日常使用
-- Plus ($20/月)：专业工作
-- Pro ($200/月)：企业级
-    `
+1. 让 AI 先提问
+2. 设定角色
+3. 明确受众
+4. 逐步推理`
   },
   {
     slug: "claude-pro",
-    title: "Claude Pro 订阅与使用教程",
+    title: "Claude Pro 深度使用教程",
     tag: "编程",
-    content: `
-## Claude 的优势
+    content: `## Claude 的优势
 
-Claude 在写作与编程方面表现突出，拥有 200K tokens 超大上下文窗口。
-
-## 订阅方式
-
-推荐通过官方渠道订阅 Claude Pro，获得：
-- 顶级模型优先访问权
-- Artifacts 实时协作功能
-- 升级的文档分析能力
+- 200K tokens 超大上下文
+- 强大的代码能力
+- 更安全的输出
 
 ## 使用技巧
 
-1. 充分利用长上下文能力
-2. 使用 Artifacts 生成代码原型
-3. 上传文档进行深度分析
-    `
+1. 充分利用长上下文
+2. 使用 Artifacts 功能
+3. 上传文档分析`
+  },
+  {
+    slug: "stable-diffusion",
+    title: "Stable Diffusion 本地部署指南",
+    tag: "绘画",
+    content: `## 什么是 Stable Diffusion
+
+开源的AI图像生成模型，可本地运行。
+
+## 硬件要求
+
+- 显卡：NVIDIA RTX 3060 以上
+- 显存：8GB 以上
+- 内存：16GB 以上
+
+## 安装步骤
+
+1. 安装 Python 3.10
+2. 下载 WebUI
+3. 配置模型`
+  },
+  {
+    slug: "prompt-engineering",
+    title: "Prompt Engineering 提示词工程",
+    tag: "进阶",
+    content: `## 什么是提示词工程
+
+通过优化输入来获得更好的AI输出。
+
+## 核心技巧
+
+1. 明确任务目标
+2. 提供上下文
+3. 指定输出格式
+4. 迭代优化`
   },
 ];

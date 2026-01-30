@@ -3,26 +3,55 @@ import Hero from "./components/Hero";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
 
+function Nav() {
+  return (
+    <nav className="fixed top-0 w-full bg-zinc-950/80 backdrop-blur-md z-50 border-b border-zinc-800">
+      <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+        <Link href="/" className="text-xl font-bold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+          DeepZD
+        </Link>
+        <div className="flex gap-6 text-sm">
+          <Link href="/tutorials" className="text-zinc-400 hover:text-white transition">教程</Link>
+          <Link href="/tools" className="text-zinc-400 hover:text-white transition">工具</Link>
+          <Link href="/news" className="text-zinc-400 hover:text-white transition">资讯</Link>
+          <Link href="/about" className="text-zinc-400 hover:text-white transition">关于</Link>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FAF5FF]">
-      {/* 导航栏 */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-50 border-b border-[#DDD6FE]">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-xl font-bold text-[#7C3AED]">
-            DeepZD
-          </Link>
-          <div className="flex gap-6 text-sm font-medium">
-            <Link href="/tutorials" className="text-gray-600 hover:text-[#7C3AED] transition">教程</Link>
-            <Link href="/news" className="text-gray-600 hover:text-[#7C3AED] transition">资讯</Link>
-            <Link href="/about" className="text-gray-600 hover:text-[#7C3AED] transition">关于</Link>
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen grid-bg">
+      <Nav />
       <Hero />
       <Features />
+      <LatestContent />
       <Footer />
     </div>
+  );
+}
+
+function LatestContent() {
+  return (
+    <section className="py-20 px-6 border-t border-zinc-800">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-2xl font-bold mb-8">最新内容</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          <ContentCard title="Midjourney 2025 完全入门指南" tag="教程" href="/tutorials/midjourney-guide" />
+          <ContentCard title="DeepSeek 发布新一代大模型" tag="资讯" href="/news/deepseek-new-model" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ContentCard({ title, tag, href }: { title: string; tag: string; href: string }) {
+  return (
+    <Link href={href} className="card p-5 block">
+      <span className="tag">{tag}</span>
+      <h3 className="font-semibold mt-3">{title}</h3>
+    </Link>
   );
 }
