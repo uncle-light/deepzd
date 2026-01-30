@@ -28,6 +28,7 @@ export default function Home() {
       <Hero />
       <Features />
       <LatestContent />
+      <ToolsPreview />
       <Footer />
     </div>
   );
@@ -57,5 +58,33 @@ function ContentCard({ title, tag, href }: { title: string; tag: string; href: s
       <span className="tag">{tag}</span>
       <h3 className="font-semibold mt-3">{title}</h3>
     </Link>
+  );
+}
+
+function ToolsPreview() {
+  return (
+    <section className="py-20 px-6 border-t border-zinc-800">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-2xl font-bold">热门工具</h2>
+          <Link href="/tools" className="text-violet-400 text-sm hover:underline">查看全部 →</Link>
+        </div>
+        <div className="grid md:grid-cols-4 gap-4">
+          <ToolCard name="ChatGPT" desc="AI对话" />
+          <ToolCard name="Midjourney" desc="AI绘画" />
+          <ToolCard name="Cursor" desc="AI编程" />
+          <ToolCard name="Runway" desc="AI视频" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ToolCard({ name, desc }: { name: string; desc: string }) {
+  return (
+    <div className="card p-4 text-center">
+      <h3 className="font-semibold">{name}</h3>
+      <p className="text-zinc-400 text-sm mt-1">{desc}</p>
+    </div>
   );
 }
