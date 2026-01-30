@@ -18,6 +18,10 @@ const prompts = [
   { title: "会议纪要", desc: "会议内容整理", category: "办公" },
   { title: "Midjourney提示词", desc: "AI绘画提示词", category: "绘画" },
   { title: "Stable Diffusion", desc: "SD提示词优化", category: "绘画" },
+  { title: "SEO优化专家", desc: "网站SEO分析", category: "营销" },
+  { title: "社媒运营", desc: "社交媒体策略", category: "营销" },
+  { title: "Python专家", desc: "Python开发指导", category: "开发" },
+  { title: "React开发", desc: "React最佳实践", category: "开发" },
 ];
 
 export default function Prompts() {

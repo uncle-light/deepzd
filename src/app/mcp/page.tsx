@@ -22,6 +22,8 @@ const mcpServers = [
   { name: "Linear", desc: "Linear项目管理", author: "Community", category: "效率" },
   { name: "Sentry", desc: "错误监控追踪", author: "Community", category: "监控" },
   { name: "Stripe", desc: "支付系统集成", author: "Community", category: "支付" },
+  { name: "Twilio", desc: "短信通知服务", author: "Community", category: "通讯" },
+  { name: "Vercel", desc: "Vercel部署管理", author: "Community", category: "运维" },
 ];
 
 export default function MCP() {

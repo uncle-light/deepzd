@@ -17,6 +17,8 @@ const skills = [
   { name: "图表生成", desc: "数据可视化图表", category: "可视化", source: "@anthropic" },
   { name: "正则表达式", desc: "生成和解释正则", category: "工具", source: "@openai" },
   { name: "Cron表达式", desc: "生成定时任务表达式", category: "工具", source: "@anthropic" },
+  { name: "Git操作", desc: "Git命令生成", category: "开发", source: "@github" },
+  { name: "Docker配置", desc: "Dockerfile生成", category: "运维", source: "@docker" },
 ];
 
 export default function Skills() {
