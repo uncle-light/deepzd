@@ -66,6 +66,7 @@ body {
 .btn-primary:hover {
   transform: translateY(-1px);
   box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
 }
 
 /* 标签样式 */
