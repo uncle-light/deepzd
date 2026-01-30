@@ -171,4 +171,18 @@ Suno 是AI音乐生成工具。
 2. 邮件撰写
 3. 文案优化`
   },
+  {
+    slug: "ai-video",
+    title: "AI视频生成工具对比",
+    tag: "视频",
+    content: `## 主流工具
+
+- Runway Gen-2
+- Pika Labs
+- Sora
+
+## 选择建议
+
+根据需求选择合适工具`
+  },
 ];
