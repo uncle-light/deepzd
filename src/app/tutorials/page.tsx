@@ -25,7 +25,15 @@ export default function Tutorials() {
       <main className="pt-24 pb-16 px-6">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl font-bold mb-2">教程中心</h1>
-          <p className="text-zinc-400 mb-8">系统学习AI工具</p>
+          <p className="text-zinc-400 mb-6">系统学习AI工具</p>
+          <div className="flex gap-2 mb-8 flex-wrap">
+            <span className="tag">全部</span>
+            <span className="tag">绘画</span>
+            <span className="tag">对话</span>
+            <span className="tag">编程</span>
+            <span className="tag">视频</span>
+            <span className="tag">音频</span>
+          </div>
           <div className="space-y-4">
             {tutorials.map((t) => (
               <Link key={t.slug} href={`/tutorials/${t.slug}`}>
