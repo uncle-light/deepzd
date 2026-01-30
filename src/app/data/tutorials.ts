@@ -271,4 +271,18 @@ Suno 是AI音乐生成工具。
 
 营销视频、培训课程、虚拟主播`
   },
+  {
+    slug: "ai-design",
+    title: "AI设计工具使用指南",
+    tag: "设计",
+    content: `## 推荐工具
+
+- Canva AI
+- Adobe Firefly
+- Figma AI
+
+## 应用场景
+
+海报设计、Logo生成、UI设计`
+  },
 ];
