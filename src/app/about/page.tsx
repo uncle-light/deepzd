@@ -1,41 +1,40 @@
-import Link from "next/link";
-
-function Nav() {
-  return (
-    <nav className="fixed top-0 w-full bg-zinc-950/80 backdrop-blur-md z-50 border-b border-zinc-800">
-      <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-          DeepZD
-        </Link>
-        <div className="flex gap-6 text-sm">
-          <Link href="/tutorials" className="text-zinc-400">教程</Link>
-          <Link href="/tools" className="text-zinc-400">工具</Link>
-          <Link href="/news" className="text-zinc-400">资讯</Link>
-        </div>
-      </div>
-    </nav>
-  );
-}
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 export default function About() {
   return (
     <div className="min-h-screen grid-bg">
       <Nav />
       <main className="pt-24 pb-16 px-6">
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-3xl font-bold mb-6">关于 DeepZD</h1>
-          <div className="space-y-6 text-zinc-400">
-            <p>DeepZD 是一个专注于 AI 知识分享的平台。</p>
-            <p>我们的使命是让每个人都能轻松掌握 AI 工具。</p>
-            <h2 className="text-xl font-semibold text-white pt-4">我们提供</h2>
-            <ul className="list-disc list-inside space-y-2">
-              <li>深度教程 - 系统学习各类AI工具</li>
-              <li>工具推荐 - 精选优质AI工具</li>
-              <li>前沿资讯 - AI领域最新动态</li>
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold mb-8">关于 DeepZD</h1>
+          
+          <section className="mb-12">
+            <h2 className="text-2xl font-semibold mb-4">我们的使命</h2>
+            <p className="text-zinc-400 leading-relaxed">
+              DeepZD 致力于帮助每个人理解和使用人工智能技术。我们相信，AI 不应该是少数人的专利，
+              而应该成为提升每个人生产力和创造力的工具。
+            </p>
+          </section>
+          
+          <section className="mb-12">
+            <h2 className="text-2xl font-semibold mb-4">我们提供什么</h2>
+            <ul className="space-y-3 text-zinc-400">
+              <li>• 深入浅出的 AI 工具教程</li>
+              <li>• 精选优质工具推荐与对比</li>
+              <li>• 行业动态与趋势分析</li>
             </ul>
-          </div>
+          </section>
+          
+          <section>
+            <h2 className="text-2xl font-semibold mb-4">联系我们</h2>
+            <p className="text-zinc-400">
+              如有建议或合作意向，欢迎联系。
+            </p>
+          </section>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

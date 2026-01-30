@@ -1,25 +1,8 @@
 import Link from "next/link";
+import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
-
-function Nav() {
-  return (
-    <nav className="fixed top-0 w-full bg-zinc-950/80 backdrop-blur-md z-50 border-b border-zinc-800">
-      <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-          DeepZD
-        </Link>
-        <div className="flex gap-6 text-sm">
-          <Link href="/tutorials" className="text-zinc-400 hover:text-white transition">教程</Link>
-          <Link href="/tools" className="text-zinc-400 hover:text-white transition">工具</Link>
-          <Link href="/news" className="text-zinc-400 hover:text-white transition">资讯</Link>
-          <Link href="/about" className="text-zinc-400 hover:text-white transition">关于</Link>
-        </div>
-      </div>
-    </nav>
-  );
-}
 
 export default function Home() {
   return (
@@ -37,26 +20,49 @@ export default function Home() {
 function LatestContent() {
   return (
     <section className="py-20 px-6 border-t border-zinc-800">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold">最新内容</h2>
-          <Link href="/tutorials" className="text-violet-400 text-sm hover:underline">查看全部 →</Link>
+          <Link href="/tutorials" className="text-violet-400 text-sm hover:underline">
+            查看全部 →
+          </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
-          <ContentCard title="Midjourney 入门指南" tag="教程" href="/tutorials/midjourney-guide" />
-          <ContentCard title="ChatGPT 使用技巧" tag="教程" href="/tutorials/chatgpt-tips" />
-          <ContentCard title="DeepSeek 新模型发布" tag="资讯" href="/news/deepseek-new-model" />
+        <div className="grid md:grid-cols-3 gap-6">
+          <ContentCard 
+            title="Midjourney 2025 完全入门指南" 
+            desc="从注册到进阶，掌握AI绘画核心技巧"
+            tag="绘画" 
+            href="/tutorials/midjourney-guide" 
+          />
+          <ContentCard 
+            title="ChatGPT 高效使用技巧" 
+            desc="提升10倍效率的提问方法论"
+            tag="对话" 
+            href="/tutorials/chatgpt-tips" 
+          />
+          <ContentCard 
+            title="DeepSeek R1 重磅发布" 
+            desc="中国AI的效率突破，训练成本降低90%"
+            tag="资讯" 
+            href="/news/deepseek-new-model" 
+          />
         </div>
       </div>
     </section>
   );
 }
 
-function ContentCard({ title, tag, href }: { title: string; tag: string; href: string }) {
+function ContentCard({ title, desc, tag, href }: { 
+  title: string; 
+  desc: string;
+  tag: string; 
+  href: string 
+}) {
   return (
-    <Link href={href} className="card p-5 block">
+    <Link href={href} className="card p-6 block group">
       <span className="tag">{tag}</span>
-      <h3 className="font-semibold mt-3">{title}</h3>
+      <h3 className="font-semibold mt-3 group-hover:text-violet-400 transition-colors">{title}</h3>
+      <p className="text-zinc-400 text-sm mt-2 line-clamp-2">{desc}</p>
     </Link>
   );
 }
@@ -64,27 +70,34 @@ function ContentCard({ title, tag, href }: { title: string; tag: string; href: s
 function ToolsPreview() {
   return (
     <section className="py-20 px-6 border-t border-zinc-800">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold">热门工具</h2>
-          <Link href="/tools" className="text-violet-400 text-sm hover:underline">查看全部 →</Link>
+          <Link href="/tools" className="text-violet-400 text-sm hover:underline">
+            查看全部 →
+          </Link>
         </div>
         <div className="grid md:grid-cols-4 gap-4">
-          <ToolCard name="ChatGPT" desc="AI对话" />
-          <ToolCard name="Midjourney" desc="AI绘画" />
-          <ToolCard name="Cursor" desc="AI编程" />
-          <ToolCard name="Runway" desc="AI视频" />
+          <ToolCard name="ChatGPT" desc="最强AI对话助手" category="对话" />
+          <ToolCard name="Midjourney" desc="顶级AI绘画工具" category="绘画" />
+          <ToolCard name="Cursor" desc="AI驱动的代码编辑器" category="编程" />
+          <ToolCard name="Runway" desc="专业AI视频生成" category="视频" />
         </div>
       </div>
     </section>
   );
 }
 
-function ToolCard({ name, desc }: { name: string; desc: string }) {
+function ToolCard({ name, desc, category }: { 
+  name: string; 
+  desc: string;
+  category: string;
+}) {
   return (
-    <div className="card p-4 text-center">
-      <h3 className="font-semibold">{name}</h3>
-      <p className="text-zinc-400 text-sm mt-1">{desc}</p>
+    <div className="card p-5 text-center group hover:border-violet-500/50 transition-colors">
+      <span className="tag text-xs">{category}</span>
+      <h3 className="font-semibold mt-2">{name}</h3>
+      <p className="text-zinc-500 text-sm mt-1">{desc}</p>
     </div>
   );
 }
