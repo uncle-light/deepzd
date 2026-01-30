@@ -257,4 +257,18 @@ Suno 是AI音乐生成工具。
 
 配音、有声书、虚拟主播`
   },
+  {
+    slug: "ai-avatar",
+    title: "AI数字人制作教程",
+    tag: "视频",
+    content: `## 推荐工具
+
+- HeyGen
+- D-ID
+- Synthesia
+
+## 应用场景
+
+营销视频、培训课程、虚拟主播`
+  },
 ];
