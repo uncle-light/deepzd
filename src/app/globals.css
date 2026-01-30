@@ -17,6 +17,12 @@ body {
   scroll-behavior: smooth;
 }
 
+/* 选中文本样式 */
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: white;
+}
+
 /* 网格背景 */
 .grid-bg {
   background-color: #09090b;
