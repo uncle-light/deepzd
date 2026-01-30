@@ -27,6 +27,9 @@ function Hero() {
         <p className="text-base md:text-xl text-zinc-400 mb-6 md:mb-8 px-4">
           AI工具、教程、提示词、MCP、Skills 一站式导航
         </p>
+        <Link href="/search" className="inline-block px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-sm transition-colors">
+          🔍 搜索工具、教程...
+        </Link>
       </div>
     </section>
   );
