@@ -179,6 +179,14 @@ a {
   font-style: italic;
 }
 
+/* 代码块背景 */
+.prose pre {
+  background: #18181b;
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out;
 }
