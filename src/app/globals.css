@@ -157,6 +157,14 @@ a {
   margin: 0.5em 0;
 }
 
+/* 标题样式 */
+.prose h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out;
 }
