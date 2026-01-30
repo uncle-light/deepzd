@@ -165,6 +165,12 @@ a {
   margin-bottom: 0.5em;
 }
 
+/* 段落样式 */
+.prose p {
+  line-height: 1.8;
+  margin: 1em 0;
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out;
 }
