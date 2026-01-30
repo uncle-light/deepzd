@@ -77,6 +77,11 @@ body {
   border-radius: 6px;
   font-size: 12px;
   font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: rgba(139, 92, 246, 0.2);
 }
 
 /* 动画效果 */
