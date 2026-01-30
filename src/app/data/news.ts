@@ -71,4 +71,13 @@ export const news = [
 
 AI监管进入新阶段，企业需关注合规要求。`
   },
+  {
+    slug: "ai-job-market",
+    title: "AI人才需求持续增长",
+    date: "2026-01-22",
+    tag: "就业",
+    content: `AI相关岗位薪资涨幅超30%。
+
+提示词工程师、AI产品经理成为热门职位。`
+  },
 ];
