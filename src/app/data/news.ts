@@ -44,4 +44,13 @@ export const news = [
 
 英伟达预测AI推理能力将比现在强10亿倍。`
   },
+  {
+    slug: "sora-update",
+    title: "OpenAI Sora 视频生成重大更新",
+    date: "2026-01-25",
+    tag: "产品",
+    content: `Sora 发布重大更新，支持更长视频生成。
+
+新版本支持60秒视频，画质和一致性大幅提升。`
+  },
 ];
