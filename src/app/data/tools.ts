@@ -226,4 +226,25 @@ export const tools = [
     category: "办公",
     url: "https://beautiful.ai"
   },
+  {
+    slug: "writesonic",
+    name: "Writesonic",
+    desc: "AI内容生成",
+    category: "写作",
+    url: "https://writesonic.com"
+  },
+  {
+    slug: "grammarly",
+    name: "Grammarly",
+    desc: "AI写作助手",
+    category: "写作",
+    url: "https://grammarly.com"
+  },
+  {
+    slug: "luma",
+    name: "Luma AI",
+    desc: "3D场景生成",
+    category: "3D",
+    url: "https://lumalabs.ai"
+  },
 ];
