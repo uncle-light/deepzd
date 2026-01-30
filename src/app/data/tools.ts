@@ -104,4 +104,11 @@ export const tools = [
     category: "视频",
     url: "https://descript.com"
   },
+  {
+    slug: "otter",
+    name: "Otter.ai",
+    desc: "AI会议记录",
+    category: "办公",
+    url: "https://otter.ai"
+  },
 ];
