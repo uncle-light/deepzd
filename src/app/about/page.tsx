@@ -24,10 +24,15 @@ export default function About() {
       <main className="pt-24 pb-16 px-6">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold mb-6">关于 DeepZD</h1>
-          <div className="text-zinc-400 space-y-4">
+          <div className="space-y-6 text-zinc-400">
             <p>DeepZD 是一个专注于 AI 知识分享的平台。</p>
-            <p>我们提供深度教程、工具推荐和前沿资讯。</p>
-            <p>让每个人都能轻松掌握 AI 工具。</p>
+            <p>我们的使命是让每个人都能轻松掌握 AI 工具。</p>
+            <h2 className="text-xl font-semibold text-white pt-4">我们提供</h2>
+            <ul className="list-disc list-inside space-y-2">
+              <li>深度教程 - 系统学习各类AI工具</li>
+              <li>工具推荐 - 精选优质AI工具</li>
+              <li>前沿资讯 - AI领域最新动态</li>
+            </ul>
           </div>
         </div>
       </main>
