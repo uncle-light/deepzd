@@ -29,6 +29,18 @@ body {
   outline-offset: 2px;
 }
 
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
 /* 网格背景 */
 .grid-bg {
   background-color: #09090b;
