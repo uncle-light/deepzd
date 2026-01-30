@@ -243,4 +243,18 @@ Suno 是AI音乐生成工具。
 
 数据清洗、可视化、报告生成`
   },
+  {
+    slug: "ai-voice",
+    title: "AI语音克隆教程",
+    tag: "音频",
+    content: `## 推荐工具
+
+- ElevenLabs
+- Resemble AI
+- Play.ht
+
+## 使用场景
+
+配音、有声书、虚拟主播`
+  },
 ];
