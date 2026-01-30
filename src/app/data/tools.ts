@@ -90,4 +90,11 @@ export const tools = [
     category: "翻译",
     url: "https://deepl.com"
   },
+  {
+    slug: "gamma",
+    name: "Gamma",
+    desc: "AI演示文稿",
+    category: "办公",
+    url: "https://gamma.app"
+  },
 ];
