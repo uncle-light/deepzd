@@ -199,4 +199,20 @@ Suno 是AI音乐生成工具。
 
 提供上下文获得更准确翻译`
   },
+  {
+    slug: "ai-ppt",
+    title: "AI制作PPT教程",
+    tag: "办公",
+    content: `## 推荐工具
+
+- Gamma
+- Beautiful.ai
+- ChatGPT + Canva
+
+## 制作流程
+
+1. 确定主题
+2. 生成大纲
+3. 美化设计`
+  },
 ];
