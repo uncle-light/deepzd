@@ -254,4 +254,11 @@ export const tools = [
     category: "绘画",
     url: "https://ideogram.ai"
   },
+  {
+    slug: "kimi",
+    name: "Kimi",
+    desc: "月之暗面AI助手",
+    category: "对话",
+    url: "https://kimi.moonshot.cn"
+  },
 ];
