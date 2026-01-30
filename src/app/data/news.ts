@@ -53,4 +53,13 @@ export const news = [
 
 新版本支持60秒视频，画质和一致性大幅提升。`
   },
+  {
+    slug: "claude-4",
+    title: "Anthropic 发布 Claude 4 系列",
+    date: "2026-01-24",
+    tag: "产品",
+    content: `Claude 4 系列正式发布，包含 Sonnet 和 Opus 版本。
+
+新模型在代码和推理能力上有显著提升。`
+  },
 ];
