@@ -299,4 +299,18 @@ Suno 是AI音乐生成工具。
 
 自动转录、摘要生成、行动项提取`
   },
+  {
+    slug: "ai-copywriting",
+    title: "AI文案写作技巧",
+    tag: "写作",
+    content: `## 推荐工具
+
+- Copy.ai
+- Jasper
+- Writesonic
+
+## 写作场景
+
+广告文案、社媒内容、营销邮件`
+  },
 ];
