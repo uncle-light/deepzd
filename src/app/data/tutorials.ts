@@ -215,4 +215,18 @@ Suno 是AI音乐生成工具。
 2. 生成大纲
 3. 美化设计`
   },
+  {
+    slug: "ai-search",
+    title: "AI搜索引擎使用指南",
+    tag: "搜索",
+    content: `## 推荐工具
+
+- Perplexity
+- You.com
+- Bing Chat
+
+## 使用技巧
+
+善用追问获取深度信息`
+  },
 ];
