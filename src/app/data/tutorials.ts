@@ -229,4 +229,18 @@ Suno 是AI音乐生成工具。
 
 善用追问获取深度信息`
   },
+  {
+    slug: "ai-data-analysis",
+    title: "AI数据分析入门",
+    tag: "数据",
+    content: `## 推荐工具
+
+- ChatGPT Code Interpreter
+- Julius AI
+- Pandas AI
+
+## 应用场景
+
+数据清洗、可视化、报告生成`
+  },
 ];
