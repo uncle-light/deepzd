@@ -307,4 +307,21 @@ AI语音克隆技术日益成熟。
 
 中国已成为AI专利最大拥有国，全球占比60%。`
   },
+  {
+    slug: "mcp-launch",
+    title: "Anthropic 发布 MCP 开源协议",
+    date: "2024-11-25",
+    tag: "技术",
+    content: `## MCP 正式发布
+
+Anthropic 发布 Model Context Protocol (MCP)，被称为"AI的USB-C接口"。
+
+## 核心价值
+
+- 标准化AI与外部工具的连接
+- 开源免费，社区驱动
+- 已被 OpenAI、Google 采用
+
+来源：@alexalbert__ @anthropic on X`
+  },
 ];

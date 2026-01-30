@@ -139,4 +139,28 @@ export const tools = [
     category: "写作",
     url: "https://copy.ai"
   },
+  {
+    slug: "mcp-servers",
+    name: "MCP Servers",
+    desc: "Anthropic官方MCP服务器集合",
+    category: "开发",
+    url: "https://github.com/modelcontextprotocol/servers",
+    source: "@anthropic on X"
+  },
+  {
+    slug: "composio-mcp",
+    name: "Composio MCP",
+    desc: "AI Agent工具集成平台，支持75+工具",
+    category: "开发",
+    url: "https://composio.dev",
+    source: "@composaborat on X"
+  },
+  {
+    slug: "fastmcp",
+    name: "FastMCP",
+    desc: "快速构建MCP服务器的框架",
+    category: "开发",
+    url: "https://fastmcp.me",
+    source: "@jxnlco on X"
+  },
 ];

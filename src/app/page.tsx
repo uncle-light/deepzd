@@ -1,7 +1,5 @@
 import Link from "next/link";
 import Nav from "./components/Nav";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -9,95 +7,106 @@ export default function Home() {
     <div className="min-h-screen grid-bg">
       <Nav />
       <Hero />
-      <Features />
-      <LatestContent />
-      <ToolsPreview />
+      <NewsSection />
+      <ToolsSection />
+      <MCPSection />
       <Footer />
     </div>
   );
 }
 
-function LatestContent() {
+function Hero() {
   return (
-    <section className="py-20 px-6 border-t border-zinc-800">
+    <section className="pt-32 pb-16 px-6">
+      <div className="max-w-4xl mx-auto text-center">
+        <h1 className="text-5xl font-bold mb-6">
+          <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+            探索 AI，从这里开始
+          </span>
+        </h1>
+        <p className="text-xl text-zinc-400 mb-8">
+          AI工具、教程、提示词、MCP、Skills 一站式导航
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function NewsSection() {
+  return (
+    <section className="py-12 px-6 border-t border-zinc-800">
       <div className="max-w-6xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold">最新内容</h2>
-          <Link href="/tutorials" className="text-violet-400 text-sm hover:underline">
-            查看全部 →
-          </Link>
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl font-bold">🔥 AI 资讯</h2>
+          <Link href="/news" className="text-violet-400 text-sm">更多</Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          <ContentCard 
-            title="Midjourney 2025 完全入门指南" 
-            desc="从注册到进阶，掌握AI绘画核心技巧"
-            tag="绘画" 
-            href="/tutorials/midjourney-guide" 
-          />
-          <ContentCard 
-            title="ChatGPT 高效使用技巧" 
-            desc="提升10倍效率的提问方法论"
-            tag="对话" 
-            href="/tutorials/chatgpt-tips" 
-          />
-          <ContentCard 
-            title="DeepSeek R1 重磅发布" 
-            desc="中国AI的效率突破，训练成本降低90%"
-            tag="资讯" 
-            href="/news/deepseek-new-model" 
-          />
+        <div className="grid md:grid-cols-2 gap-4">
+          <NewsItem title="DeepSeek R1 重磅发布" date="01-30" />
+          <NewsItem title="Anthropic 发布 MCP 协议" date="01-28" />
+          <NewsItem title="GPT-5 正式发布" date="01-27" />
+          <NewsItem title="Claude 4 系列更新" date="01-24" />
         </div>
       </div>
     </section>
   );
 }
 
-function ContentCard({ title, desc, tag, href }: { 
-  title: string; 
-  desc: string;
-  tag: string; 
-  href: string 
-}) {
+function NewsItem({ title, date }: { title: string; date: string }) {
   return (
-    <Link href={href} className="card p-6 block group">
-      <span className="tag">{tag}</span>
-      <h3 className="font-semibold mt-3 group-hover:text-violet-400 transition-colors">{title}</h3>
-      <p className="text-zinc-400 text-sm mt-2 line-clamp-2">{desc}</p>
-    </Link>
-  );
-}
-
-function ToolsPreview() {
-  return (
-    <section className="py-20 px-6 border-t border-zinc-800">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold">热门工具</h2>
-          <Link href="/tools" className="text-violet-400 text-sm hover:underline">
-            查看全部 →
-          </Link>
-        </div>
-        <div className="grid md:grid-cols-4 gap-4">
-          <ToolCard name="ChatGPT" desc="最强AI对话助手" category="对话" />
-          <ToolCard name="Midjourney" desc="顶级AI绘画工具" category="绘画" />
-          <ToolCard name="Cursor" desc="AI驱动的代码编辑器" category="编程" />
-          <ToolCard name="Runway" desc="专业AI视频生成" category="视频" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ToolCard({ name, desc, category }: { 
-  name: string; 
-  desc: string;
-  category: string;
-}) {
-  return (
-    <div className="card p-5 text-center group hover:border-violet-500/50 transition-colors">
-      <span className="tag text-xs">{category}</span>
-      <h3 className="font-semibold mt-2">{name}</h3>
-      <p className="text-zinc-500 text-sm mt-1">{desc}</p>
+    <div className="flex justify-between items-center p-4 card">
+      <span className="text-sm">{title}</span>
+      <span className="text-zinc-500 text-xs">{date}</span>
     </div>
+  );
+}
+
+function ToolsSection() {
+  return (
+    <section className="py-12 px-6 border-t border-zinc-800">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl font-bold">🛠️ AI 工具</h2>
+          <Link href="/tools" className="text-violet-400 text-sm">更多</Link>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <ToolItem name="ChatGPT" category="对话" />
+          <ToolItem name="Claude" category="对话" />
+          <ToolItem name="Midjourney" category="绘画" />
+          <ToolItem name="Cursor" category="编程" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ToolItem({ name, category }: { name: string; category: string }) {
+  return (
+    <div className="card p-4 text-center">
+      <p className="font-medium">{name}</p>
+      <p className="text-zinc-500 text-xs mt-1">{category}</p>
+    </div>
+  );
+}
+
+function MCPSection() {
+  return (
+    <section className="py-12 px-6 border-t border-zinc-800">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl font-bold">⚡ MCP & Skills</h2>
+          <Link href="/mcp" className="text-violet-400 text-sm">更多</Link>
+        </div>
+        <div className="grid md:grid-cols-2 gap-4">
+          <Link href="/mcp" className="card p-6">
+            <h3 className="font-semibold">MCP 服务器</h3>
+            <p className="text-zinc-400 text-sm mt-2">AI的USB-C接口，连接外部工具</p>
+          </Link>
+          <Link href="/skills" className="card p-6">
+            <h3 className="font-semibold">Agent Skills</h3>
+            <p className="text-zinc-400 text-sm mt-2">扩展AI能力的模块化组件</p>
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
