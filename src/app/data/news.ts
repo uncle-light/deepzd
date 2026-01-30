@@ -314,14 +314,24 @@ AI语音克隆技术日益成熟。
     tag: "技术",
     content: `## MCP 正式发布
 
-Anthropic 发布 Model Context Protocol (MCP)，被称为"AI的USB-C接口"。
+Anthropic 发布 Model Context Protocol (MCP)。
 
 ## 核心价值
 
 - 标准化AI与外部工具的连接
-- 开源免费，社区驱动
-- 已被 OpenAI、Google 采用
+- 开源免费
 
-来源：@alexalbert__ @anthropic on X`
+来源：@alexalbert__ on X`
+  },
+  {
+    slug: "cursor-funding",
+    title: "Cursor 完成新一轮融资",
+    date: "2026-01-20",
+    tag: "投资",
+    content: `## 融资消息
+
+AI编程工具Cursor完成新一轮融资，估值大幅提升。
+
+来源：@anysaborat on X`
   },
 ];
