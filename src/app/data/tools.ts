@@ -118,4 +118,11 @@ export const tools = [
     category: "视频",
     url: "https://heygen.com"
   },
+  {
+    slug: "canva-ai",
+    name: "Canva AI",
+    desc: "AI设计工具",
+    category: "设计",
+    url: "https://canva.com"
+  },
 ];
