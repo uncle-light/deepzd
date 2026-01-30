@@ -83,4 +83,11 @@ export const tools = [
     category: "音频",
     url: "https://elevenlabs.io"
   },
+  {
+    slug: "deepl",
+    name: "DeepL",
+    desc: "AI翻译工具",
+    category: "翻译",
+    url: "https://deepl.com"
+  },
 ];
