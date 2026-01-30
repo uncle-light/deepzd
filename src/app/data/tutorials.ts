@@ -155,4 +155,20 @@ Suno 是AI音乐生成工具。
 2. 安装SDK
 3. 调用接口`
   },
+  {
+    slug: "ai-writing",
+    title: "AI写作助手使用技巧",
+    tag: "写作",
+    content: `## 常用工具
+
+- ChatGPT
+- Claude
+- Notion AI
+
+## 写作场景
+
+1. 文章创作
+2. 邮件撰写
+3. 文案优化`
+  },
 ];
