@@ -41,4 +41,18 @@ export const tools = [
     category: "写作",
     url: "https://notion.so"
   },
+  {
+    slug: "perplexity",
+    name: "Perplexity",
+    desc: "AI搜索引擎",
+    category: "搜索",
+    url: "https://perplexity.ai"
+  },
+  {
+    slug: "runway",
+    name: "Runway",
+    desc: "AI视频生成",
+    category: "视频",
+    url: "https://runway.ml"
+  },
 ];
