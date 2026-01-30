@@ -163,4 +163,67 @@ export const tools = [
     url: "https://fastmcp.me",
     source: "@jxnlco on X"
   },
+  {
+    slug: "perplexity",
+    name: "Perplexity",
+    desc: "AI搜索引擎",
+    category: "搜索",
+    url: "https://perplexity.ai"
+  },
+  {
+    slug: "gamma",
+    name: "Gamma",
+    desc: "AI生成PPT",
+    category: "办公",
+    url: "https://gamma.app"
+  },
+  {
+    slug: "heygen",
+    name: "HeyGen",
+    desc: "AI数字人视频",
+    category: "视频",
+    url: "https://heygen.com"
+  },
+  {
+    slug: "descript",
+    name: "Descript",
+    desc: "AI视频编辑",
+    category: "视频",
+    url: "https://descript.com"
+  },
+  {
+    slug: "otter",
+    name: "Otter.ai",
+    desc: "AI会议记录",
+    category: "办公",
+    url: "https://otter.ai"
+  },
+  {
+    slug: "notion-ai",
+    name: "Notion AI",
+    desc: "AI笔记助手",
+    category: "办公",
+    url: "https://notion.so"
+  },
+  {
+    slug: "jasper",
+    name: "Jasper",
+    desc: "AI营销文案",
+    category: "写作",
+    url: "https://jasper.ai"
+  },
+  {
+    slug: "synthesia",
+    name: "Synthesia",
+    desc: "AI视频生成",
+    category: "视频",
+    url: "https://synthesia.io"
+  },
+  {
+    slug: "beautiful-ai",
+    name: "Beautiful.ai",
+    desc: "AI演示文稿",
+    category: "办公",
+    url: "https://beautiful.ai"
+  },
 ];
