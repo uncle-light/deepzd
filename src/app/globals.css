@@ -187,6 +187,16 @@ a {
   overflow-x: auto;
 }
 
+/* 表格样式 */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.prose th, .prose td {
+  border: 1px solid #27272a;
+  padding: 0.5em 1em;
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out;
 }
