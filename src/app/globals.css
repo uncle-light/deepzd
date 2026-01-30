@@ -76,3 +76,13 @@ body {
   font-size: 12px;
   font-weight: 500;
 }
+
+/* 动画效果 */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
