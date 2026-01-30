@@ -285,4 +285,18 @@ Suno 是AI音乐生成工具。
 
 海报设计、Logo生成、UI设计`
   },
+  {
+    slug: "ai-meeting",
+    title: "AI会议助手使用指南",
+    tag: "办公",
+    content: `## 推荐工具
+
+- Otter.ai
+- Fireflies
+- tl;dv
+
+## 核心功能
+
+自动转录、摘要生成、行动项提取`
+  },
 ];
