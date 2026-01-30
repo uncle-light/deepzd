@@ -80,4 +80,13 @@ AI监管进入新阶段，企业需关注合规要求。`
 
 提示词工程师、AI产品经理成为热门职位。`
   },
+  {
+    slug: "gemini-update",
+    title: "Google Gemini 2.0 发布",
+    date: "2026-01-21",
+    tag: "产品",
+    content: `Google发布Gemini 2.0，多模态能力全面升级。
+
+新版本在视觉理解和代码生成方面表现出色。`
+  },
 ];
