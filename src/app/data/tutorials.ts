@@ -139,4 +139,20 @@ Suno 是AI音乐生成工具。
 - 高度可定制
 - 支持各种模型`
   },
+  {
+    slug: "llm-api",
+    title: "大模型API接入指南",
+    tag: "开发",
+    content: `## API选择
+
+- OpenAI API
+- Claude API
+- 国产大模型API
+
+## 接入步骤
+
+1. 获取API Key
+2. 安装SDK
+3. 调用接口`
+  },
 ];
