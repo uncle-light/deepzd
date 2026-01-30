@@ -69,4 +69,11 @@ export const tools = [
     category: "视频",
     url: "https://pika.art"
   },
+  {
+    slug: "copilot",
+    name: "GitHub Copilot",
+    desc: "AI代码助手",
+    category: "编程",
+    url: "https://github.com/features/copilot"
+  },
 ];
