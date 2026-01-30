@@ -125,4 +125,11 @@ export const tools = [
     category: "设计",
     url: "https://canva.com"
   },
+  {
+    slug: "firefly",
+    name: "Adobe Firefly",
+    desc: "AI创意生成",
+    category: "设计",
+    url: "https://firefly.adobe.com"
+  },
 ];
