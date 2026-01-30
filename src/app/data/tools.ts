@@ -247,4 +247,11 @@ export const tools = [
     category: "3D",
     url: "https://lumalabs.ai"
   },
+  {
+    slug: "ideogram",
+    name: "Ideogram",
+    desc: "AI文字图像生成",
+    category: "绘画",
+    url: "https://ideogram.ai"
+  },
 ];
