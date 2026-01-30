@@ -171,6 +171,14 @@ a {
   margin: 1em 0;
 }
 
+/* 引用块 */
+.prose blockquote {
+  border-left: 3px solid #8b5cf6;
+  padding-left: 1em;
+  color: #a1a1aa;
+  font-style: italic;
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out;
 }
