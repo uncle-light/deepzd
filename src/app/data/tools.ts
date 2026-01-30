@@ -62,4 +62,11 @@ export const tools = [
     category: "音乐",
     url: "https://suno.ai"
   },
+  {
+    slug: "pika",
+    name: "Pika",
+    desc: "AI视频生成",
+    category: "视频",
+    url: "https://pika.art"
+  },
 ];
