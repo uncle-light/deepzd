@@ -25,7 +25,14 @@ export default function News() {
       <main className="pt-24 pb-16 px-6">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl font-bold mb-2">AI 资讯</h1>
-          <p className="text-zinc-400 mb-8">AI领域最新动态</p>
+          <p className="text-zinc-400 mb-6">AI领域最新动态</p>
+          <div className="flex gap-2 mb-8 flex-wrap">
+            <span className="tag">全部</span>
+            <span className="tag">产品</span>
+            <span className="tag">行业</span>
+            <span className="tag">技术</span>
+            <span className="tag">政策</span>
+          </div>
           <div className="space-y-4">
             {news.map((n) => (
               <Link key={n.slug} href={`/news/${n.slug}`}>
