@@ -132,4 +132,11 @@ export const tools = [
     category: "设计",
     url: "https://firefly.adobe.com"
   },
+  {
+    slug: "copy-ai",
+    name: "Copy.ai",
+    desc: "AI文案生成",
+    category: "写作",
+    url: "https://copy.ai"
+  },
 ];
