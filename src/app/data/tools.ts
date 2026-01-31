@@ -268,4 +268,11 @@ export const tools = [
     category: "对话",
     url: "https://doubao.com"
   },
+  {
+    slug: "tongyi",
+    name: "通义千问",
+    desc: "阿里AI助手",
+    category: "对话",
+    url: "https://tongyi.aliyun.com"
+  },
 ];
