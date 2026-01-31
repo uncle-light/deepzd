@@ -310,4 +310,11 @@ export const tools = [
     category: "视频",
     url: "https://klingai.kuaishou.com"
   },
+  {
+    slug: "jimeng",
+    name: "即梦AI",
+    desc: "字节AI绘画",
+    category: "绘画",
+    url: "https://jimeng.jianying.com"
+  },
 ];
