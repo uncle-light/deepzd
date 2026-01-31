@@ -282,4 +282,11 @@ export const tools = [
     category: "对话",
     url: "https://yiyan.baidu.com"
   },
+  {
+    slug: "zhipu",
+    name: "智谱清言",
+    desc: "智谱AI助手",
+    category: "对话",
+    url: "https://chatglm.cn"
+  },
 ];
