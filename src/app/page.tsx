@@ -11,7 +11,7 @@ import KeyboardHint from "./components/KeyboardHint";
 
 export default function Home() {
   return (
-    <div className="min-h-screen grid-bg relative">
+    <div className="min-h-screen grid-bg relative overflow-x-hidden">
       <MouseGlow />
       <FloatingParticles />
       <CommandPalette />
@@ -32,7 +32,7 @@ function Hero() {
     <section className="pt-28 md:pt-36 pb-16 md:pb-20 px-4 md:px-6 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* 装饰光效 */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-violet-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-[300px] bg-gradient-to-b from-violet-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-tight">
           <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
