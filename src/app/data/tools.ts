@@ -317,4 +317,11 @@ export const tools = [
     category: "绘画",
     url: "https://jimeng.jianying.com"
   },
+  {
+    slug: "wensheng",
+    name: "文生图",
+    desc: "腾讯AI绘画",
+    category: "绘画",
+    url: "https://image.qq.com"
+  },
 ];
