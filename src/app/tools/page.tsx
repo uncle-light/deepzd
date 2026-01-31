@@ -65,27 +65,26 @@ export default function Tools() {
 }
 
 function ToolCard({
+  slug,
   name,
   desc,
   category,
   url,
   index,
 }: {
+  slug: string;
   name: string;
   desc: string;
   category: string;
   url: string;
   index: number;
 }) {
-  // 从URL提取域名获取favicon
   const domain = new URL(url).hostname;
   const faviconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
 
   return (
     <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={`/tools/${slug}`}
       className="card p-5 block group"
       style={{ animationDelay: `${index * 50}ms` }}
     >
