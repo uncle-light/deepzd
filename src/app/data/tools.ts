@@ -324,4 +324,11 @@ export const tools = [
     category: "绘画",
     url: "https://image.qq.com"
   },
+  {
+    slug: "pixverse",
+    name: "PixVerse",
+    desc: "AI视频生成",
+    category: "视频",
+    url: "https://pixverse.ai"
+  },
 ];
