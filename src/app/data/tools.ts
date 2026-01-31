@@ -345,4 +345,11 @@ export const tools = [
     category: "绘画",
     url: "https://blackforestlabs.ai"
   },
+  {
+    slug: "leonardo",
+    name: "Leonardo.ai",
+    desc: "AI艺术创作平台",
+    category: "绘画",
+    url: "https://leonardo.ai"
+  },
 ];
