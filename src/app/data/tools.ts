@@ -296,4 +296,11 @@ export const tools = [
     category: "对话",
     url: "https://chat.deepseek.com"
   },
+  {
+    slug: "minimax",
+    name: "MiniMax",
+    desc: "海螺AI助手",
+    category: "对话",
+    url: "https://hailuoai.com"
+  },
 ];
