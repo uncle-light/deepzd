@@ -303,4 +303,11 @@ export const tools = [
     category: "对话",
     url: "https://hailuoai.com"
   },
+  {
+    slug: "kling",
+    name: "可灵AI",
+    desc: "快手AI视频生成",
+    category: "视频",
+    url: "https://klingai.kuaishou.com"
+  },
 ];
