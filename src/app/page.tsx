@@ -89,7 +89,7 @@ function NewsItem({ title, date, hot, slug }: { title: string; date: string; hot
     <Link href={`/news/${slug}`} className="flex justify-between items-center p-4 card group">
       <div className="flex items-center gap-3">
         {hot && (
-          <span className="px-2 py-0.5 text-xs bg-red-500/20 text-red-400 rounded">HOT</span>
+          <span className="px-2 py-0.5 text-xs bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 rounded border border-orange-500/20">HOT</span>
         )}
         <span className="text-sm group-hover:text-violet-400 transition-colors">{title}</span>
       </div>
