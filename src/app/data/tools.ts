@@ -275,4 +275,11 @@ export const tools = [
     category: "对话",
     url: "https://tongyi.aliyun.com"
   },
+  {
+    slug: "wenxin",
+    name: "文心一言",
+    desc: "百度AI助手",
+    category: "对话",
+    url: "https://yiyan.baidu.com"
+  },
 ];
