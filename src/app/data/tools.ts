@@ -338,4 +338,11 @@ export const tools = [
     category: "视频",
     url: "https://vidu.studio"
   },
+  {
+    slug: "flux",
+    name: "Flux",
+    desc: "Black Forest Labs AI绘画",
+    category: "绘画",
+    url: "https://blackforestlabs.ai"
+  },
 ];
