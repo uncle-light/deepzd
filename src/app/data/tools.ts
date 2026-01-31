@@ -289,4 +289,11 @@ export const tools = [
     category: "对话",
     url: "https://chatglm.cn"
   },
+  {
+    slug: "deepseek",
+    name: "DeepSeek",
+    desc: "深度求索AI",
+    category: "对话",
+    url: "https://chat.deepseek.com"
+  },
 ];
