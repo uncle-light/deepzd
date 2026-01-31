@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ReactMarkdown from "react-markdown";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import { tutorials } from "../../data/tutorials";
@@ -26,10 +27,8 @@ export default async function TutorialPage({ params }: { params: Promise<{ slug:
             <span className="tag">{tutorial.tag}</span>
             <h1 className="text-3xl font-bold mt-4">{tutorial.title}</h1>
           </header>
-          <div className="prose prose-invert max-w-none">
-            {tutorial.content.split('\n').map((p, i) => (
-              <p key={i} className="mb-4 text-zinc-300 leading-relaxed">{p}</p>
-            ))}
+          <div className="prose prose-invert max-w-none prose-headings:text-white prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-p:text-zinc-300 prose-strong:text-white prose-li:text-zinc-300">
+            <ReactMarkdown>{tutorial.content}</ReactMarkdown>
           </div>
         </article>
       </main>

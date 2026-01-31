@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import MobileBottomNav from "./components/MobileBottomNav";
 
 export const metadata: Metadata = {
   title: "DeepZD - AI工具导航 | 教程 | MCP | Skills",
@@ -27,7 +28,10 @@ export default function RootLayout({
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <MobileBottomNav />
+      </body>
     </html>
   );
 }
