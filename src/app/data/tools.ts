@@ -261,4 +261,11 @@ export const tools = [
     category: "对话",
     url: "https://kimi.moonshot.cn"
   },
+  {
+    slug: "doubao",
+    name: "豆包",
+    desc: "字节跳动AI助手",
+    category: "对话",
+    url: "https://doubao.com"
+  },
 ];
