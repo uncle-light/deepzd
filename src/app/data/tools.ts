@@ -331,4 +331,11 @@ export const tools = [
     category: "视频",
     url: "https://pixverse.ai"
   },
+  {
+    slug: "vidu",
+    name: "Vidu",
+    desc: "生数科技AI视频",
+    category: "视频",
+    url: "https://vidu.studio"
+  },
 ];
