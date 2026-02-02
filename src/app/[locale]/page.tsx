@@ -60,7 +60,7 @@ function Hero({ locale }: { locale: string }) {
         <div className="flex justify-center">
           <Link
             href={`/${locale}/geo`}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--foreground)] text-[var(--background)] font-medium rounded-md hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 px-6 py-2.5 border border-[var(--border)] text-[var(--foreground)] rounded-full hover:bg-[var(--card-bg)] hover:border-[var(--border-light)] transition-all"
           >
             <span>{t("learnMore")}</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

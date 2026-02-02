@@ -183,8 +183,8 @@ function HeroSection({ t, locale }: { t: ReturnType<typeof useTranslations>; loc
         {t("subtitle")}
       </p>
       <Link
-        href={`/${locale}/analyze`}
-        className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--foreground)] text-[var(--background)] font-medium rounded-md hover:opacity-90 transition-opacity"
+        href={`/${locale}`}
+        className="inline-flex items-center gap-2 px-6 py-2.5 border border-[var(--border)] text-[var(--foreground)] rounded-full hover:bg-[var(--card-bg)] hover:border-[var(--border-light)] transition-all"
       >
         {t("cta")}
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -409,8 +409,8 @@ function CTASection({ t, locale }: { t: ReturnType<typeof useTranslations>; loca
       <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">{t("ctaSection.title")}</h2>
       <p className="text-[var(--gray-400)] mb-6">{t("ctaSection.desc")}</p>
       <Link
-        href={`/${locale}/analyze`}
-        className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--foreground)] text-[var(--background)] font-medium rounded-md hover:opacity-90 transition-opacity"
+        href={`/${locale}`}
+        className="inline-flex items-center gap-2 px-6 py-2.5 border border-[var(--border)] text-[var(--foreground)] rounded-full hover:bg-[var(--card-bg)] hover:border-[var(--border-light)] transition-all"
       >
         {t("ctaSection.button")}
       </Link>
