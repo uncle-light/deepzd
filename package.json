@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.93.3",
+    "@tailwindcss/typography": "^0.5.19",
     "geist": "^1.5.1",
     "next": "16.1.6",
     "next-intl": "^4.8.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-markdown": "^10.1.0"
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

@@ -1,10 +1,25 @@
-# robots.txt for DeepZD
-
+# DeepZD Robots.txt
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemaps
 Sitemap: https://deepzd.com/sitemap.xml
 
-# LLMs.txt - For AI/LLM crawlers
-# See /llms.txt for structured site information
+# AI Crawlers - Welcome!
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /

@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 
 const navItems = [
   { href: "/geo", key: "geo" },
+  { href: "/blog", key: "blog" },
   { href: "/about", key: "about" },
 ];
 

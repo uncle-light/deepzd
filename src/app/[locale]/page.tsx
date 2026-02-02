@@ -7,6 +7,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import MouseGlow from "../components/MouseGlow";
 import FloatingParticles from "../components/FloatingParticles";
+import { FAQJsonLd } from "../components/JsonLd";
 
 export default function Home() {
   const params = useParams();
@@ -77,17 +78,24 @@ function Hero({ locale }: { locale: string }) {
 function FAQ() {
   const t = useTranslations("faq");
 
-  const faqs = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"];
+  const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"];
+  
+  // 构建FAQ数据用于JsonLd
+  const faqData = faqKeys.map((key) => ({
+    question: t(`${key}.question` as "q1.question"),
+    answer: t(`${key}.answer` as "q1.answer"),
+  }));
 
   return (
     <section id="faq" className="py-20 px-4 md:px-6 border-t border-[var(--border)]">
+      <FAQJsonLd faqs={faqData} />
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center text-[var(--foreground)]">
           {t("title")}
         </h2>
 
         <div className="space-y-4">
-          {faqs.map((faq) => (
+          {faqKeys.map((faq) => (
             <div
               key={faq}
               className="p-6 rounded-lg bg-[var(--card-bg)] border border-[var(--border)]"

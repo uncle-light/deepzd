@@ -5,8 +5,15 @@ import { useEffect, useState } from "react";
 export default function MouseGlow() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Mount check
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
+    if (!mounted) return;
     // 仅在桌面端显示
     if (window.innerWidth < 768) return;
 
@@ -27,12 +34,10 @@ export default function MouseGlow() {
       document.body.removeEventListener("mouseleave", handleMouseLeave);
       document.body.removeEventListener("mouseenter", handleMouseEnter);
     };
-  }, [isVisible]);
+  }, [isVisible, mounted]);
 
-  // 移动端不渲染
-  if (typeof window !== "undefined" && window.innerWidth < 768) {
-    return null;
-  }
+  // Don't render on server to avoid hydration mismatch
+  if (!mounted) return null;
 
   return (
     <div

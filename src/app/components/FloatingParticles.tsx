@@ -14,12 +14,20 @@ interface Particle {
 
 export default function FloatingParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [mounted, setMounted] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>(0);
 
+  // Mount check
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Initialize particles
   useEffect(() => {
+    if (!mounted) return;
+    
     const updateDimensions = () => {
       setDimensions({
         width: window.innerWidth,
@@ -30,7 +38,7 @@ export default function FloatingParticles() {
     updateDimensions();
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
+  }, [mounted]);
 
   // Create particles when dimensions change
   useEffect(() => {
@@ -118,6 +126,9 @@ export default function FloatingParticles() {
       }
     };
   }, [dimensions]);
+
+  // Don't render on server to avoid hydration mismatch
+  if (!mounted) return null;
 
   return (
     <canvas
