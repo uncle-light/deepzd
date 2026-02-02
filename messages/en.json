@@ -1,0 +1,323 @@
+{
+  "site": {
+    "name": "DeepZD",
+    "tagline": "Content Optimization for the AI Era"
+  },
+  "nav": {
+    "geo": "About GEO",
+    "analyze": "Analyzer",
+    "prompts": "Prompt Tools",
+    "about": "About"
+  },
+  "hero": {
+    "badge": "Content Optimization for the AI Era",
+    "subtitle": "Get AI to cite your content",
+    "title1": "GEO: Generative Engine",
+    "title2": "Optimization Guide",
+    "desc": "Learn how to optimize your content structure so ChatGPT, Claude, Perplexity and other AI search engines actively cite and recommend your content.",
+    "descLink": "Based on Princeton University research",
+    "cta": "Start Analyzing",
+    "learnMore": "Learn About GEO"
+  },
+  "features": {
+    "title": "Core Features",
+    "subtitle": "Boost your content's AI visibility",
+    "analyzer": {
+      "title": "Content Analyzer",
+      "desc": "AI-friendliness score, structured suggestions, one-click optimization"
+    },
+    "prompts": {
+      "title": "Prompt Toolbox",
+      "desc": "Curated templates, efficient generation, quick copy"
+    },
+    "monitor": {
+      "title": "Brand Monitor",
+      "desc": "Track AI mentions, competitor analysis, trend insights",
+      "badge": "Coming Soon"
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Optimize your content in 3 steps",
+    "step1": {
+      "title": "Input Content",
+      "desc": "Paste text or enter URL"
+    },
+    "step2": {
+      "title": "AI Analysis",
+      "desc": "Multi-dimensional AI-friendliness assessment"
+    },
+    "step3": {
+      "title": "Get Suggestions",
+      "desc": "Structured optimization plan"
+    }
+  },
+  "faq": {
+    "title": "FAQ",
+    "q1": {
+      "question": "What is GEO?",
+      "answer": "GEO (Generative Engine Optimization) is a content optimization strategy for AI search engines, proposed by top institutions like Princeton University, helping your content get cited and recommended by ChatGPT, Claude, Perplexity and other AI."
+    },
+    "q2": {
+      "question": "How is GEO different from SEO?",
+      "answer": "Traditional SEO targets search engine rankings on Google, while GEO focuses on getting AI to understand and cite your content. SEO pursues clicks, GEO pursues citations; SEO values keywords and backlinks, GEO values structure, authority, and information density."
+    },
+    "q3": {
+      "question": "Which industries need GEO most?",
+      "answer": "All content-driven industries need GEO, especially B2B services, SaaS products, professional consulting, education, healthcare, and finance. Users in these fields increasingly rely on AI for professional advice."
+    },
+    "q4": {
+      "question": "How long does GEO take to show results?",
+      "answer": "Like SEO, GEO is a continuous optimization process. Optimized content typically takes 1-3 months to be re-indexed and learned by AI. However, structural improvements immediately enhance content quality, with more significant long-term effects."
+    },
+    "q5": {
+      "question": "How do I measure GEO effectiveness?",
+      "answer": "You can measure through: 1) Asking AI relevant questions and observing if your content is cited; 2) Monitoring brand mentions in AI responses; 3) Tracking referral traffic from AI platforms; 4) Using professional AI visibility monitoring tools."
+    },
+    "q6": {
+      "question": "What content does AI crawl?",
+      "answer": "AI primarily sources from public webpages, academic papers, news media, Wikipedia, official documentation, etc. Ensuring your content is indexable, well-structured, and from credible sources is essential for AI citation."
+    },
+    "q7": {
+      "question": "Can small websites benefit from GEO?",
+      "answer": "Absolutely. AI doesn't rely on domain authority as heavily as traditional search engines. As long as content is professional, well-structured, and accurate, small websites have equal opportunities to be cited. Deep content in niche areas often has an advantage."
+    },
+    "q8": {
+      "question": "Do I still need GEO if I do SEO?",
+      "answer": "Yes. SEO and GEO are complementary, not substitutes. Good SEO foundations help GEO, but GEO has unique strategies like adding citations, using statistics, and directly answering questions—areas traditional SEO rarely focuses on."
+    }
+  },
+  "analyze": {
+    "title": "Content Analyzer",
+    "subtitle": "Evaluate how AI-friendly your content is",
+    "inputLabel": "Input Content",
+    "urlPlaceholder": "Enter URL or paste text content",
+    "textPlaceholder": "Paste your article, webpage content or any text...",
+    "analyzeBtn": "Analyze",
+    "analyzing": "Analyzing...",
+    "score": "AI-Friendliness Score",
+    "suggestions": "Optimization Suggestions",
+    "factors": {
+      "structure": "Structure Clarity",
+      "authority": "Authority Signals",
+      "density": "Information Density",
+      "readability": "Readability",
+      "citations": "Citation Potential"
+    }
+  },
+  "prompts": {
+    "title": "Prompt Toolbox",
+    "subtitle": "Curated prompt templates to enhance AI conversations",
+    "loading": "Loading...",
+    "copy": "Copy",
+    "copied": "Copied",
+    "categories": {
+      "all": "All",
+      "writing": "Writing",
+      "coding": "Coding",
+      "analysis": "Analysis",
+      "creative": "Creative"
+    }
+  },
+  "about": {
+    "title": "About DeepZD",
+    "subtitle": "Focused on GEO Knowledge and Research",
+    "intro": {
+      "title": "Who We Are",
+      "p1": "DeepZD is a knowledge platform dedicated to GEO (Generative Engine Optimization), helping content creators, marketers, and businesses understand and adapt to the AI search revolution.",
+      "p2": "We believe that as AI tools like ChatGPT, Perplexity, and Claude become primary information sources, the rules of content optimization are being redefined. GEO doesn't replace SEO—it's an essential complement for the future."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "desc": "To help every content creator understand GEO and master the methods to get AI to actively cite and recommend their content, gaining the exposure and recognition they deserve in the AI era."
+    },
+    "values": {
+      "title": "Our Values",
+      "research": {
+        "title": "Research-Based",
+        "desc": "Our content is grounded in academic research from top institutions like Princeton University, ensuring accuracy and authority"
+      },
+      "practical": {
+        "title": "Practical Focus",
+        "desc": "Not just theory—we provide actionable optimization strategies and concrete implementation guides"
+      },
+      "open": {
+        "title": "Open Sharing",
+        "desc": "GEO knowledge should reach more people. We're committed to freely sharing core concepts and methods"
+      }
+    },
+    "roadmap": {
+      "title": "Roadmap",
+      "phase1": {
+        "title": "Knowledge Base",
+        "desc": "Complete GEO concept introduction, build systematic knowledge framework",
+        "status": "In Progress"
+      },
+      "phase2": {
+        "title": "Tool Development",
+        "desc": "Launch content analyzer to evaluate AI-friendliness",
+        "status": "Planned"
+      },
+      "phase3": {
+        "title": "Monitoring Service",
+        "desc": "Brand AI visibility monitoring, track optimization results",
+        "status": "Planned"
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "desc": "For partnerships, content suggestions, or any questions, feel free to reach out",
+      "email": "Email"
+    }
+  },
+  "footer": {
+    "desc": "Content Optimization for the AI Era",
+    "tools": "Tools",
+    "resources": "Resources",
+    "copyright": "© 2026 DeepZD. All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "back": "Back",
+    "notFound": "Not Found"
+  },
+  "geo": {
+    "badge": "Research-Backed",
+    "title": "What is GEO?",
+    "subtitle": "GEO (Generative Engine Optimization) is a content optimization strategy for AI search engines, proposed by top institutions like Princeton University, helping your content get cited by ChatGPT, Perplexity, Claude and other AI.",
+    "cta": "Try Now",
+    "whatIs": {
+      "title": "Understanding GEO",
+      "p1": "GEO (Generative Engine Optimization) is an emerging concept proposed in 2023 by researchers from Princeton University, IIT Delhi, Georgia Tech, and the Allen Institute for AI. It focuses on optimizing content to be better understood, cited, and featured in AI-powered search results.",
+      "p2": "Unlike traditional SEO, GEO's goal is not to get users to click links to visit websites, but to have your content appear directly in AI-generated answers. When users ask ChatGPT, Perplexity, or Google AI Overview questions, AI synthesizes information from multiple sources to generate answers—GEO ensures your content becomes one of those sources.",
+      "p3": "Research shows that implementing GEO strategies can boost content visibility in AI responses by up to 40%. This is crucial for brand exposure, establishing authority, and acquiring potential customers."
+    },
+    "aiSearch": {
+      "title": "What are AI Search Engines?",
+      "desc": "AI search engines fundamentally differ from traditional ones. Instead of providing link lists, they use Large Language Models (LLMs), Natural Language Processing (NLP), and semantic vector search to understand user intent and generate comprehensive answers.",
+      "platforms": {
+        "title": "Major AI Search Platforms",
+        "chatgpt": "OpenAI's conversational AI with real-time web search",
+        "perplexity": "Search-focused AI engine with cited answers",
+        "gemini": "Google's AI assistant with integrated search",
+        "claude": "Anthropic's AI assistant, excels at long-form analysis",
+        "copilot": "Microsoft's AI assistant with Bing integration",
+        "aiOverview": "AI-generated summaries atop Google search results"
+      }
+    },
+    "zeroClick": {
+      "title": "The Zero-Click Era",
+      "desc": "AI search creates a paradox: traffic may decline even as impact increases. When AI cites your content without users clicking through, your brand still spreads—this is 'zero-click search'. Research shows 93% of AI searches end without clicking any links."
+    },
+    "principles": {
+      "title": "GEO Core Principles",
+      "subtitle": "What AI prioritizes in content",
+      "entity": {
+        "title": "Entity Clarity",
+        "desc": "More important than keywords—ensure consistent, clear definitions of brands, products, concepts"
+      },
+      "semantic": {
+        "title": "Semantic Depth",
+        "desc": "More important than content volume—provide deep professional insights"
+      },
+      "citability": {
+        "title": "Citation-Worthiness",
+        "desc": "More important than link velocity—content worth quoting and referencing"
+      },
+      "reliability": {
+        "title": "Source Reliability",
+        "desc": "More important than backlink counts—establish trustworthy information source image"
+      }
+    },
+    "comparison": {
+      "title": "GEO vs SEO Comparison",
+      "aspect": "Aspect",
+      "target": {
+        "label": "Target Platform",
+        "seo": "Google, Bing, etc.",
+        "geo": "ChatGPT, Perplexity, Claude, etc."
+      },
+      "goal": {
+        "label": "Core Goal",
+        "seo": "Improve rankings, get clicks",
+        "geo": "Get cited in AI answers"
+      },
+      "metrics": {
+        "label": "Key Metrics",
+        "seo": "Rankings, traffic, CTR",
+        "geo": "Citation rate, mentions, visibility"
+      },
+      "content": {
+        "label": "Content Strategy",
+        "seo": "Keywords, backlinks",
+        "geo": "Structure, authority, density"
+      },
+      "result": {
+        "label": "User Behavior",
+        "seo": "Click links to visit site",
+        "geo": "Get info directly from AI"
+      }
+    },
+    "methods": {
+      "title": "9 GEO Optimization Methods",
+      "subtitle": "Research-validated optimization strategies",
+      "citations": {
+        "title": "Add Citations",
+        "desc": "Reference authoritative sources and research papers"
+      },
+      "statistics": {
+        "title": "Use Statistics",
+        "desc": "Support claims with specific numbers and data"
+      },
+      "quotations": {
+        "title": "Include Quotations",
+        "desc": "Quote industry experts and authorities"
+      },
+      "readability": {
+        "title": "Improve Readability",
+        "desc": "Use simple language, avoid jargon"
+      },
+      "directAnswer": {
+        "title": "Answer Directly",
+        "desc": "Lead with core answers at paragraph start"
+      },
+      "structure": {
+        "title": "Structure Content",
+        "desc": "Use headings, lists, tables to organize"
+      },
+      "authority": {
+        "title": "Build Authority",
+        "desc": "Show credentials, get authoritative backlinks"
+      },
+      "freshness": {
+        "title": "Keep Content Fresh",
+        "desc": "Update regularly, AI prefers recent info"
+      },
+      "schema": {
+        "title": "Schema Markup",
+        "desc": "Use structured data to help AI understand"
+      }
+    },
+    "stats": {
+      "title": "Key Statistics",
+      "visibility": "Visibility Boost",
+      "citation": "Citation Rate Increase",
+      "preference": "Users Prefer AI Answers",
+      "clickthrough": "Cited Link CTR"
+    },
+    "research": {
+      "title": "Academic Research",
+      "paper": {
+        "title": "GEO: Generative Engine Optimization",
+        "authors": "Pranjal Aggarwal et al. | Princeton University | KDD 2024",
+        "abstract": "This paper systematically proposes the GEO framework, validating multiple optimization strategies through GEO-bench benchmark, proving that proper content optimization can significantly improve visibility in AI-generated responses.",
+        "link": "Read Paper →"
+      }
+    },
+    "ctaSection": {
+      "title": "Start Optimizing Your Content",
+      "desc": "Use our analyzer to evaluate AI-friendliness and get optimization suggestions",
+      "button": "Free Analysis"
+    }
+  }
+}

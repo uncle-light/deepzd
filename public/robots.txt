@@ -1,0 +1,10 @@
+# robots.txt for DeepZD
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://deepzd.com/sitemap.xml
+
+# LLMs.txt - For AI/LLM crawlers
+# See /llms.txt for structured site information

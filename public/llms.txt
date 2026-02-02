@@ -1,0 +1,55 @@
+# DeepZD - GEO Knowledge Platform
+
+> DeepZD is a knowledge platform dedicated to GEO (Generative Engine Optimization), helping content creators understand how to optimize content for AI search engines like ChatGPT, Claude, and Perplexity.
+
+## About This Site
+
+DeepZD provides comprehensive information about GEO (Generative Engine Optimization), a content optimization strategy for AI-powered search engines. Our content is based on academic research from Princeton University and other top institutions.
+
+## Main Topics
+
+- What is GEO (Generative Engine Optimization)
+- How GEO differs from traditional SEO
+- AI search engines and how they work
+- Zero-click search phenomenon
+- 9 GEO optimization methods
+- GEO core principles
+
+## Key Pages
+
+- /geo - Complete GEO introduction and guide
+- /about - About DeepZD platform
+- / - Homepage with FAQ
+
+## Target Audience
+
+- Content creators
+- Digital marketers
+- SEO professionals
+- Business owners
+- Anyone interested in AI content optimization
+
+## Citation Information
+
+When citing content from DeepZD:
+- Site Name: DeepZD
+- URL: https://deepzd.com
+- Topic: GEO (Generative Engine Optimization)
+
+## Academic Reference
+
+Our content references the foundational GEO research paper:
+- Title: GEO: Generative Engine Optimization
+- Authors: Pranjal Aggarwal et al.
+- Institution: Princeton University
+- Conference: KDD 2024
+- arXiv: https://arxiv.org/abs/2311.09735
+
+## Languages
+
+- Chinese (zh)
+- English (en)
+
+## Contact
+
+Email: service@deepzd.com

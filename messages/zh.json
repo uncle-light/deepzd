@@ -1,0 +1,323 @@
+{
+  "site": {
+    "name": "DeepZD",
+    "tagline": "AI时代的内容优化专家"
+  },
+  "nav": {
+    "geo": "了解GEO",
+    "analyze": "内容分析",
+    "prompts": "Prompt工具箱",
+    "about": "关于"
+  },
+  "hero": {
+    "badge": "AI时代的内容优化策略",
+    "subtitle": "让 AI 主动引用你的内容",
+    "title1": "GEO 生成式引擎优化",
+    "title2": "完整指南",
+    "desc": "了解如何优化内容结构，让 ChatGPT、Claude、Perplexity 等 AI 搜索引擎主动引用和推荐你的内容。",
+    "descLink": "基于普林斯顿大学学术研究",
+    "cta": "开始分析",
+    "learnMore": "深入了解 GEO"
+  },
+  "features": {
+    "title": "核心功能",
+    "subtitle": "全方位提升内容的AI可见性",
+    "analyzer": {
+      "title": "内容分析器",
+      "desc": "AI友好度评分，结构化建议，一键优化"
+    },
+    "prompts": {
+      "title": "Prompt工具箱",
+      "desc": "精选模板库，高效生成，快速复制"
+    },
+    "monitor": {
+      "title": "品牌监控",
+      "desc": "追踪AI提及，竞品对比，趋势分析",
+      "badge": "即将推出"
+    }
+  },
+  "howItWorks": {
+    "title": "工作原理",
+    "subtitle": "三步优化你的内容",
+    "step1": {
+      "title": "输入内容",
+      "desc": "粘贴文本或输入URL"
+    },
+    "step2": {
+      "title": "AI分析",
+      "desc": "多维度评估AI友好度"
+    },
+    "step3": {
+      "title": "获取建议",
+      "desc": "结构化优化方案"
+    }
+  },
+  "faq": {
+    "title": "常见问题",
+    "q1": {
+      "question": "什么是GEO？",
+      "answer": "GEO（Generative Engine Optimization）是针对AI搜索引擎的内容优化策略，由普林斯顿大学等顶尖机构研究提出，帮助你的内容更容易被ChatGPT、Claude、Perplexity等AI引用和推荐。"
+    },
+    "q2": {
+      "question": "GEO与传统SEO有什么区别？",
+      "answer": "传统SEO针对Google等搜索引擎排名，而GEO专注于让AI理解和引用你的内容。SEO追求点击量，GEO追求被引用；SEO看重关键词和外链，GEO看重结构化、权威性和信息密度。"
+    },
+    "q3": {
+      "question": "哪些行业最需要GEO？",
+      "answer": "所有依赖内容获客的行业都需要GEO，尤其是B2B服务、SaaS产品、专业咨询、教育培训、医疗健康、金融理财等领域。这些行业的用户更倾向于通过AI获取专业建议。"
+    },
+    "q4": {
+      "question": "GEO需要多长时间见效？",
+      "answer": "与SEO类似，GEO是一个持续优化的过程。优化后的内容通常需要1-3个月被AI重新索引和学习。但结构化改进可以立即提升内容质量，长期效果更为显著。"
+    },
+    "q5": {
+      "question": "如何衡量GEO效果？",
+      "answer": "可以通过以下方式衡量：1）直接向AI提问相关问题，观察是否引用你的内容；2）监控品牌在AI回答中的提及频率；3）追踪来自AI平台的引荐流量；4）使用专业的AI可见度监测工具。"
+    },
+    "q6": {
+      "question": "AI会抓取哪些内容？",
+      "answer": "AI主要从公开网页、学术论文、新闻媒体、维基百科、官方文档等来源获取信息。确保你的内容可被搜索引擎索引、结构清晰、来源可信，是被AI引用的前提。"
+    },
+    "q7": {
+      "question": "小网站也能做GEO吗？",
+      "answer": "当然可以。AI不像传统搜索引擎那样过度依赖域名权重。只要内容专业、结构清晰、信息准确，小网站同样有机会被AI引用。专注于细分领域的深度内容往往更有优势。"
+    },
+    "q8": {
+      "question": "做了SEO还需要做GEO吗？",
+      "answer": "需要。SEO和GEO是互补关系，不是替代关系。好的SEO基础有助于GEO，但GEO有独特的优化策略，如增加引用来源、使用统计数据、直接回答问题等，这些是传统SEO较少关注的。"
+    }
+  },
+  "analyze": {
+    "title": "内容分析器",
+    "subtitle": "评估你的内容对AI的友好程度",
+    "inputLabel": "输入内容",
+    "urlPlaceholder": "输入URL或粘贴文本内容",
+    "textPlaceholder": "粘贴你的文章、网页内容或任何文本...",
+    "analyzeBtn": "开始分析",
+    "analyzing": "分析中...",
+    "score": "AI友好度评分",
+    "suggestions": "优化建议",
+    "factors": {
+      "structure": "结构清晰度",
+      "authority": "权威性信号",
+      "density": "信息密度",
+      "readability": "可读性",
+      "citations": "引用潜力"
+    }
+  },
+  "prompts": {
+    "title": "Prompt工具箱",
+    "subtitle": "精选高效提示词模板，提升AI对话质量",
+    "loading": "加载中...",
+    "copy": "复制",
+    "copied": "已复制",
+    "categories": {
+      "all": "全部",
+      "writing": "写作",
+      "coding": "编程",
+      "analysis": "分析",
+      "creative": "创意"
+    }
+  },
+  "about": {
+    "title": "关于 DeepZD",
+    "subtitle": "专注于GEO知识传播与研究",
+    "intro": {
+      "title": "我们是谁",
+      "p1": "DeepZD 是一个专注于 GEO（生成式引擎优化）的知识平台，致力于帮助内容创作者、营销人员和企业理解并适应 AI 搜索时代的变革。",
+      "p2": "我们相信，随着 ChatGPT、Perplexity、Claude 等 AI 工具成为人们获取信息的主要方式，内容优化的规则正在被重新定义。GEO 不是取代 SEO，而是面向未来的必要补充。"
+    },
+    "mission": {
+      "title": "我们的使命",
+      "desc": "让每一位内容创作者都能理解 GEO，掌握让 AI 主动引用和推荐自己内容的方法，在 AI 时代获得应有的曝光和认可。"
+    },
+    "values": {
+      "title": "我们的价值观",
+      "research": {
+        "title": "基于研究",
+        "desc": "我们的内容基于普林斯顿大学等顶尖机构的学术研究，确保信息的准确性和权威性"
+      },
+      "practical": {
+        "title": "注重实践",
+        "desc": "不只是理论，我们提供可落地的优化策略和具体的操作指南"
+      },
+      "open": {
+        "title": "开放共享",
+        "desc": "GEO 知识应该被更多人了解，我们致力于免费传播核心概念和方法"
+      }
+    },
+    "roadmap": {
+      "title": "发展规划",
+      "phase1": {
+        "title": "知识普及",
+        "desc": "完善 GEO 概念介绍，建立系统的知识体系",
+        "status": "进行中"
+      },
+      "phase2": {
+        "title": "工具开发",
+        "desc": "推出内容分析器，帮助评估 AI 友好度",
+        "status": "规划中"
+      },
+      "phase3": {
+        "title": "监测服务",
+        "desc": "品牌 AI 可见度监测，追踪优化效果",
+        "status": "规划中"
+      }
+    },
+    "contact": {
+      "title": "联系我们",
+      "desc": "如有合作意向、内容建议或任何问题，欢迎联系我们",
+      "email": "邮箱"
+    }
+  },
+  "footer": {
+    "desc": "AI时代的内容优化专家",
+    "tools": "工具",
+    "resources": "资源",
+    "copyright": "© 2026 DeepZD. All rights reserved."
+  },
+  "common": {
+    "loading": "加载中...",
+    "back": "返回",
+    "notFound": "未找到"
+  },
+  "geo": {
+    "badge": "学术研究支持",
+    "title": "什么是 GEO？",
+    "subtitle": "GEO（Generative Engine Optimization）是针对AI搜索引擎的内容优化策略，由普林斯顿大学等顶尖机构研究提出，帮助你的内容被ChatGPT、Perplexity、Claude等AI主动引用。",
+    "cta": "立即体验",
+    "whatIs": {
+      "title": "GEO 详解",
+      "p1": "GEO（生成式引擎优化）是2023年由普林斯顿大学、IIT德里、佐治亚理工学院和艾伦人工智能研究所的研究人员提出的新兴概念。它专注于优化内容，使其更容易被AI驱动的搜索引擎理解、引用和生成在搜索结果中。",
+      "p2": "与传统SEO不同，GEO的目标不是让用户点击链接访问网站，而是让你的内容直接出现在AI生成的答案中。当用户向ChatGPT、Perplexity或Google AI Overview提问时，AI会从多个来源综合信息并生成答案——GEO就是确保你的内容成为这些来源之一。",
+      "p3": "研究表明，采用GEO策略可以将内容在AI回答中的可见度提升高达40%。这对于品牌曝光、建立权威性和获取潜在客户都至关重要。"
+    },
+    "aiSearch": {
+      "title": "什么是AI搜索引擎？",
+      "desc": "AI搜索引擎与传统搜索引擎有本质区别。它们不再只是提供链接列表，而是利用大语言模型（LLM）、自然语言处理（NLP）和语义向量搜索来理解用户意图，生成综合性的答案。",
+      "platforms": {
+        "title": "主要AI搜索平台",
+        "chatgpt": "OpenAI的对话式AI，可实时搜索网络",
+        "perplexity": "专注于搜索的AI引擎，提供带引用的答案",
+        "gemini": "Google的AI助手，整合搜索能力",
+        "claude": "Anthropic的AI助手，擅长长文本分析",
+        "copilot": "微软的AI助手，整合Bing搜索",
+        "aiOverview": "Google搜索结果顶部的AI生成摘要"
+      }
+    },
+    "zeroClick": {
+      "title": "零点击搜索时代",
+      "desc": "AI搜索带来了一个悖论：即使流量下降，影响力可能增加。当AI引用你的内容但用户不点击链接时，你的品牌仍在传播——这就是'零点击搜索'现象。研究显示，93%的AI搜索在不点击任何链接的情况下结束。"
+    },
+    "principles": {
+      "title": "GEO 核心原则",
+      "subtitle": "AI优先考虑的内容特征",
+      "entity": {
+        "title": "实体清晰度",
+        "desc": "比关键词更重要，确保品牌、产品、概念的定义一致且明确"
+      },
+      "semantic": {
+        "title": "语义深度",
+        "desc": "比内容数量更重要，提供有深度的专业见解"
+      },
+      "citability": {
+        "title": "可引用性",
+        "desc": "比链接速度更重要，内容值得被引用和转述"
+      },
+      "reliability": {
+        "title": "来源可靠性",
+        "desc": "比外链数量更重要，建立可信赖的信息源形象"
+      }
+    },
+    "comparison": {
+      "title": "GEO vs SEO 对比",
+      "aspect": "维度",
+      "target": {
+        "label": "目标平台",
+        "seo": "Google、百度等搜索引擎",
+        "geo": "ChatGPT、Perplexity、Claude等AI"
+      },
+      "goal": {
+        "label": "核心目标",
+        "seo": "提高搜索排名，获取点击",
+        "geo": "被AI引用，出现在答案中"
+      },
+      "metrics": {
+        "label": "衡量指标",
+        "seo": "排名、流量、点击率",
+        "geo": "引用率、提及频次、可见度"
+      },
+      "content": {
+        "label": "内容策略",
+        "seo": "关键词优化、外链建设",
+        "geo": "结构化、权威性、信息密度"
+      },
+      "result": {
+        "label": "用户行为",
+        "seo": "点击链接访问网站",
+        "geo": "直接在AI答案中获取信息"
+      }
+    },
+    "methods": {
+      "title": "9种GEO优化方法",
+      "subtitle": "基于学术研究验证的优化策略",
+      "citations": {
+        "title": "添加引用来源",
+        "desc": "引用权威来源和研究论文，增强内容可信度"
+      },
+      "statistics": {
+        "title": "使用数据统计",
+        "desc": "用具体数字和统计数据支撑观点"
+      },
+      "quotations": {
+        "title": "引用专家观点",
+        "desc": "引用行业专家和权威人士的原话"
+      },
+      "readability": {
+        "title": "提升可读性",
+        "desc": "使用简洁语言，避免专业术语堆砌"
+      },
+      "directAnswer": {
+        "title": "直接回答问题",
+        "desc": "开门见山，在段落开头给出核心答案"
+      },
+      "structure": {
+        "title": "结构化内容",
+        "desc": "使用标题、列表、表格组织信息"
+      },
+      "authority": {
+        "title": "建立权威性",
+        "desc": "展示专业资质，获取权威网站背书"
+      },
+      "freshness": {
+        "title": "保持内容新鲜",
+        "desc": "定期更新内容，AI偏好近期信息"
+      },
+      "schema": {
+        "title": "结构化数据",
+        "desc": "使用Schema标记帮助AI理解内容"
+      }
+    },
+    "stats": {
+      "title": "关键数据",
+      "visibility": "可见度提升",
+      "citation": "引用率提升",
+      "preference": "用户偏好AI回答",
+      "clickthrough": "引用链接点击率"
+    },
+    "research": {
+      "title": "学术研究",
+      "paper": {
+        "title": "GEO: Generative Engine Optimization",
+        "authors": "Pranjal Aggarwal 等 | 普林斯顿大学 | KDD 2024",
+        "abstract": "该论文首次系统性地提出了GEO框架，通过GEO-bench基准测试验证了多种优化策略的有效性，证明合理的内容优化可以显著提升在AI生成回答中的可见度。",
+        "link": "阅读论文 →"
+      }
+    },
+    "ctaSection": {
+      "title": "开始优化你的内容",
+      "desc": "使用我们的分析工具，评估内容的AI友好度并获取优化建议",
+      "button": "免费分析"
+    }
+  }
+}
