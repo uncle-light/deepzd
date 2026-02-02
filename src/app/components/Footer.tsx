@@ -40,6 +40,12 @@ export default function Footer() {
               >
                 {tNav("geo")}
               </Link>
+              <Link
+                href={`/${locale}/blog`}
+                className="block text-sm text-[var(--gray-400)] hover:text-[var(--foreground)] transition-colors"
+              >
+                {tNav("blog")}
+              </Link>
             </div>
           </div>
 
