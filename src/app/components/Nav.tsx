@@ -5,7 +5,11 @@ import { usePathname, useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
-const navItems: { href: string; key: string }[] = [];
+const navItems = [
+  { href: "/geo", key: "geo" },
+  { href: "/blog", key: "blog" },
+  { href: "/about", key: "about" },
+];
 
 export default function Nav() {
   const pathname = usePathname();
@@ -14,10 +18,6 @@ export default function Nav() {
   const t = useTranslations("nav");
   const locale = (params.locale as string) || "zh";
   const isZh = locale === "zh";
-  const isGeoActive = pathname?.includes("/geo") ?? false;
-  const isBlogActive = pathname?.includes("/blog") ?? false;
-  const isAboutActive = pathname?.includes("/about") ?? false;
-  const isAboutMenuActive = isGeoActive || isBlogActive || isAboutActive;
   const [isOpen, setIsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
 
@@ -72,44 +72,6 @@ export default function Nav() {
               </Link>
             );
           })}
-
-          <div className="relative group">
-            <Link
-              href={`/${locale}/about`}
-              className={`px-4 py-2 text-sm transition-colors inline-flex items-center gap-1 ${
-                isAboutMenuActive
-                  ? "text-[var(--foreground)]"
-                  : "text-[var(--gray-400)] hover:text-[var(--foreground)]"
-              }`}
-            >
-              {t("about")}
-              <svg className="w-3 h-3 opacity-70 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </Link>
-            <div className="absolute left-0 mt-2 w-40 py-1 bg-[var(--card-bg)] border border-[var(--border)] rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all">
-              <Link
-                href={`/${locale}/geo`}
-                className={`block px-4 py-2 text-sm transition-colors ${
-                  isGeoActive
-                    ? "text-[var(--foreground)] bg-[var(--surface-muted)]"
-                    : "text-[var(--gray-400)] hover:text-[var(--foreground)] hover:bg-[var(--surface-muted)]"
-                }`}
-              >
-                {t("geo")}
-              </Link>
-              <Link
-                href={`/${locale}/blog`}
-                className={`block px-4 py-2 text-sm transition-colors ${
-                  isBlogActive
-                    ? "text-[var(--foreground)] bg-[var(--surface-muted)]"
-                    : "text-[var(--gray-400)] hover:text-[var(--foreground)] hover:bg-[var(--surface-muted)]"
-                }`}
-              >
-                {t("blog")}
-              </Link>
-            </div>
-          </div>
 
           {/* Divider */}
           <div className="w-px h-5 bg-[var(--border)] mx-2" />
@@ -191,34 +153,6 @@ export default function Nav() {
             </Link>
           );
         })}
-
-        <Link
-          href={`/${locale}/about`}
-          onClick={() => setIsOpen(false)}
-          className={`block px-4 py-3 text-sm border-b border-[var(--border)] transition-colors ${
-            isAboutActive ? "text-[var(--foreground)] bg-[var(--card-bg)]" : "text-[var(--gray-400)] hover:text-[var(--foreground)]"
-          }`}
-        >
-          {t("about")}
-        </Link>
-        <Link
-          href={`/${locale}/geo`}
-          onClick={() => setIsOpen(false)}
-          className={`block px-8 py-3 text-sm border-b border-[var(--border)] transition-colors ${
-            isGeoActive ? "text-[var(--foreground)] bg-[var(--card-bg)]" : "text-[var(--gray-400)] hover:text-[var(--foreground)]"
-          }`}
-        >
-          {t("geo")}
-        </Link>
-        <Link
-          href={`/${locale}/blog`}
-          onClick={() => setIsOpen(false)}
-          className={`block px-8 py-3 text-sm border-b border-[var(--border)] transition-colors ${
-            isBlogActive ? "text-[var(--foreground)] bg-[var(--card-bg)]" : "text-[var(--gray-400)] hover:text-[var(--foreground)]"
-          }`}
-        >
-          {t("blog")}
-        </Link>
 
         {/* Mobile Language */}
         <div className="flex border-b border-[var(--border)]">

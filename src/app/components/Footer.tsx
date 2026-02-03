@@ -14,9 +14,9 @@ export default function Footer() {
     <footer className="border-t border-[var(--border)]">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-12">
         {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div>
             <Link
               href={`/${locale}`}
               className="text-lg font-semibold text-[var(--foreground)]"
@@ -28,12 +28,18 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Tools */}
+          {/* About */}
           <div>
             <h4 className="text-sm font-medium text-[var(--foreground)] mb-4">
-              {t("tools")}
+              {tNav("about")}
             </h4>
             <div className="space-y-3">
+              <Link
+                href={`/${locale}/about`}
+                className="block text-sm text-[var(--gray-400)] hover:text-[var(--foreground)] transition-colors"
+              >
+                {tNav("about")}
+              </Link>
               <Link
                 href={`/${locale}/geo`}
                 className="block text-sm text-[var(--gray-400)] hover:text-[var(--foreground)] transition-colors"
@@ -55,12 +61,24 @@ export default function Footer() {
               {t("resources")}
             </h4>
             <div className="space-y-3">
-              <Link
-                href={`/${locale}/about`}
+              <a
+                href="/sitemap.xml"
                 className="block text-sm text-[var(--gray-400)] hover:text-[var(--foreground)] transition-colors"
               >
-                {tNav("about")}
-              </Link>
+                {t("sitemap")}
+              </a>
+              <a
+                href="/robots.txt"
+                className="block text-sm text-[var(--gray-400)] hover:text-[var(--foreground)] transition-colors"
+              >
+                {t("robots")}
+              </a>
+              <a
+                href="/llms.txt"
+                className="block text-sm text-[var(--gray-400)] hover:text-[var(--foreground)] transition-colors"
+              >
+                {t("llms")}
+              </a>
             </div>
           </div>
         </div>

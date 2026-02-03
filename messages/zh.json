@@ -129,7 +129,10 @@
     "desc": "AI时代的内容优化专家",
     "tools": "工具",
     "resources": "资源",
-    "copyright": "© 2026 DeepZD. All rights reserved."
+    "copyright": "© 2026 DeepZD. All rights reserved.",
+    "sitemap": "站点地图",
+    "robots": "robots.txt",
+    "llms": "LLMs.txt"
   },
   "common": {
     "loading": "加载中...",

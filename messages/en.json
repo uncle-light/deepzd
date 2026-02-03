@@ -129,7 +129,10 @@
     "desc": "Content Optimization for the AI Era",
     "tools": "Tools",
     "resources": "Resources",
-    "copyright": "© 2026 DeepZD. All rights reserved."
+    "copyright": "© 2026 DeepZD. All rights reserved.",
+    "sitemap": "Sitemap",
+    "robots": "Robots.txt",
+    "llms": "LLMs.txt"
   },
   "common": {
     "loading": "Loading...",
