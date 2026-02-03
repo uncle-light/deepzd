@@ -1,0 +1,9 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="40" fill="#000000"/>
+  <!-- D 外轮廓 -->
+  <path d="M45 35h45c30 0 55 25 55 55s-25 55-55 55H45V35z" fill="#ffffff"/>
+  <!-- D 内部镂空 -->
+  <path d="M67 57h23c18 0 33 15 33 33s-15 33-33 33H67V57z" fill="#000000"/>
+  <!-- Z 在镂空中心 -->
+  <path d="M76 70h28l-28 40h28" stroke="#ffffff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
