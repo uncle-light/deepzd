@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import ThemeProvider from "./components/ThemeProvider";
 import { WebsiteJsonLd } from "./components/JsonLd";
+import ScrollToTop from "./components/ScrollToTop";
 import "./globals.css";
 
 const siteUrl = "https://deepzd.com";
@@ -17,6 +18,13 @@ export const metadata: Metadata = {
   keywords: ["GEO", "生成式引擎优化", "AI SEO", "ChatGPT优化", "Perplexity优化", "AI搜索引擎", "内容优化"],
   authors: [{ name: "DeepZD" }],
   creator: "DeepZD",
+  alternates: {
+    languages: {
+      "zh": siteUrl,
+      "en": `${siteUrl}/en`,
+      "x-default": siteUrl,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "zh_CN",
@@ -53,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <body className="antialiased font-sans">
         <WebsiteJsonLd />
         <ThemeProvider
@@ -63,6 +71,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>

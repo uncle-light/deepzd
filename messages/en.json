@@ -137,7 +137,12 @@
   "common": {
     "loading": "Loading...",
     "back": "Back",
-    "notFound": "Not Found"
+    "notFound": "Not Found",
+    "toc": "Table of Contents",
+    "scrollToTop": "Back to top",
+    "retry": "Retry",
+    "errorTitle": "Something went wrong",
+    "errorDesc": "Sorry, an error occurred while loading the page"
   },
   "notFound": {
     "title": "Page Not Found",
@@ -288,6 +293,9 @@
     "title": "Blog",
     "subtitle": "GEO tips, AI search trends and case studies",
     "minRead": "min read",
-    "backToList": "Back to blog"
+    "backToList": "Back to blog",
+    "noPosts": "No posts yet",
+    "allTags": "All",
+    "filterByTag": "Filter by tag"
   }
 }

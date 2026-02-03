@@ -265,3 +265,70 @@ a {
     linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
 }
+
+/* 代码高亮 - GitHub Dark 风格 */
+.hljs {
+  background: var(--surface-muted) !important;
+  color: var(--foreground);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--gray-500);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #ff7b72;
+}
+
+.hljs-string,
+.hljs-attr {
+  color: #a5d6ff;
+}
+
+.hljs-number,
+.hljs-literal {
+  color: #79c0ff;
+}
+
+.hljs-function,
+.hljs-title {
+  color: #d2a8ff;
+}
+
+.hljs-built_in,
+.hljs-type {
+  color: #ffa657;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #ffa657;
+}
+
+.light .hljs-keyword,
+.light .hljs-selector-tag {
+  color: #cf222e;
+}
+
+.light .hljs-string,
+.light .hljs-attr {
+  color: #0a3069;
+}
+
+.light .hljs-number,
+.light .hljs-literal {
+  color: #0550ae;
+}
+
+.light .hljs-function,
+.light .hljs-title {
+  color: #8250df;
+}
+
+.light .hljs-built_in,
+.light .hljs-type {
+  color: #953800;
+}

@@ -137,7 +137,12 @@
   "common": {
     "loading": "加载中...",
     "back": "返回",
-    "notFound": "未找到"
+    "notFound": "未找到",
+    "toc": "目录",
+    "scrollToTop": "返回顶部",
+    "retry": "重试",
+    "errorTitle": "出错了",
+    "errorDesc": "抱歉，页面加载时发生了错误"
   },
   "notFound": {
     "title": "页面未找到",
@@ -288,6 +293,9 @@
     "title": "博客",
     "subtitle": "GEO优化技巧、AI搜索趋势与实战案例",
     "minRead": "分钟阅读",
-    "backToList": "返回博客列表"
+    "backToList": "返回博客列表",
+    "noPosts": "暂无文章",
+    "allTags": "全部",
+    "filterByTag": "按标签筛选"
   }
 }
