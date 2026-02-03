@@ -103,7 +103,7 @@ export interface Skill {
 }
 
 export interface BlogPost {
-  id: number;
+  id: string;
   slug: string;
   title_zh: string;
   title_en: string;
@@ -114,4 +114,12 @@ export interface BlogPost {
   published_at: string | null;
   read_time: number | null;
   created_at: string;
+  tags?: BlogTag[];
+}
+
+export interface BlogTag {
+  id: string;
+  slug: string;
+  name_zh: string;
+  name_en: string;
 }
