@@ -101,3 +101,17 @@ export interface Skill {
   level: string;
   created_at: string;
 }
+
+export interface BlogPost {
+  id: number;
+  slug: string;
+  title_zh: string;
+  title_en: string;
+  excerpt_zh: string | null;
+  excerpt_en: string | null;
+  content_zh: string | null;
+  content_en: string | null;
+  published_at: string | null;
+  read_time: number | null;
+  created_at: string;
+}

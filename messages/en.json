@@ -121,55 +121,9 @@
     }
   },
   "about": {
-    "title": "About DeepZD",
-    "subtitle": "Focused on GEO Knowledge and Research",
-    "intro": {
-      "title": "Who We Are",
-      "p1": "DeepZD is a knowledge platform dedicated to GEO (Generative Engine Optimization), helping content creators, marketers, and businesses understand and adapt to the AI search revolution.",
-      "p2": "We believe that as AI tools like ChatGPT, Perplexity, and Claude become primary information sources, the rules of content optimization are being redefined. GEO doesn't replace SEO—it's an essential complement for the future."
-    },
-    "mission": {
-      "title": "Our Mission",
-      "desc": "To help every content creator understand GEO and master the methods to get AI to actively cite and recommend their content, gaining the exposure and recognition they deserve in the AI era."
-    },
-    "values": {
-      "title": "Our Values",
-      "research": {
-        "title": "Research-Based",
-        "desc": "Our content is grounded in academic research from top institutions like Princeton University, ensuring accuracy and authority"
-      },
-      "practical": {
-        "title": "Practical Focus",
-        "desc": "Not just theory—we provide actionable optimization strategies and concrete implementation guides"
-      },
-      "open": {
-        "title": "Open Sharing",
-        "desc": "GEO knowledge should reach more people. We're committed to freely sharing core concepts and methods"
-      }
-    },
-    "roadmap": {
-      "title": "Roadmap",
-      "phase1": {
-        "title": "Knowledge Base",
-        "desc": "Complete GEO concept introduction, build systematic knowledge framework",
-        "status": "In Progress"
-      },
-      "phase2": {
-        "title": "Tool Development",
-        "desc": "Launch content analyzer to evaluate AI-friendliness",
-        "status": "Planned"
-      },
-      "phase3": {
-        "title": "Monitoring Service",
-        "desc": "Brand AI visibility monitoring, track optimization results",
-        "status": "Planned"
-      }
-    },
-    "contact": {
-      "title": "Contact Us",
-      "desc": "For partnerships, content suggestions, or any questions, feel free to reach out",
-      "email": "Email"
-    }
+    "desc1": "A knowledge platform focused on GEO (Generative Engine Optimization).",
+    "desc2": "Helping you understand content optimization in the AI search era — how to get ChatGPT, Claude, and Perplexity to cite your content.",
+    "contact": "Get in touch"
   },
   "footer": {
     "desc": "Content Optimization for the AI Era",
@@ -213,7 +167,8 @@
     },
     "zeroClick": {
       "title": "The Zero-Click Era",
-      "desc": "AI search creates a paradox: traffic may decline even as impact increases. When AI cites your content without users clicking through, your brand still spreads—this is 'zero-click search'. Research shows 93% of AI searches end without clicking any links."
+      "stat": "of AI searches end without a click",
+      "desc": "Users get answers directly from AI — no clicks needed. But your content still gets cited, your brand still spreads. Less traffic, more influence."
     },
     "principles": {
       "title": "GEO Core Principles",
@@ -330,23 +285,6 @@
     "title": "Blog",
     "subtitle": "GEO tips, AI search trends and case studies",
     "minRead": "min read",
-    "backToList": "Back to blog",
-    "posts": {
-      "what-is-geo": {
-        "title": "What is GEO? Complete Guide to Generative Engine Optimization",
-        "excerpt": "Deep dive into GEO concepts, principles and practices.",
-        "content": "## What is GEO?\n\nGEO (Generative Engine Optimization) is a content optimization strategy designed to improve visibility in AI-generated results from tools like ChatGPT, Perplexity, Claude, and Grok.\n\nUnlike traditional SEO which aims for higher rankings on search result pages, GEO focuses on getting your content cited and recommended by AI when generating answers.\n\n### Origin and Academic Background\n\nThe term was first introduced in the research paper \"GEO: Generative Engine Optimization\" published in November 2023 by researchers from Princeton University, IIT Delhi, Georgia Tech, and Allen Institute for AI.\n\nThe study analyzed thousands of queries and web pages, finding that specific optimization strategies can increase AI citation probability by over 40%.\n\n### Why GEO Matters in 2024\n\nUser behavior is fundamentally changing:\n\n**1. Search Behavior Shift**\n\nMore users ask AI directly instead of using traditional search engines. ChatGPT now has over 100 million monthly active users, becoming the second-largest information retrieval channel after Google.\n\n**2. Zero-Click Search Trend**\n\nAI provides answers without requiring clicks. Even if your website ranks first, you may lose traffic due to AI-generated answers.\n\n**3. Traffic Source Changes**\n\nChatGPT surpassed Bing in traffic volume in 2024. Ignoring GEO means abandoning a massive traffic source.\n\n**4. Rise of AI Search Engines**\n\nPerplexity, You.com and other AI-native search engines are growing rapidly. Google has also launched AI Overview. AI search is becoming mainstream.\n\n### Core Principles of GEO\n\n**1. Structured Content**\n\nUse clear heading hierarchy (H1, H2, H3) so AI can easily understand and extract information. Research shows well-structured content has 35% higher citation probability.\n\n- Focus each section on one topic\n- Use lists and tables for complex information\n- Keep paragraphs short, one point per paragraph\n\n**2. Authoritative Citations**\n\nReference academic papers, official reports, and industry data to enhance credibility. AI prioritizes verifiable content when selecting sources.\n\n**3. Direct Answers**\n\nProvide clear answers upfront using the \"inverted pyramid\" writing structure to match AI's preference for direct responses.\n\n**4. Data Support**\n\nUse specific statistics and research findings. Content with data support sees 180% higher citation rates.\n\n**5. E-E-A-T Signals**\n\nDemonstrate Expertise, Experience, Authoritativeness, and Trustworthiness—quality signals valued by both Google and AI.\n\n### Getting Started with GEO\n\n**Step 1: Audit Existing Content**\n\nCheck if your content structure is clear, has proper heading hierarchy, and concise paragraphs.\n\n**Step 2: Add Authoritative Citations**\n\nAdd credible source citations for key arguments, including academic papers, official data, and industry reports.\n\n**Step 3: Implement Schema Markup**\n\nAdd JSON-LD structured data to help AI better understand content type and structure.\n\n**Step 4: Optimize Answer Format**\n\nEnsure content directly answers potential user questions with core answers at the beginning.\n\n**Step 5: Maintain Freshness**\n\nRegularly update content with latest information and data. AI prefers timely content.\n\n### GEO and SEO Relationship\n\nGEO doesn't replace SEO—it's a necessary complement for the AI era. Both working together ensures visibility in traditional and AI search.\n\nGood SEO foundation helps GEO because:\n- Structured content benefits both\n- High-quality content is the common foundation\n- Technical optimization ensures content is crawlable\n\n### Summary\n\nGEO is an essential new skill for content creators in the AI era. Through structured content, authoritative citations, direct answers, and data support, you can significantly increase AI citation probability and secure an advantageous position in the new search landscape."
-      },
-      "geo-vs-seo": {
-        "title": "GEO vs SEO: What's the Difference?",
-        "excerpt": "Compare traditional SEO and GEO to understand why you need both.",
-        "content": "## GEO vs SEO: Core Differences\n\nIn the AI era, content optimization goes beyond SEO. GEO is a new strategy with fundamental differences from traditional SEO. Understanding these differences is crucial for effective content strategy.\n\n### What is SEO?\n\nSEO (Search Engine Optimization) improves website rankings on Google, Bing and other traditional search engines. With over 25 years of history, SEO is a foundational digital marketing skill.\n\n### What is GEO?\n\nGEO (Generative Engine Optimization) optimizes for AI search engines, aiming to get ChatGPT, Claude, Perplexity to cite your content when answering questions.\n\n### Fundamental Goal Differences\n\n**SEO Goal**\n\nRank higher on search result pages to drive clicks and website visits. Successful SEO means more organic traffic and potential customers.\n\n**GEO Goal**\n\nGet AI to cite and recommend your content when generating answers. Even without clicks, your brand gains exposure—a new \"passive exposure\" model.\n\n### Comparison Table\n\n| Aspect | SEO | GEO |\n|--------|-----|-----|\n| Keywords | Core element | Secondary |\n| Backlinks | Very important | Less impact |\n| Structure | Helpful | Core element |\n| Citations | Optional | Required |\n| User Intent | Important | Core element |\n| Freshness | Helpful | Very important |\n| Technical | Core element | Basic requirement |\n| Depth | Important | Very important |\n\n### SEO Core Focus Areas\n\n**1. Keyword Optimization**\n\nStrategically place target keywords in titles, content, meta tags, and URLs.\n\n**2. Link Building**\n\nAcquire high-quality backlinks to boost domain authority. Link quantity and quality directly impact rankings.\n\n**3. Technical Optimization**\n\n- Page load speed\n- Mobile responsiveness\n- Core Web Vitals metrics\n- Site architecture and internal linking\n\n**4. User Experience Signals**\n\nReduce bounce rate, increase time on page, improve page view depth.\n\n### GEO Core Focus Areas\n\n**1. Content Structure**\n\nClear heading hierarchy (H1-H6) for easy AI understanding and extraction. Use lists and tables for complex content.\n\n**2. Authoritative Citations**\n\nReference academic papers, official data, industry reports for credibility. AI prefers verifiable content.\n\n**3. Direct Answers**\n\nProvide answers upfront using \"inverted pyramid\" structure matching AI response patterns.\n\n**4. Semantic Relevance**\n\nFocus on user intent rather than keyword matching. AI understands semantics, not keyword density.\n\n**5. E-E-A-T Signals**\n\nDemonstrate expertise, experience, authority, trustworthiness. These signals help AI judge content quality.\n\n### Why You Need Both\n\nGEO complements SEO, not replaces it:\n\n**1. Diversified Traffic**\n\nBoth traditional and AI search are important traffic sources. Focusing on one means missing half the opportunity.\n\n**2. Mutual Benefit**\n\nGood SEO helps GEO and vice versa. Structured content and quality writing benefit both.\n\n**3. Risk Distribution**\n\nSearch algorithms change frequently. Don't put all eggs in one basket.\n\n**4. Diverse User Behavior**\n\nDifferent users have different search habits. Some use Google, others use ChatGPT. Cover everyone.\n\n### Practical Recommendations\n\n**Step 1: Build SEO Foundation**\n\nEnsure technical health, content quality, and basic SEO optimization.\n\n**Step 2: Add GEO Strategies**\n\nOn existing content, add authoritative citations, optimize structure, include direct answers.\n\n**Step 3: Dual Consideration for New Content**\n\nWhen creating new content, consider both SEO and GEO requirements simultaneously.\n\n**Step 4: Continuous Monitoring**\n\nRegularly check performance in traditional search and AI answers. Adjust strategy based on data.\n\n### Summary\n\nSEO and GEO are complementary, not substitutes. In the AI era, mastering both optimization strategies ensures maximum content exposure."
-      },
-      "ai-citation-tips": {
-        "title": "10 Tips to Get Your Content Cited by AI",
-        "excerpt": "Proven GEO optimization tips to increase AI citations.",
-        "content": "## 10 Proven Tips to Get AI Citations\n\nWant ChatGPT, Claude, Perplexity to cite your content? Here are 10 verified GEO tips to boost your visibility in AI search.\n\n### 1. Answer Questions Directly\n\nProvide clear, concise answers upfront. AI prefers content that directly addresses queries—this is called the \"inverted pyramid\" structure.\n\n**Why it works:**\n\nAI prioritizes content that directly answers user questions. If your article starts with the answer, citation probability increases significantly.\n\n**Example:**\n- ❌ \"Before discussing GEO, let's explore search engine history...\"\n- ✅ \"GEO is a content optimization strategy for AI search engines, designed to get AI to cite your content.\"\n\n### 2. Use Data Support\n\nCite specific statistics and research results. Studies show content with data support sees 180% higher AI citation rates.\n\n**Recommended data sources:**\n- Academic research papers\n- Industry survey reports\n- Official statistics\n- Data from authoritative institutions\n\n### 3. Add Authoritative Citations\n\nReference academic papers, official reports, industry authorities. AI trusts verifiable content more.\n\n**Recommended sources:**\n- Academic papers (Google Scholar, arXiv)\n- Government and official reports\n- Research from renowned institutions\n- White papers from industry leaders\n\n### 4. Structure Your Content\n\nUse clear H2, H3 heading hierarchy. Well-structured content has 35% higher citation probability.\n\n**Structuring tips:**\n- Focus each section on one topic\n- Use lists and tables for complex info\n- Keep paragraphs short\n- Bold key information\n\n### 5. Keep Content Fresh\n\nUpdate regularly with latest information. AI prefers timely content; outdated info rarely gets cited.\n\n**Update strategy:**\n- Review core content quarterly\n- Add latest data and cases\n- Update outdated info and links\n- Mark \"last updated\" date\n\n### 6. Add FAQ Sections\n\nInclude Q&A at article end matching user query patterns. FAQ format is ideal for AI extraction.\n\n**FAQ design tips:**\n- Use questions users actually ask\n- Keep answers concise and direct\n- Cover various topic aspects\n- Use Schema markup for enhancement\n\n### 7. Use Schema Markup\n\nAdd JSON-LD structured data to help AI understand content type and structure.\n\n**Common Schema types:**\n- Article: Article content\n- FAQPage: FAQ pages\n- HowTo: Tutorial guides\n- Product: Product information\n\n### 8. Demonstrate Expertise (E-E-A-T)\n\nShow your expertise, experience, authority, and trustworthiness—key signals AI uses to judge quality.\n\n**How to demonstrate:**\n- Detailed author bios with credentials\n- Display relevant certifications\n- Reference your own research or cases\n- Link to author social profiles\n\n### 9. Optimize Readability\n\nUse clear, simple language. Highly readable content is easier for AI to process and cite.\n\n**Readability tips:**\n- Use simple vocabulary, avoid jargon\n- Keep sentences short, one idea each\n- Bold key points appropriately\n- Use transition words between paragraphs\n\n### 10. Distribute Widely\n\nShare on Reddit, Quora, forums—AI learns from these platforms too.\n\n**Distribution strategy:**\n- Share valuable content in relevant communities\n- Answer related questions on platforms\n- Build professional personal/brand image\n- Stay active, contribute consistently\n\n### Bonus: Monitor and Iterate\n\nRegularly test your content performance in AI answers:\n\n1. Ask ChatGPT, Claude related questions\n2. Check if your content is cited\n3. Analyze why competitors get cited\n4. Adjust strategy based on findings\n\n### Summary\n\nGEO is an ongoing process, not a one-time task. Apply these tips to every new piece of content to gradually improve AI search visibility.\n\nRemember: High-quality, structured, well-sourced content is the foundation for AI citations. No shortcuts—only continuous optimization."
-      }
-    }
+    "backToList": "Back to blog"
   }
 }

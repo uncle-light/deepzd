@@ -4,6 +4,27 @@ import Nav from "../../../components/Nav";
 import Footer from "../../../components/Footer";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { supabase, type BlogPost } from "@/lib/supabase";
+import { notFound } from "next/navigation";
+
+export const revalidate = 60;
+
+type BlogDetail = Pick<BlogPost, "slug" | "title_zh" | "title_en" | "content_zh" | "content_en">;
+
+async function fetchBlogPost(slug: string): Promise<BlogDetail | null> {
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("slug, title_zh, title_en, content_zh, content_en")
+    .eq("slug", slug)
+    .maybeSingle();
+
+  if (error) {
+    console.error("Failed to fetch blog post", error);
+    return null;
+  }
+
+  return data ?? null;
+}
 
 export default async function BlogPost({
   params,
@@ -12,6 +33,15 @@ export default async function BlogPost({
 }) {
   const { locale, slug } = await params;
   const t = await getTranslations("blog");
+  const post = await fetchBlogPost(slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  const isZh = locale === "zh";
+  const title = isZh ? post.title_zh : post.title_en;
+  const content = (isZh ? post.content_zh : post.content_en) ?? (isZh ? post.content_en : post.content_zh) ?? "";
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
@@ -29,11 +59,11 @@ export default async function BlogPost({
           </Link>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--foreground)]">
-            {t(`posts.${slug}.title`)}
+            {title}
           </h1>
 
           <div className="prose prose-invert max-w-none">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{t(`posts.${slug}.content`)}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
           </div>
         </article>
       </main>

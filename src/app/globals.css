@@ -20,6 +20,7 @@
   --border-light: #444444;
   --card-bg: #111111;
   --nav-bg: rgba(0, 0, 0, 0.8);
+  --surface-muted: #1a1a1a;
 }
 
 /* 浅色主题（白天 06:00 - 18:00） */
@@ -41,6 +42,7 @@
   --border-light: #d4d4d4;
   --card-bg: #fafafa;
   --nav-bg: rgba(255, 255, 255, 0.8);
+  --surface-muted: #f5f5f5;
 }
 
 body {
@@ -163,7 +165,7 @@ a {
 }
 
 .prose code {
-  background: var(--gray-800);
+  background: var(--surface-muted);
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.9em;
@@ -171,7 +173,7 @@ a {
 }
 
 .prose pre {
-  background: var(--gray-900);
+  background: var(--surface-muted);
   border: 1px solid var(--border);
   padding: 1em;
   border-radius: 8px;
@@ -182,6 +184,49 @@ a {
   border-left: 2px solid var(--border);
   padding-left: 1em;
   color: var(--gray-400);
+}
+
+/* 修正浅色主题下 prose-invert 的颜色反转 */
+.light .prose-invert {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-lead: var(--foreground);
+  --tw-prose-links: var(--accent);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--gray-500);
+  --tw-prose-bullets: var(--gray-500);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--foreground);
+  --tw-prose-quote-borders: var(--border);
+  --tw-prose-captions: var(--gray-500);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-pre-code: var(--foreground);
+  --tw-prose-pre-bg: var(--surface-muted);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+  color: var(--foreground);
+}
+
+.light .prose-invert :where(h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption) {
+  color: var(--foreground);
+}
+
+.light .prose-invert :where(strong, em) {
+  color: var(--foreground);
+}
+
+.light .prose-invert :where(a) {
+  color: var(--accent);
+}
+
+.light .prose-invert :where(code) {
+  color: var(--foreground);
+  background: var(--surface-muted);
+}
+
+.light .prose-invert :where(pre) {
+  color: var(--foreground);
+  background: var(--surface-muted);
 }
 
 /* 骨架屏 */

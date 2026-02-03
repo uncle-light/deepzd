@@ -242,9 +242,15 @@ function AISearchSection({ t }: { t: ReturnType<typeof useTranslations> }) {
 function ZeroClickSection({ t }: { t: ReturnType<typeof useTranslations> }) {
   return (
     <section className="mb-16">
-      <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">{t("zeroClick.title")}</h2>
-      <div className="p-6 rounded-lg bg-[var(--card-bg)] border border-[var(--border)] border-l-4 border-l-[var(--accent)]">
-        <p className="text-[var(--gray-400)] leading-relaxed">{t("zeroClick.desc")}</p>
+      <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">{t("zeroClick.title")}</h2>
+      <div className="flex flex-col md:flex-row md:items-center gap-6">
+        <div className="flex-shrink-0">
+          <span className="text-6xl md:text-7xl font-bold text-[var(--accent)]">93%</span>
+          <p className="text-sm text-[var(--gray-500)] mt-1">{t("zeroClick.stat")}</p>
+        </div>
+        <div className="flex-1">
+          <p className="text-[var(--gray-400)] leading-relaxed">{t("zeroClick.desc")}</p>
+        </div>
       </div>
     </section>
   );
@@ -268,7 +274,7 @@ function PrinciplesSection({ t }: { t: ReturnType<typeof useTranslations> }) {
             key={p.key}
             className="p-5 rounded-lg bg-[var(--card-bg)] border border-[var(--border)]"
           >
-            <div className="w-10 h-10 rounded-md bg-[var(--gray-800)] flex items-center justify-center mb-3">
+            <div className="w-10 h-10 rounded-md bg-[var(--surface-muted)] text-[var(--gray-400)] flex items-center justify-center mb-3">
               <IconComponent name={p.icon} />
             </div>
             <h3 className="font-semibold mb-2 text-[var(--foreground)]">
@@ -337,7 +343,7 @@ function MethodsSection({ t }: { t: ReturnType<typeof useTranslations> }) {
             key={method.key}
             className="p-5 rounded-lg bg-[var(--card-bg)] border border-[var(--border)] hover:border-[var(--border-light)] transition-colors"
           >
-            <div className="w-10 h-10 rounded-md bg-[var(--gray-800)] flex items-center justify-center mb-3 text-[var(--gray-400)]">
+            <div className="w-10 h-10 rounded-md bg-[var(--surface-muted)] flex items-center justify-center mb-3 text-[var(--gray-400)]">
               <MethodIcon name={method.icon} />
             </div>
             <h3 className="font-semibold mb-2 text-[var(--foreground)]">

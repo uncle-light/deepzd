@@ -2,25 +2,28 @@ import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
+import { supabase, type BlogPost } from "@/lib/supabase";
 
-// 博客文章数据
-const posts = [
-  {
-    slug: "what-is-geo",
-    date: "2026-02-01",
-    readTime: 8,
-  },
-  {
-    slug: "geo-vs-seo",
-    date: "2026-02-02",
-    readTime: 6,
-  },
-  {
-    slug: "ai-citation-tips",
-    date: "2026-02-03",
-    readTime: 10,
-  },
-];
+export const revalidate = 60;
+
+type BlogListItem = Pick<
+  BlogPost,
+  "slug" | "title_zh" | "title_en" | "excerpt_zh" | "excerpt_en" | "published_at" | "read_time"
+>;
+
+async function fetchBlogPosts(): Promise<BlogListItem[]> {
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("slug, title_zh, title_en, excerpt_zh, excerpt_en, published_at, read_time")
+    .order("published_at", { ascending: false });
+
+  if (error) {
+    console.error("Failed to fetch blog posts", error);
+    return [];
+  }
+
+  return data ?? [];
+}
 
 export default async function BlogPage({
   params,
@@ -29,6 +32,8 @@ export default async function BlogPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations("blog");
+  const posts = await fetchBlogPosts();
+  const isZh = locale === "zh";
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
@@ -41,25 +46,39 @@ export default async function BlogPage({
           <p className="text-[var(--gray-400)] mb-12">{t("subtitle")}</p>
 
           <div className="space-y-6">
-            {posts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/${locale}/blog/${post.slug}`}
-                className="block p-6 rounded-lg bg-[var(--card-bg)] border border-[var(--border)] hover:border-[var(--border-light)] transition-colors"
-              >
-                <h2 className="text-xl font-semibold mb-2 text-[var(--foreground)]">
-                  {t(`posts.${post.slug}.title`)}
-                </h2>
-                <p className="text-[var(--gray-400)] text-sm mb-4">
-                  {t(`posts.${post.slug}.excerpt`)}
-                </p>
-                <div className="flex items-center gap-4 text-xs text-[var(--gray-500)]">
-                  <span>{post.date}</span>
-                  <span>·</span>
-                  <span>{post.readTime} {t("minRead")}</span>
-                </div>
-              </Link>
-            ))}
+            {posts.map((post) => {
+              const title = isZh ? post.title_zh : post.title_en;
+              const excerpt = isZh
+                ? post.excerpt_zh ?? post.excerpt_en
+                : post.excerpt_en ?? post.excerpt_zh;
+              return (
+                <Link
+                  key={post.slug}
+                  href={`/${locale}/blog/${post.slug}`}
+                  className="block p-6 rounded-lg bg-[var(--card-bg)] border border-[var(--border)] hover:border-[var(--border-light)] transition-colors"
+                >
+                  <h2 className="text-xl font-semibold mb-2 text-[var(--foreground)]">
+                    {title}
+                  </h2>
+                  {excerpt && (
+                    <p className="text-[var(--gray-400)] text-sm mb-4">
+                      {excerpt}
+                    </p>
+                  )}
+                  <div className="flex items-center gap-4 text-xs text-[var(--gray-500)]">
+                    {post.published_at && (
+                      <>
+                        <span>{post.published_at}</span>
+                        <span>·</span>
+                      </>
+                    )}
+                    {post.read_time !== null && (
+                      <span>{post.read_time} {t("minRead")}</span>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </main>
