@@ -107,11 +107,47 @@ export const metadata: Metadata = {
 - 使用 `<section>`、`<article>`、`<nav>` 等语义标签
 - 图片必须有 `alt` 属性
 
-#### 3. 结构化数据
-重要页面添加 JSON-LD 结构化数据：
-- 首页：Organization
-- GEO页面：Article / FAQPage
-- 工具页面：WebApplication
+#### 3. 结构化数据 (JSON-LD) ⚠️ 必须
+
+**每个新页面必须添加 JSON-LD 结构化数据**，这是 GEO/SEO 的核心要求。
+
+**现有组件** (`src/app/components/JsonLd.tsx`)：
+- `WebsiteJsonLd` - 网站级别（已在 layout.tsx 使用）
+- `FAQJsonLd` - FAQ 页面
+
+**各页面类型的 JSON-LD 要求**：
+
+| 页面类型 | Schema 类型 | 必填字段 |
+|---------|------------|---------|
+| 首页 | Organization + FAQPage | name, url, description, faq |
+| 文章/博客 | Article + BreadcrumbList | headline, author, datePublished, dateModified |
+| 教程/指南 | HowTo 或 Article | name, step[], totalTime |
+| 工具页面 | WebApplication | name, applicationCategory, offers |
+| 关于页面 | AboutPage + Organization | name, description |
+
+**新建页面检查清单**：
+```typescript
+// 1. 导入 JsonLd 组件
+import { FAQJsonLd } from "../components/JsonLd";
+
+// 2. 或创建页面专用的 JSON-LD
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  author: { "@type": "Organization", name: "DeepZD" },
+  datePublished: "2026-02-01",
+  dateModified: "2026-02-01",
+};
+
+// 3. 在页面中渲染
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+/>
+```
+
+**验证工具**：https://search.google.com/test/rich-results
 
 #### 4. 性能优化
 - 图片使用 Next.js Image 组件
