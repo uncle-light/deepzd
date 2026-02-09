@@ -6,7 +6,7 @@
   "nav": {
     "geo": "了解GEO",
     "blog": "博客",
-    "analyze": "内容分析",
+    "analyze": "引用测试",
     "prompts": "Prompt工具箱",
     "about": "关于"
   },
@@ -88,22 +88,160 @@
       "answer": "需要。SEO和GEO是互补关系，不是替代关系。好的SEO基础有助于GEO，但GEO有独特的优化策略，如增加引用来源、使用统计数据、直接回答问题等，这些是传统SEO较少关注的。"
     }
   },
+  "useCases": {
+    "title": "谁需要 GEO？",
+    "subtitle": "各行业都在拥抱 AI 搜索时代",
+    "blogger": {
+      "title": "内容创作者",
+      "desc": "博主、自媒体、知识付费创作者，让你的专业内容被 AI 主动推荐给目标读者"
+    },
+    "business": {
+      "title": "企业品牌",
+      "desc": "B2B/SaaS 企业、专业服务机构，在 AI 回答中建立品牌权威和行业影响力"
+    },
+    "seo": {
+      "title": "SEO 从业者",
+      "desc": "营销人员、增长黑客，掌握下一代搜索优化技能，抢占 AI 流量红利"
+    },
+    "ecommerce": {
+      "title": "电商卖家",
+      "desc": "品牌商家、独立站卖家，让产品信息出现在 AI 购物助手的推荐中"
+    }
+  },
+  "statistics": {
+    "title": "AI 搜索正在改变一切",
+    "subtitle": "数据来源：Gartner、Similarweb、行业研究报告",
+    "stat1": {
+      "value": "40%",
+      "label": "搜索流量将转向 AI",
+      "desc": "Gartner 预测到 2026 年传统搜索流量将下降 25%"
+    },
+    "stat2": {
+      "value": "1亿+",
+      "label": "ChatGPT 周活用户",
+      "desc": "AI 搜索已成为主流信息获取方式"
+    },
+    "stat3": {
+      "value": "60%",
+      "label": "零点击搜索占比",
+      "desc": "用户直接从 AI 回答获取信息，不再点击链接"
+    },
+    "stat4": {
+      "value": "115%",
+      "label": "引用可见度提升",
+      "desc": "普林斯顿研究：优化后内容被引用概率显著提升"
+    }
+  },
   "analyze": {
-    "title": "内容分析器",
-    "subtitle": "评估你的内容对AI的友好程度",
-    "inputLabel": "输入内容",
-    "urlPlaceholder": "输入URL或粘贴文本内容",
+    "locale": "zh",
+    "title": "GEO 引用测试",
+    "subtitle": "测试你的内容被 AI 引用的可能性",
+    "badge": "基于普林斯顿大学研究",
+    "inputType": {
+      "text": "文本",
+      "url": "网页"
+    },
     "textPlaceholder": "粘贴你的文章、网页内容或任何文本...",
+    "urlPlaceholder": "输入网页 URL，如 https://example.com/article",
     "analyzeBtn": "开始分析",
     "analyzing": "分析中...",
-    "score": "AI友好度评分",
+    "clear": "清空",
+    "overall": "综合评分",
+    "progress": {
+      "title": "AI 正在分析",
+      "extracting": "提取内容主题和关键信息",
+      "generating": "生成相关搜索查询",
+      "simulating": "模拟 AI 搜索引擎响应",
+      "analyzing": "计算引用分数和排名",
+      "queryAnalysis": "分析查询 {index}/{total}",
+      "parallelAnalysis": "并行分析中 ({completed}/{total})",
+      "generatingSources": "生成竞争来源",
+      "generatingAnswer": "生成 AI 回答",
+      "calculatingScore": "计算引用分数"
+    },
+    "characteristics": {
+      "title": "内容特征分析",
+      "statistics": "包含数据统计",
+      "citations": "包含引用来源",
+      "quotes": "包含专家引言",
+      "structure": "结构化内容"
+    },
+    "scoreLevel": {
+      "high": "优秀",
+      "medium": "中等",
+      "low": "待优化"
+    },
+    "rankLevel": {
+      "first": "首位引用",
+      "top": "优先引用",
+      "middle": "中等位置",
+      "low": "较低位置"
+    },
+    "scoreExplanation": "分数基于 AI 实际引用行为计算，包括引用位置、频率和上下文词数",
+    "visibility": "AI可见度提升潜力",
+    "contentStats": "内容统计",
+    "charCount": "字符",
+    "wordCount": "词数",
+    "sentenceCount": "句子",
+    "paragraphCount": "段落",
+    "scores": "GEO 维度评分",
     "suggestions": "优化建议",
-    "factors": {
-      "structure": "结构清晰度",
-      "authority": "权威性信号",
-      "density": "信息密度",
+    "noSuggestions": "内容表现良好",
+    "topic": "内容主题",
+    "queryResults": "AI 引用测试结果",
+    "generatedQueries": "生成的搜索查询",
+    "citationCount": "引用次数",
+    "dimension": {
+      "authoritative": "权威性",
+      "statistics": "统计数据",
+      "citations": "引用来源",
+      "quotations": "专家引言",
       "readability": "可读性",
-      "citations": "引用潜力"
+      "technical": "专业术语",
+      "fluency": "流畅性",
+      "uniqueness": "独特性",
+      "structure": "内容结构"
+    },
+    "dimensionDesc": {
+      "authoritative": "是否包含权威表达，如「专家指出」「研究表明」",
+      "statistics": "是否包含具体数据、百分比、年份等统计信息",
+      "citations": "是否引用可信来源，如研究报告、官方数据",
+      "quotations": "是否包含专家或权威人士的直接引言",
+      "readability": "句子长度是否适中，内容是否易于理解",
+      "technical": "专业术语使用是否恰当，既专业又不晦涩",
+      "fluency": "表达是否流畅，词汇是否丰富多样",
+      "uniqueness": "内容是否有独特的观点或表达方式",
+      "structure": "是否有清晰的标题、段落、列表等结构"
+    },
+    "error": {
+      "empty": "请输入要分析的内容",
+      "tooShort": "内容太短，请输入至少50个字符",
+      "invalidUrl": "请输入有效的网页地址",
+      "failed": "分析失败，请稍后重试"
+    },
+    "detail": {
+      "aiAnswer": "AI 回答",
+      "citations": "引用详情",
+      "sources": "来源对比",
+      "metadata": "分析元数据",
+      "yourContent": "你的内容",
+      "competitor": "竞争来源",
+      "searchResult": "搜索结果",
+      "provider": "服务商",
+      "duration": "耗时",
+      "apiCalls": "API 调用",
+      "model": "模型"
+    },
+    "charUnit": "字符",
+    "strategy": {
+      "title": "GEO 9 大优化策略",
+      "optimize": "优化",
+      "diffTitle": "优化对比",
+      "original": "原文",
+      "optimized": "优化后",
+      "copy": "复制",
+      "cancel": "取消",
+      "apply": "应用"
     }
   },
   "prompts": {
@@ -296,6 +434,14 @@
     "backToList": "返回博客列表",
     "noPosts": "暂无文章",
     "allTags": "全部",
-    "filterByTag": "按标签筛选"
+    "filterByTag": "按标签筛选",
+    "prevPost": "上一篇",
+    "nextPost": "下一篇"
+  },
+  "errorPage": {
+    "title": "出错了",
+    "description": "抱歉，页面加载时发生了错误",
+    "retry": "重试",
+    "backHome": "返回首页"
   }
 }

@@ -1,9 +1,10 @@
+import { Analytics } from "@vercel/analytics/next";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
-import ThemeProvider from "./components/ThemeProvider";
 import { WebsiteJsonLd } from "./components/JsonLd";
 import ScrollToTop from "./components/ScrollToTop";
+import ThemeProvider from "./components/ThemeProvider";
 import "./globals.css";
 
 const siteUrl = "https://deepzd.com";
@@ -14,14 +15,23 @@ export const metadata: Metadata = {
     default: "DeepZD - GEO 生成式引擎优化指南",
     template: "%s | DeepZD",
   },
-  description: "GEO（生成式引擎优化）权威指南。学习如何优化内容结构，让 ChatGPT、Perplexity、Claude 等 AI 搜索引擎主动引用和推荐你的内容。",
-  keywords: ["GEO", "生成式引擎优化", "AI SEO", "ChatGPT优化", "Perplexity优化", "AI搜索引擎", "内容优化"],
+  description:
+    "GEO（生成式引擎优化）权威指南。学习如何优化内容结构，让 ChatGPT、Perplexity、Claude 等 AI 搜索引擎主动引用和推荐你的内容。",
+  keywords: [
+    "GEO",
+    "生成式引擎优化",
+    "AI SEO",
+    "ChatGPT优化",
+    "Perplexity优化",
+    "AI搜索引擎",
+    "内容优化",
+  ],
   authors: [{ name: "DeepZD" }],
   creator: "DeepZD",
   alternates: {
     languages: {
-      "zh": siteUrl,
-      "en": `${siteUrl}/en`,
+      zh: siteUrl,
+      en: `${siteUrl}/en`,
       "x-default": siteUrl,
     },
   },
@@ -61,8 +71,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      suppressHydrationWarning
+    >
       <body className="antialiased font-sans">
+        <Analytics />
         <WebsiteJsonLd />
         <ThemeProvider
           attribute="class"

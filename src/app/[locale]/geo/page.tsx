@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
+import { WebAppJsonLd } from "../../components/JsonLd";
 
 // SVG Icon Component
 function IconComponent({ name, className = "w-5 h-5" }: { name: string; className?: string }) {
@@ -130,6 +131,11 @@ export default function GeoPage() {
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
+      <WebAppJsonLd
+        name="GEO - Generative Engine Optimization"
+        description="Learn how to optimize your content for AI search engines like ChatGPT, Perplexity, and Claude"
+        url={`/${locale}/geo`}
+      />
       <Nav />
       <main className="pt-24 pb-16 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">

@@ -82,6 +82,34 @@ src/app/[locale]/
 - **强调色**: Vercel 蓝 `#0070f3`（仅用于链接和关键数据）
 - **字体**: Geist Sans / Geist Mono
 
+### 图标使用规范
+
+**禁止使用 Emoji 表情符号作为图标**，必须使用 `lucide-react` 图标库。
+
+```typescript
+// ❌ 错误示例
+<span>🔗 链接</span>
+<span>📝 文本</span>
+
+// ✅ 正确示例
+import { Link, FileText } from "lucide-react";
+
+<span><Link className="w-4 h-4" /> 链接</span>
+<span><FileText className="w-4 h-4" /> 文本</span>
+```
+
+**常用图标**：
+- 链接: `Link`
+- 文本/文件: `FileText`
+- 搜索: `Search`
+- 设置: `Settings`
+- 用户: `User`
+- 关闭: `X`
+- 菜单: `Menu`
+- 箭头: `ChevronRight`, `ChevronDown`, `ArrowRight`
+
+图标库文档：https://lucide.dev/icons/
+
 ### SEO 规范
 
 所有页面必须遵循以下 SEO 规则：

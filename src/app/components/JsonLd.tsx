@@ -1,15 +1,18 @@
 // JSON-LD Structured Data for GEO/SEO
 
+const SITE_URL = "https://deepzd.com";
+const ORG_NAME = "DeepZD";
+
 export function WebsiteJsonLd() {
   const data = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "DeepZD",
-    url: "https://deepzd.com",
+    name: ORG_NAME,
+    url: SITE_URL,
     description: "GEO（生成式引擎优化）权威指南",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://deepzd.com/search?q={search_term_string}",
+      target: `${SITE_URL}/search?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };
@@ -46,5 +49,164 @@ export function FAQJsonLd({ faqs }: { faqs: FAQItem[] }) {
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
+  );
+}
+
+/** About page: AboutPage + Organization */
+export function AboutPageJsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: `About ${ORG_NAME}`,
+    url: `${SITE_URL}/about`,
+    mainEntity: {
+      "@type": "Organization",
+      name: ORG_NAME,
+      url: SITE_URL,
+      email: "service@deepzd.com",
+      description: "GEO (Generative Engine Optimization) tool platform",
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+/** WebApplication JSON-LD for tool pages (GEO, citation-test) */
+export function WebAppJsonLd({
+  name,
+  description,
+  url,
+}: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name,
+    description,
+    url: `${SITE_URL}${url}`,
+    applicationCategory: "SEO Tool",
+    operatingSystem: "Web",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    author: {
+      "@type": "Organization",
+      name: ORG_NAME,
+      url: SITE_URL,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+/** Blog list page: CollectionPage */
+export function BlogListJsonLd({ locale }: { locale: string }) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: locale === "zh" ? "DeepZD 博客" : "DeepZD Blog",
+    description: locale === "zh"
+      ? "GEO 优化技巧、AI 搜索趋势和内容策略"
+      : "GEO optimization tips, AI search trends and content strategies",
+    url: `${SITE_URL}/${locale}/blog`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: ORG_NAME,
+      url: SITE_URL,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+/** Blog article page: Article + BreadcrumbList */
+export function ArticleJsonLd({
+  title,
+  description,
+  url,
+  datePublished,
+  locale,
+}: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  locale: string;
+}) {
+  const data = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description,
+      url: `${SITE_URL}${url}`,
+      datePublished,
+      dateModified: datePublished,
+      author: {
+        "@type": "Organization",
+        name: ORG_NAME,
+        url: SITE_URL,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: ORG_NAME,
+        url: SITE_URL,
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: locale === "zh" ? "首页" : "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: locale === "zh" ? "博客" : "Blog",
+          item: `${SITE_URL}/${locale}/blog`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: title,
+        },
+      ],
+    },
+  ];
+
+  return (
+    <>
+      {data.map((d, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(d) }}
+        />
+      ))}
+    </>
   );
 }

@@ -3,12 +3,14 @@
 import { useTranslations } from "next-intl";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
+import { AboutPageJsonLd } from "../../components/JsonLd";
 
 export default function About() {
   const t = useTranslations("about");
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
+      <AboutPageJsonLd />
       <Nav />
       <main className="pt-32 pb-24 px-4 md:px-6">
         <div className="max-w-2xl mx-auto">

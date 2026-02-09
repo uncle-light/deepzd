@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface TocItem {
   id: string;
@@ -14,11 +14,10 @@ interface TableOfContentsProps {
 }
 
 export default function TableOfContents({ content, title = "目录" }: TableOfContentsProps) {
-  const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
 
-  // 解析 Markdown 标题
-  useEffect(() => {
+  // 解析 Markdown 标题（纯计算，无需 effect）
+  const headings = useMemo<TocItem[]>(() => {
     const lines = content.split("\n");
     const items: TocItem[] = [];
 
@@ -32,7 +31,7 @@ export default function TableOfContents({ content, title = "目录" }: TableOfCo
       }
     });
 
-    setHeadings(items);
+    return items;
   }, [content]);
 
   // 监听滚动高亮当前章节

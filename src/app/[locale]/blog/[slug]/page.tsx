@@ -190,7 +190,7 @@ export default async function BlogPost({
                     className="group flex-1 max-w-[45%]"
                   >
                     <span className="text-sm text-[var(--gray-500)] mb-1 block">
-                      {isZh ? "上一篇" : "Previous"}
+                      {t("prevPost")}
                     </span>
                     <span className="text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
                       {isZh ? prev.title_zh : prev.title_en}
@@ -203,7 +203,7 @@ export default async function BlogPost({
                     className="group flex-1 max-w-[45%] text-right"
                   >
                     <span className="text-sm text-[var(--gray-500)] mb-1 block">
-                      {isZh ? "下一篇" : "Next"}
+                      {t("nextPost")}
                     </span>
                     <span className="text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
                       {isZh ? next.title_zh : next.title_en}

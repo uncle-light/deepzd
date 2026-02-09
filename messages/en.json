@@ -6,7 +6,7 @@
   "nav": {
     "geo": "About GEO",
     "blog": "Blog",
-    "analyze": "Analyzer",
+    "analyze": "Citation Test",
     "prompts": "Prompt Tools",
     "about": "About"
   },
@@ -88,22 +88,160 @@
       "answer": "Yes. SEO and GEO are complementary, not substitutes. Good SEO foundations help GEO, but GEO has unique strategies like adding citations, using statistics, and directly answering questions—areas traditional SEO rarely focuses on."
     }
   },
+  "useCases": {
+    "title": "Who Needs GEO?",
+    "subtitle": "Every industry is embracing the AI search era",
+    "blogger": {
+      "title": "Content Creators",
+      "desc": "Bloggers, influencers, and knowledge creators—get your expertise recommended by AI to target audiences"
+    },
+    "business": {
+      "title": "Enterprise Brands",
+      "desc": "B2B/SaaS companies and professional services—build brand authority in AI responses"
+    },
+    "seo": {
+      "title": "SEO Professionals",
+      "desc": "Marketers and growth hackers—master next-gen search optimization and capture AI traffic"
+    },
+    "ecommerce": {
+      "title": "E-commerce Sellers",
+      "desc": "Brands and DTC sellers—get products featured in AI shopping assistant recommendations"
+    }
+  },
+  "statistics": {
+    "title": "AI Search is Changing Everything",
+    "subtitle": "Sources: Gartner, Similarweb, Industry Research",
+    "stat1": {
+      "value": "40%",
+      "label": "Search traffic shifting to AI",
+      "desc": "Gartner predicts 25% decline in traditional search by 2026"
+    },
+    "stat2": {
+      "value": "100M+",
+      "label": "ChatGPT weekly active users",
+      "desc": "AI search has become mainstream for information discovery"
+    },
+    "stat3": {
+      "value": "60%",
+      "label": "Zero-click searches",
+      "desc": "Users get answers directly from AI without clicking links"
+    },
+    "stat4": {
+      "value": "115%",
+      "label": "Citation visibility boost",
+      "desc": "Princeton research: optimized content significantly more likely to be cited"
+    }
+  },
   "analyze": {
-    "title": "Content Analyzer",
-    "subtitle": "Evaluate how AI-friendly your content is",
-    "inputLabel": "Input Content",
-    "urlPlaceholder": "Enter URL or paste text content",
+    "locale": "en",
+    "title": "GEO Citation Test",
+    "subtitle": "Test how likely AI will cite your content",
+    "badge": "Based on Princeton University Research",
+    "inputType": {
+      "text": "Text",
+      "url": "URL"
+    },
     "textPlaceholder": "Paste your article, webpage content or any text...",
+    "urlPlaceholder": "Enter webpage URL, e.g. https://example.com/article",
     "analyzeBtn": "Analyze",
     "analyzing": "Analyzing...",
-    "score": "AI-Friendliness Score",
+    "clear": "Clear",
+    "overall": "Overall Score",
+    "progress": {
+      "title": "AI is analyzing",
+      "extracting": "Extracting topic and key information",
+      "generating": "Generating related search queries",
+      "simulating": "Simulating AI search engine responses",
+      "analyzing": "Calculating citation scores and rankings",
+      "queryAnalysis": "Analyzing query {index}/{total}",
+      "parallelAnalysis": "Parallel analysis ({completed}/{total})",
+      "generatingSources": "Generating competing sources",
+      "generatingAnswer": "Generating AI answer",
+      "calculatingScore": "Calculating citation score"
+    },
+    "characteristics": {
+      "title": "Content Analysis",
+      "statistics": "Has statistics",
+      "citations": "Has citations",
+      "quotes": "Has expert quotes",
+      "structure": "Structured content"
+    },
+    "scoreLevel": {
+      "high": "Excellent",
+      "medium": "Moderate",
+      "low": "Needs Work"
+    },
+    "rankLevel": {
+      "first": "First Citation",
+      "top": "Priority Citation",
+      "middle": "Mid Position",
+      "low": "Lower Position"
+    },
+    "scoreExplanation": "Score based on actual AI citation behavior, including position, frequency, and context word count",
+    "visibility": "AI Visibility Potential",
+    "contentStats": "Content Statistics",
+    "charCount": "Characters",
+    "wordCount": "Words",
+    "sentenceCount": "Sentences",
+    "paragraphCount": "Paragraphs",
+    "scores": "GEO Dimension Scores",
     "suggestions": "Optimization Suggestions",
-    "factors": {
-      "structure": "Structure Clarity",
-      "authority": "Authority Signals",
-      "density": "Information Density",
+    "noSuggestions": "Content looks good",
+    "topic": "Topic",
+    "queryResults": "AI Citation Test Results",
+    "generatedQueries": "Generated Search Queries",
+    "citationCount": "Citations",
+    "dimension": {
+      "authoritative": "Authority",
+      "statistics": "Statistics",
+      "citations": "Citations",
+      "quotations": "Quotations",
       "readability": "Readability",
-      "citations": "Citation Potential"
+      "technical": "Technical Terms",
+      "fluency": "Fluency",
+      "uniqueness": "Uniqueness",
+      "structure": "Structure"
+    },
+    "dimensionDesc": {
+      "authoritative": "Authoritative expressions like \"experts say\", \"research shows\"",
+      "statistics": "Specific data, percentages, years and statistics",
+      "citations": "References to credible sources like research reports",
+      "quotations": "Direct quotes from experts or authorities",
+      "readability": "Appropriate sentence length, easy to understand",
+      "technical": "Professional terms used appropriately",
+      "fluency": "Smooth expression with rich vocabulary",
+      "uniqueness": "Unique perspectives or expressions",
+      "structure": "Clear headings, paragraphs, and lists"
+    },
+    "error": {
+      "empty": "Please enter content to analyze",
+      "tooShort": "Content too short (minimum 50 characters)",
+      "invalidUrl": "Please enter a valid URL",
+      "failed": "Analysis failed, please try again later"
+    },
+    "detail": {
+      "aiAnswer": "AI Answer",
+      "citations": "Citation Details",
+      "sources": "Source Comparison",
+      "metadata": "Analysis Metadata",
+      "yourContent": "Your Content",
+      "competitor": "Competitor",
+      "searchResult": "Search Result",
+      "provider": "Provider",
+      "duration": "Duration",
+      "apiCalls": "API Calls",
+      "model": "Model"
+    },
+    "charUnit": "chars",
+    "strategy": {
+      "title": "GEO 9 Optimization Strategies",
+      "optimize": "Optimize",
+      "diffTitle": "Optimization Diff",
+      "original": "Original",
+      "optimized": "Optimized",
+      "copy": "Copy",
+      "cancel": "Cancel",
+      "apply": "Apply"
     }
   },
   "prompts": {
@@ -296,6 +434,14 @@
     "backToList": "Back to blog",
     "noPosts": "No posts yet",
     "allTags": "All",
-    "filterByTag": "Filter by tag"
+    "filterByTag": "Filter by tag",
+    "prevPost": "Previous",
+    "nextPost": "Next"
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "description": "Sorry, an error occurred while loading the page",
+    "retry": "Try again",
+    "backHome": "Back to home"
   }
 }

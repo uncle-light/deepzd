@@ -40,4 +40,15 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
+
+# playwright
 .playwright-mcp
+
+# cache files
+*cache*.json
+
+# temp files
+/temp/
+
+# reference projects (not part of main codebase)
+/GEO/
