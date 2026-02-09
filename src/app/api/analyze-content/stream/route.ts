@@ -8,6 +8,7 @@ import { NextRequest } from 'next/server';
 import { analyzeContentGeoStream, fetchUrlContent } from '@/lib/geo/content-analyzer';
 import type { SSEEvent } from '@/lib/geo/sse-types';
 import { CONTENT_LIMITS } from '@/lib/constants';
+import { checkRateLimit, getClientIp, RATE_LIMITS } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -103,6 +104,18 @@ async function handleStreamRequest(payload: StreamRequestPayload): Promise<Respo
 }
 
 export async function POST(request: NextRequest) {
+  const ip = getClientIp(request);
+  const rateCheck = checkRateLimit(`analyze:${ip}`, RATE_LIMITS.analyze);
+  if (!rateCheck.allowed) {
+    return new Response(JSON.stringify({ error: 'Too many requests' }), {
+      status: 429,
+      headers: {
+        'Content-Type': 'application/json',
+        'Retry-After': String(rateCheck.retryAfterSeconds),
+      },
+    });
+  }
+
   try {
     const payload = (await request.json()) as StreamRequestPayload;
     return handleStreamRequest(payload);
@@ -112,6 +125,18 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
+  const ip = getClientIp(request);
+  const rateCheck = checkRateLimit(`analyze:${ip}`, RATE_LIMITS.analyze);
+  if (!rateCheck.allowed) {
+    return new Response(JSON.stringify({ error: 'Too many requests' }), {
+      status: 429,
+      headers: {
+        'Content-Type': 'application/json',
+        'Retry-After': String(rateCheck.retryAfterSeconds),
+      },
+    });
+  }
+
   const searchParams = request.nextUrl.searchParams;
   const payload: StreamRequestPayload = {
     content: searchParams.get('content') || '',

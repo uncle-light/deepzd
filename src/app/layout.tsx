@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import { WebsiteJsonLd } from "./components/JsonLd";
 import ScrollToTop from "./components/ScrollToTop";
 import ThemeProvider from "./components/ThemeProvider";
@@ -65,20 +66,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${GeistSans.variable} ${GeistMono.variable}`}
       suppressHydrationWarning
     >
       <body className="antialiased font-sans">
         <Analytics />
-        <WebsiteJsonLd />
+        <WebsiteJsonLd locale={locale} />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

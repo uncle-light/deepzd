@@ -443,5 +443,25 @@
     "description": "抱歉，页面加载时发生了错误",
     "retry": "重试",
     "backHome": "返回首页"
+  },
+  "metadata": {
+    "geo": {
+      "title": "什么是GEO？生成式引擎优化完整指南 | DeepZD",
+      "description": "GEO（Generative Engine Optimization）是针对AI搜索引擎的内容优化策略，让ChatGPT、Claude、Perplexity主动引用你的内容。",
+      "ogTitle": "什么是GEO？生成式引擎优化完整指南",
+      "ogDescription": "让AI主动引用你的内容，掌握GEO核心策略"
+    },
+    "about": {
+      "title": "关于我们 | DeepZD",
+      "description": "DeepZD 是专注于GEO（生成式引擎优化）的知识平台，帮助内容创作者在AI时代获得更多曝光。",
+      "ogTitle": "关于 DeepZD",
+      "ogDescription": "专注于GEO的知识平台"
+    },
+    "blog": {
+      "title": "GEO博客 - 生成式引擎优化文章 | DeepZD",
+      "description": "探索GEO（生成式引擎优化）最新文章、教程和案例分析，学习如何让AI引用你的内容。",
+      "ogTitle": "GEO博客",
+      "ogDescription": "生成式引擎优化文章与教程"
+    }
   }
 }

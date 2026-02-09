@@ -16,13 +16,12 @@ const messages = {
 } as const;
 
 function useLocale(): "zh" | "en" {
-  const [locale, setLocale] = useState<"zh" | "en">("zh");
-
-  useEffect(() => {
-    const lang = navigator.language;
-    setLocale(lang.startsWith("zh") ? "zh" : "en");
-  }, []);
-
+  const [locale] = useState<"zh" | "en">(() => {
+    if (typeof window !== "undefined") {
+      return navigator.language.startsWith("zh") ? "zh" : "en";
+    }
+    return "zh";
+  });
   return locale;
 }
 

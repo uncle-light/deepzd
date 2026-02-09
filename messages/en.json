@@ -443,5 +443,25 @@
     "description": "Sorry, an error occurred while loading the page",
     "retry": "Try again",
     "backHome": "Back to home"
+  },
+  "metadata": {
+    "geo": {
+      "title": "What is GEO? Complete Guide to Generative Engine Optimization | DeepZD",
+      "description": "GEO (Generative Engine Optimization) is a content optimization strategy for AI search engines, helping your content get cited by ChatGPT, Claude, and Perplexity.",
+      "ogTitle": "What is GEO? Complete Guide to Generative Engine Optimization",
+      "ogDescription": "Get AI to cite your content with GEO strategies"
+    },
+    "about": {
+      "title": "About Us | DeepZD",
+      "description": "DeepZD is a knowledge platform focused on GEO (Generative Engine Optimization), helping content creators gain more visibility in the AI era.",
+      "ogTitle": "About DeepZD",
+      "ogDescription": "A knowledge platform focused on GEO"
+    },
+    "blog": {
+      "title": "GEO Blog - Generative Engine Optimization Articles | DeepZD",
+      "description": "Explore the latest GEO articles, tutorials and case studies. Learn how to get your content cited by AI.",
+      "ogTitle": "GEO Blog",
+      "ogDescription": "Generative Engine Optimization articles and tutorials"
+    }
   }
 }

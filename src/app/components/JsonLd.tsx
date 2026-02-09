@@ -3,13 +3,16 @@
 const SITE_URL = "https://deepzd.com";
 const ORG_NAME = "DeepZD";
 
-export function WebsiteJsonLd() {
+export function WebsiteJsonLd({ locale = "zh" }: { locale?: string }) {
   const data = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: ORG_NAME,
     url: SITE_URL,
-    description: "GEO（生成式引擎优化）权威指南",
+    description:
+      locale === "zh"
+        ? "GEO（生成式引擎优化）权威指南"
+        : "The definitive guide to GEO (Generative Engine Optimization)",
     potentialAction: {
       "@type": "SearchAction",
       target: `${SITE_URL}/search?q={search_term_string}`,
@@ -53,18 +56,21 @@ export function FAQJsonLd({ faqs }: { faqs: FAQItem[] }) {
 }
 
 /** About page: AboutPage + Organization */
-export function AboutPageJsonLd() {
+export function AboutPageJsonLd({ locale = "zh" }: { locale?: string }) {
   const data = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: `About ${ORG_NAME}`,
+    name: locale === "zh" ? `关于 ${ORG_NAME}` : `About ${ORG_NAME}`,
     url: `${SITE_URL}/about`,
     mainEntity: {
       "@type": "Organization",
       name: ORG_NAME,
       url: SITE_URL,
       email: "service@deepzd.com",
-      description: "GEO (Generative Engine Optimization) tool platform",
+      description:
+        locale === "zh"
+          ? "GEO（生成式引擎优化）工具平台"
+          : "GEO (Generative Engine Optimization) tool platform",
     },
   };
 
@@ -208,5 +214,34 @@ export function ArticleJsonLd({
         />
       ))}
     </>
+  );
+}
+
+/** Blog list breadcrumb: BreadcrumbList */
+export function BlogBreadcrumbJsonLd({ locale }: { locale: string }) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: locale === "zh" ? "首页" : "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: locale === "zh" ? "博客" : "Blog",
+        item: `${SITE_URL}/${locale}/blog`,
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
   );
 }

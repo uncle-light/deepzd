@@ -1,16 +1,15 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
 import { AboutPageJsonLd } from "../../components/JsonLd";
 
-export default function About() {
-  const t = useTranslations("about");
+export default async function About({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations("about");
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
-      <AboutPageJsonLd />
+      <AboutPageJsonLd locale={locale} />
       <Nav />
       <main className="pt-32 pb-24 px-4 md:px-6">
         <div className="max-w-2xl mx-auto">

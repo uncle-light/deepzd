@@ -1,74 +1,33 @@
-import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+import { BlogListJsonLd, BlogBreadcrumbJsonLd } from "../../components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "GEO博客 - 生成式引擎优化文章 | DeepZD",
-  description: "探索GEO（生成式引擎优化）最新文章、教程和案例分析，学习如何让AI引用你的内容。",
-  openGraph: {
-    title: "GEO博客",
-    description: "生成式引擎优化文章与教程",
-    type: "website",
-  },
-};
-
-function BlogListJsonLd() {
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "GEO博客",
-    description: "生成式引擎优化文章与教程",
-    url: "https://deepzd.com/blog",
-    isPartOf: {
-      "@type": "WebSite",
-      name: "DeepZD",
-      url: "https://deepzd.com",
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("metadata.blog");
+  return {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      type: "website",
     },
   };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
 }
 
-function BreadcrumbJsonLd() {
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "首页",
-        item: "https://deepzd.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "博客",
-        item: "https://deepzd.com/blog",
-      },
-    ],
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
-  );
-}
-
-export default function BlogLayout({
+export default async function BlogLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+
   return (
     <>
-      <BlogListJsonLd />
-      <BreadcrumbJsonLd />
+      <BlogListJsonLd locale={locale} />
+      <BlogBreadcrumbJsonLd locale={locale} />
       {children}
     </>
   );

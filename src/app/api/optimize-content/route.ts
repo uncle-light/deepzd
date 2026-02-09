@@ -9,8 +9,21 @@ import { NextRequest, NextResponse } from 'next/server';
 import { optimizeContent } from '@/lib/geo/optimizer';
 import { GeoStrategy } from '@/lib/geo/strategy-analyzer';
 import { CONTENT_LIMITS } from '@/lib/constants';
+import { checkRateLimit, getClientIp, RATE_LIMITS } from '@/lib/rate-limit';
 
 export async function POST(request: NextRequest) {
+  const ip = getClientIp(request);
+  const rateCheck = checkRateLimit(`optimize:${ip}`, RATE_LIMITS.optimize);
+  if (!rateCheck.allowed) {
+    return NextResponse.json(
+      { error: 'Too many requests' },
+      {
+        status: 429,
+        headers: { 'Retry-After': String(rateCheck.retryAfterSeconds) },
+      }
+    );
+  }
+
   try {
     const body = await request.json();
     const { content, strategy, locale = 'zh' } = body;

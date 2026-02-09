@@ -1,133 +1,34 @@
-"use client";
-
-import React from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import {
+  Tag,
+  Layers,
+  MessageCircle,
+  ShieldCheck,
+  MessageSquare,
+  Search,
+  Sparkles,
+  Cpu,
+  Monitor,
+  Globe,
+  FileText,
+  BarChart3,
+  Eye,
+  Target,
+  LayoutTemplate,
+  Award,
+  RefreshCw,
+  Code,
+  ChevronRight,
+  ExternalLink,
+} from "lucide-react";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
 import { WebAppJsonLd } from "../../components/JsonLd";
 
-// SVG Icon Component
-function IconComponent({ name, className = "w-5 h-5" }: { name: string; className?: string }) {
-  const icons: Record<string, React.ReactNode> = {
-    tag: (
-      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-      </svg>
-    ),
-    layers: (
-      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-      </svg>
-    ),
-    quote: (
-      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-      </svg>
-    ),
-    shield: (
-      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-  };
-  return icons[name] || null;
-}
-
-function PlatformIcon({ name }: { name: string }) {
-  const icons: Record<string, React.ReactNode> = {
-    chat: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-      </svg>
-    ),
-    search: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
-    ),
-    sparkles: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-      </svg>
-    ),
-    cpu: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-      </svg>
-    ),
-    window: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 9h16M12 4v16" />
-      </svg>
-    ),
-    globe: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-      </svg>
-    ),
-  };
-  return icons[name] || null;
-}
-
-function MethodIcon({ name }: { name: string }) {
-  const icons: Record<string, React.ReactNode> = {
-    document: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    ),
-    chart: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    ),
-    chat: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-      </svg>
-    ),
-    eye: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-      </svg>
-    ),
-    target: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-    template: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-      </svg>
-    ),
-    badge: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-      </svg>
-    ),
-    refresh: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-      </svg>
-    ),
-    code: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
-  };
-  return icons[name] || null;
-}
-
-export default function GeoPage() {
-  const t = useTranslations("geo");
-  const params = useParams();
-  const locale = (params.locale as string) || "zh";
+export default async function GeoPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations("geo");
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
@@ -175,7 +76,7 @@ export default function GeoPage() {
   );
 }
 
-function HeroSection({ t, locale }: { t: ReturnType<typeof useTranslations>; locale: string }) {
+function HeroSection({ t, locale }: { t: Awaited<ReturnType<typeof getTranslations>>; locale: string }) {
   return (
     <section className="text-center mb-16">
       <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-[var(--border)] bg-[var(--card-bg)] text-sm text-[var(--gray-400)]">
@@ -189,19 +90,17 @@ function HeroSection({ t, locale }: { t: ReturnType<typeof useTranslations>; loc
         {t("subtitle")}
       </p>
       <Link
-        href={`/${locale}`}
+        href={`/${locale}/citation-test`}
         className="inline-flex items-center gap-2 px-6 py-2.5 border border-[var(--border)] text-[var(--foreground)] rounded-full hover:bg-[var(--card-bg)] hover:border-[var(--border-light)] transition-all"
       >
         {t("cta")}
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
+        <ChevronRight className="w-4 h-4" />
       </Link>
     </section>
   );
 }
 
-function WhatIsGeoSection({ t }: { t: ReturnType<typeof useTranslations> }) {
+function WhatIsGeoSection({ t }: { t: Awaited<ReturnType<typeof getTranslations>> }) {
   return (
     <section className="mb-16">
       <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">{t("whatIs.title")}</h2>
@@ -214,14 +113,14 @@ function WhatIsGeoSection({ t }: { t: ReturnType<typeof useTranslations> }) {
   );
 }
 
-function AISearchSection({ t }: { t: ReturnType<typeof useTranslations> }) {
+function AISearchSection({ t }: { t: Awaited<ReturnType<typeof getTranslations>> }) {
   const platforms = [
-    { key: "chatgpt", icon: "chat" },
-    { key: "perplexity", icon: "search" },
-    { key: "gemini", icon: "sparkles" },
-    { key: "claude", icon: "cpu" },
-    { key: "copilot", icon: "window" },
-    { key: "aiOverview", icon: "globe" },
+    { key: "chatgpt", icon: <MessageSquare className="w-5 h-5" /> },
+    { key: "perplexity", icon: <Search className="w-5 h-5" /> },
+    { key: "gemini", icon: <Sparkles className="w-5 h-5" /> },
+    { key: "claude", icon: <Cpu className="w-5 h-5" /> },
+    { key: "copilot", icon: <Monitor className="w-5 h-5" /> },
+    { key: "aiOverview", icon: <Globe className="w-5 h-5" /> },
   ];
 
   return (
@@ -234,7 +133,7 @@ function AISearchSection({ t }: { t: ReturnType<typeof useTranslations> }) {
           {platforms.map((p) => (
             <div key={p.key} className="flex items-start gap-3">
               <div className="w-6 h-6 text-[var(--gray-400)]">
-                <PlatformIcon name={p.icon} />
+                {p.icon}
               </div>
               <p className="text-sm text-[var(--gray-400)]">{t(`aiSearch.platforms.${p.key}`)}</p>
             </div>
@@ -245,7 +144,7 @@ function AISearchSection({ t }: { t: ReturnType<typeof useTranslations> }) {
   );
 }
 
-function ZeroClickSection({ t }: { t: ReturnType<typeof useTranslations> }) {
+function ZeroClickSection({ t }: { t: Awaited<ReturnType<typeof getTranslations>> }) {
   return (
     <section className="mb-16">
       <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">{t("zeroClick.title")}</h2>
@@ -262,12 +161,12 @@ function ZeroClickSection({ t }: { t: ReturnType<typeof useTranslations> }) {
   );
 }
 
-function PrinciplesSection({ t }: { t: ReturnType<typeof useTranslations> }) {
+function PrinciplesSection({ t }: { t: Awaited<ReturnType<typeof getTranslations>> }) {
   const principles = [
-    { key: "entity", icon: "tag" },
-    { key: "semantic", icon: "layers" },
-    { key: "citability", icon: "quote" },
-    { key: "reliability", icon: "shield" },
+    { key: "entity", icon: <Tag className="w-5 h-5" /> },
+    { key: "semantic", icon: <Layers className="w-5 h-5" /> },
+    { key: "citability", icon: <MessageCircle className="w-5 h-5" /> },
+    { key: "reliability", icon: <ShieldCheck className="w-5 h-5" /> },
   ];
 
   return (
@@ -281,7 +180,7 @@ function PrinciplesSection({ t }: { t: ReturnType<typeof useTranslations> }) {
             className="p-5 rounded-lg bg-[var(--card-bg)] border border-[var(--border)]"
           >
             <div className="w-10 h-10 rounded-md bg-[var(--surface-muted)] text-[var(--gray-400)] flex items-center justify-center mb-3">
-              <IconComponent name={p.icon} />
+              {p.icon}
             </div>
             <h3 className="font-semibold mb-2 text-[var(--foreground)]">
               {t(`principles.${p.key}.title`)}
@@ -296,7 +195,7 @@ function PrinciplesSection({ t }: { t: ReturnType<typeof useTranslations> }) {
   );
 }
 
-function ComparisonSection({ t }: { t: ReturnType<typeof useTranslations> }) {
+function ComparisonSection({ t }: { t: Awaited<ReturnType<typeof getTranslations>> }) {
   const items = ["target", "goal", "metrics", "content", "result"];
 
   return (
@@ -326,17 +225,17 @@ function ComparisonSection({ t }: { t: ReturnType<typeof useTranslations> }) {
   );
 }
 
-function MethodsSection({ t }: { t: ReturnType<typeof useTranslations> }) {
+function MethodsSection({ t }: { t: Awaited<ReturnType<typeof getTranslations>> }) {
   const methods = [
-    { icon: "document", key: "citations" },
-    { icon: "chart", key: "statistics" },
-    { icon: "chat", key: "quotations" },
-    { icon: "eye", key: "readability" },
-    { icon: "target", key: "directAnswer" },
-    { icon: "template", key: "structure" },
-    { icon: "badge", key: "authority" },
-    { icon: "refresh", key: "freshness" },
-    { icon: "code", key: "schema" },
+    { icon: <FileText className="w-5 h-5" />, key: "citations" },
+    { icon: <BarChart3 className="w-5 h-5" />, key: "statistics" },
+    { icon: <MessageCircle className="w-5 h-5" />, key: "quotations" },
+    { icon: <Eye className="w-5 h-5" />, key: "readability" },
+    { icon: <Target className="w-5 h-5" />, key: "directAnswer" },
+    { icon: <LayoutTemplate className="w-5 h-5" />, key: "structure" },
+    { icon: <Award className="w-5 h-5" />, key: "authority" },
+    { icon: <RefreshCw className="w-5 h-5" />, key: "freshness" },
+    { icon: <Code className="w-5 h-5" />, key: "schema" },
   ];
 
   return (
@@ -350,7 +249,7 @@ function MethodsSection({ t }: { t: ReturnType<typeof useTranslations> }) {
             className="p-5 rounded-lg bg-[var(--card-bg)] border border-[var(--border)] hover:border-[var(--border-light)] transition-colors"
           >
             <div className="w-10 h-10 rounded-md bg-[var(--surface-muted)] flex items-center justify-center mb-3 text-[var(--gray-400)]">
-              <MethodIcon name={method.icon} />
+              {method.icon}
             </div>
             <h3 className="font-semibold mb-2 text-[var(--foreground)]">
               {t(`methods.${method.key}.title`)}
@@ -365,7 +264,7 @@ function MethodsSection({ t }: { t: ReturnType<typeof useTranslations> }) {
   );
 }
 
-function StatsSection({ t }: { t: ReturnType<typeof useTranslations> }) {
+function StatsSection({ t }: { t: Awaited<ReturnType<typeof getTranslations>> }) {
   const stats = [
     { value: "40%", key: "visibility" },
     { value: "180%", key: "citation" },
@@ -391,7 +290,7 @@ function StatsSection({ t }: { t: ReturnType<typeof useTranslations> }) {
   );
 }
 
-function ResearchSection({ t }: { t: ReturnType<typeof useTranslations> }) {
+function ResearchSection({ t }: { t: Awaited<ReturnType<typeof getTranslations>> }) {
   return (
     <section className="mb-16">
       <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">{t("research.title")}</h2>
@@ -406,22 +305,20 @@ function ResearchSection({ t }: { t: ReturnType<typeof useTranslations> }) {
           className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
         >
           {t("research.paper.link")}
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
+          <ExternalLink className="w-4 h-4" />
         </a>
       </div>
     </section>
   );
 }
 
-function CTASection({ t, locale }: { t: ReturnType<typeof useTranslations>; locale: string }) {
+function CTASection({ t, locale }: { t: Awaited<ReturnType<typeof getTranslations>>; locale: string }) {
   return (
     <section className="text-center p-8 rounded-lg bg-[var(--card-bg)] border border-[var(--border)]">
       <h2 className="text-2xl font-bold mb-4 text-[var(--foreground)]">{t("ctaSection.title")}</h2>
       <p className="text-[var(--gray-400)] mb-6">{t("ctaSection.desc")}</p>
       <Link
-        href={`/${locale}`}
+        href={`/${locale}/citation-test`}
         className="inline-flex items-center gap-2 px-6 py-2.5 border border-[var(--border)] text-[var(--foreground)] rounded-full hover:bg-[var(--card-bg)] hover:border-[var(--border-light)] transition-all"
       >
         {t("ctaSection.button")}
