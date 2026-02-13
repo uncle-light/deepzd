@@ -67,9 +67,9 @@ body {
   color: white;
 }
 
-/* 焦点样式 */
+/* 焦点样式 — Vercel 风格：前景色细线 */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 1px solid var(--foreground);
   outline-offset: 2px;
 }
 

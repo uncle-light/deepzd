@@ -20,6 +20,17 @@ interface RateLimitResult {
 
 const store = new Map<string, number[]>();
 
+function resolveRateLimitEnabled(): boolean {
+  const explicit = process.env.ENFORCE_RATE_LIMIT?.trim().toLowerCase();
+  if (explicit) {
+    return explicit === "1" || explicit === "true" || explicit === "yes" || explicit === "on";
+  }
+  // Default: disabled in local/dev, enabled in production.
+  return process.env.NODE_ENV === "production";
+}
+
+const RATE_LIMIT_ENABLED = resolveRateLimitEnabled();
+
 // Auto-cleanup stale entries every 5 minutes
 const CLEANUP_INTERVAL_MS = 5 * 60 * 1000;
 
@@ -49,6 +60,14 @@ function ensureCleanup(windowMs: number) {
  * Check whether a request identified by `key` is within the rate limit.
  */
 export function checkRateLimit(key: string, config: RateLimitConfig): RateLimitResult {
+  if (!RATE_LIMIT_ENABLED) {
+    return {
+      allowed: true,
+      retryAfterSeconds: 0,
+      remaining: config.limit,
+    };
+  }
+
   ensureCleanup(config.windowMs);
 
   const now = Date.now();
@@ -84,21 +103,40 @@ export function checkRateLimit(key: string, config: RateLimitConfig): RateLimitR
  * Checks common proxy headers, falls back to "unknown".
  */
 export function getClientIp(request: Request): string {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) {
-    return forwarded.split(",")[0].trim();
+  const ipHeaders = [
+    "cf-connecting-ip",
+    "x-real-ip",
+    "x-forwarded-for",
+    "x-vercel-forwarded-for",
+    "forwarded",
+  ];
+
+  for (const name of ipHeaders) {
+    const value = request.headers.get(name);
+    if (!value) continue;
+
+    const first = value.split(",")[0].trim();
+    if (!first) continue;
+
+    // RFC 7239 Forwarded: for=1.2.3.4;proto=https
+    if (name === "forwarded") {
+      const match = first.match(/for="?([^;"]+)"?/i);
+      if (match?.[1]) return match[1].trim();
+      continue;
+    }
+
+    return first;
   }
-  const realIp = request.headers.get("x-real-ip");
-  if (realIp) {
-    return realIp.trim();
-  }
+
   return "unknown";
 }
 
 // Pre-configured limiters for the two API routes
 export const RATE_LIMITS = {
-  /** /api/analyze-content/stream — 5 requests per minute */
-  analyze: { limit: 5, windowMs: 60 * 1000 },
-  /** /api/optimize-content — 10 requests per minute */
+  /** /api/chat — chat + tool workflow */
+  chat: { limit: 20, windowMs: 60 * 1000 },
+  /** /api/analyze-content/stream */
+  analyze: { limit: 20, windowMs: 60 * 1000 },
+  /** /api/optimize-content */
   optimize: { limit: 10, windowMs: 60 * 1000 },
 } as const;

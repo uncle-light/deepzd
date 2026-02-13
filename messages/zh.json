@@ -6,9 +6,10 @@
   "nav": {
     "geo": "了解GEO",
     "blog": "博客",
-    "analyze": "引用测试",
+    "analyze": "内容分析与优化",
     "prompts": "Prompt工具箱",
-    "about": "关于"
+    "about": "关于",
+    "login": "登录"
   },
   "hero": {
     "badge": "AI时代的内容优化策略",
@@ -134,8 +135,8 @@
   },
   "analyze": {
     "locale": "zh",
-    "title": "GEO 引用测试",
-    "subtitle": "测试你的内容被 AI 引用的可能性",
+    "title": "内容分析与优化",
+    "subtitle": "分析内容表现并优化，提升 AI 引用率",
     "badge": "基于普林斯顿大学研究",
     "inputType": {
       "text": "文本",
@@ -144,6 +145,8 @@
     "textPlaceholder": "粘贴你的文章、网页内容或任何文本...",
     "urlPlaceholder": "输入网页 URL，如 https://example.com/article",
     "analyzeBtn": "开始分析",
+    "cancelBtn": "取消分析",
+    "retryBtn": "重试",
     "analyzing": "分析中...",
     "clear": "清空",
     "overall": "综合评分",
@@ -177,7 +180,7 @@
       "middle": "中等位置",
       "low": "较低位置"
     },
-    "scoreExplanation": "分数基于 AI 实际引用行为计算，包括引用位置、频率和上下文词数",
+    "scoreExplanation": "综合评分 = 60% AI 引用模拟 + 40% 内容质量评估",
     "visibility": "AI可见度提升潜力",
     "contentStats": "内容统计",
     "charCount": "字符",
@@ -217,7 +220,9 @@
       "empty": "请输入要分析的内容",
       "tooShort": "内容太短，请输入至少50个字符",
       "invalidUrl": "请输入有效的网页地址",
-      "failed": "分析失败，请稍后重试"
+      "failed": "分析失败，请稍后重试",
+      "optimizeFailed": "优化失败",
+      "optimizeRequestFailed": "优化请求失败"
     },
     "detail": {
       "aiAnswer": "AI 回答",
@@ -233,6 +238,29 @@
       "model": "模型"
     },
     "charUnit": "字符",
+    "grade": {
+      "a": {
+        "label": "A",
+        "name": "优秀",
+        "desc": "内容具备较强的AI引用潜力，结构和质量表现出色"
+      },
+      "b": {
+        "label": "B",
+        "name": "良好",
+        "desc": "内容有一定的AI引用潜力，部分维度仍有提升空间"
+      },
+      "c": {
+        "label": "C",
+        "name": "一般",
+        "desc": "内容的AI引用潜力有限，建议参考优化建议进行改进"
+      },
+      "d": {
+        "label": "D",
+        "name": "待改进",
+        "desc": "内容需要较大幅度的优化才能提升AI引用可能性"
+      },
+      "disclaimer": "本评分基于模拟环境，仅供参考"
+    },
     "strategy": {
       "title": "GEO 9 大优化策略",
       "optimize": "优化",
@@ -241,7 +269,90 @@
       "optimized": "优化后",
       "copy": "复制",
       "cancel": "取消",
-      "apply": "应用"
+      "apply": "应用",
+      "noData": "暂无数据"
+    },
+    "score": {
+      "urlTitle": "AI 搜索引用率",
+      "textTitle": "内容质量评分",
+      "citationRate": "引用率",
+      "queriesCited": "个查询被引用",
+      "qualityScore": "质量评分",
+      "topic": "主题",
+      "wordCount": "词",
+      "charCount": "字符",
+      "disclaimer": "本评分基于模拟环境，仅供参考",
+      "textDisclaimer": "文本模式仅进行本地策略分析，不验证实际引用情况。"
+    },
+    "competitors": {
+      "title": "竞争对手排名",
+      "queries": "查询",
+      "engines": "引擎"
+    },
+    "mode": {
+      "url": "URL 验证",
+      "text": "文本分析"
+    },
+    "urlMode": {
+      "title": "AI 搜索引用验证",
+      "subtitle": "检测你的内容是否被真实 AI 搜索引擎引用",
+      "citationRate": "引用率",
+      "citedBy": "被引用",
+      "notCited": "未被引用",
+      "competitors": "竞争对手",
+      "queriesCited": "{cited}/{total} 个查询引用了你的内容",
+      "engineResult": "引擎结果",
+      "answerPreview": "AI 原文回答",
+      "citationPosition": "引用位置",
+      "noCitations": "未发现引用",
+      "noAnswer": "该引擎未返回回答内容",
+      "queries": "查询",
+      "engines": "引擎",
+      "engine": {
+        "volc": "火山引擎",
+        "glm": "智谱 GLM",
+        "openai": "OpenAI"
+      }
+    },
+    "textMode": {
+      "title": "内容质量评估",
+      "subtitle": "基于 GEO 9 大策略的本地分析",
+      "disclaimer": "这是内容质量评估，不是引用预测。发布内容后，可使用 URL 模式验证真实 AI 引用情况。",
+      "qualityScore": "质量评分"
+    },
+    "progressV2": {
+      "fetchingUrl": "正在抓取网页内容...",
+      "searchingEngine": "正在搜索 {engine}...",
+      "verifying": "正在验证引用...",
+      "analyzingQuality": "正在分析内容质量..."
+    },
+    "emptyState": {
+      "title": "输入 URL 或文本开始分析",
+      "desc": "URL 模式验证真实 AI 引用，文本模式评估内容质量"
+    },
+    "chat": {
+      "fetchingUrl": "正在抓取页面内容...",
+      "analyzingContent": "正在分析内容...",
+      "contentFeatures": "内容特征检测",
+      "evaluatingQuality": "正在评估内容质量...",
+      "urlFetched": "已获取页面内容",
+      "topicIdentified": "识别主题：「{topic}」",
+      "generatingQueries": "正在生成测试查询...",
+      "queriesGenerated": "生成了 {count} 个测试查询",
+      "startingVerification": "开始多引擎验证...",
+      "verifyingQuery": "验证查询 {index}：{query}",
+      "engineCited": "引用了你的页面",
+      "engineNotCited": "未引用",
+      "verificationSummary": "整体引用率 {rate}%，在 {total} 个查询中被引用了 {cited} 次",
+      "qualitySummary": "综合质量评分：{score}/100（{grade}）",
+      "optimizePrompt": "「{strategy}」维度得分较低（{score}/100），要我帮你优化这个维度吗？",
+      "optimizeBtn": "帮我优化",
+      "skipBtn": "跳过",
+      "optimizing": "正在优化内容...",
+      "optimizeDone": "优化完成",
+      "optimizeResult": "优化要点：{changes}",
+      "editInput": "编辑",
+      "reanalyze": "重新分析"
     }
   },
   "prompts": {
@@ -261,6 +372,29 @@
   "about": {
     "desc1": "一个专注 GEO（生成式引擎优化）的知识平台。",
     "desc2": "帮你理解 AI 搜索时代的内容优化——如何让 ChatGPT、Claude、Perplexity 主动引用你的内容。",
+    "mission": {
+      "title": "我们的使命",
+      "desc": "AI 正在重塑信息获取方式。越来越多的用户通过 ChatGPT、Perplexity 等 AI 搜索引擎获取答案，而非传统搜索引擎。DeepZD 帮助内容创作者适应这一变革，确保优质内容在 AI 时代依然被看见、被引用、被推荐。"
+    },
+    "offerings": {
+      "title": "我们提供什么",
+      "analysis": {
+        "title": "引用测试",
+        "desc": "模拟 AI 搜索引擎行为，测试你的内容被引用的可能性，提供多维度评分和优化建议。"
+      },
+      "knowledge": {
+        "title": "GEO 知识库",
+        "desc": "基于普林斯顿大学等顶尖机构的学术研究，系统化整理 GEO 优化策略和最佳实践。"
+      },
+      "optimization": {
+        "title": "内容优化",
+        "desc": "9 大优化策略一键应用，帮助你的内容在结构、权威性、可引用性等维度全面提升。"
+      }
+    },
+    "openSource": {
+      "title": "开放与透明",
+      "desc": "DeepZD 的分析方法基于公开的学术研究，我们相信透明的方法论才能带来真正有价值的优化建议。"
+    },
     "contact": "联系我们"
   },
   "footer": {
@@ -446,22 +580,353 @@
   },
   "metadata": {
     "geo": {
-      "title": "什么是GEO？生成式引擎优化完整指南 | DeepZD",
+      "title": "什么是GEO？生成式引擎优化完整指南",
       "description": "GEO（Generative Engine Optimization）是针对AI搜索引擎的内容优化策略，让ChatGPT、Claude、Perplexity主动引用你的内容。",
       "ogTitle": "什么是GEO？生成式引擎优化完整指南",
       "ogDescription": "让AI主动引用你的内容，掌握GEO核心策略"
     },
     "about": {
-      "title": "关于我们 | DeepZD",
+      "title": "关于我们",
       "description": "DeepZD 是专注于GEO（生成式引擎优化）的知识平台，帮助内容创作者在AI时代获得更多曝光。",
       "ogTitle": "关于 DeepZD",
       "ogDescription": "专注于GEO的知识平台"
     },
     "blog": {
-      "title": "GEO博客 - 生成式引擎优化文章 | DeepZD",
+      "title": "GEO博客 - 生成式引擎优化文章",
       "description": "探索GEO（生成式引擎优化）最新文章、教程和案例分析，学习如何让AI引用你的内容。",
       "ogTitle": "GEO博客",
       "ogDescription": "生成式引擎优化文章与教程"
     }
+  },
+  "auth": {
+    "email": "邮箱",
+    "password": "密码",
+    "name": "姓名",
+    "or": "或",
+    "forgotPasswordLink": "忘记密码",
+    "login": {
+      "title": "登录",
+      "subtitle": "登录你的 DeepZD 账户",
+      "submit": "登录",
+      "loading": "登录中...",
+      "google": "使用 Google 登录",
+      "noAccount": "还没有账号？",
+      "signUp": "注册"
+    },
+    "register": {
+      "title": "注册",
+      "subtitle": "创建你的 DeepZD 账户",
+      "submit": "注册",
+      "loading": "注册中...",
+      "hasAccount": "已有账号？",
+      "signIn": "登录",
+      "passwordHint": "至少 6 个字符",
+      "checkEmail": "请查收邮件",
+      "checkEmailDesc": "我们已发送验证链接到你的邮箱，请点击链接完成注册"
+    },
+    "forgotPassword": {
+      "title": "忘记密码",
+      "subtitle": "输入你的邮箱，我们将发送重置链接",
+      "submit": "发送重置链接",
+      "loading": "发送中...",
+      "backToLogin": "返回登录",
+      "checkEmail": "请查收邮件",
+      "checkEmailDesc": "密码重置链接已发送到你的邮箱"
+    },
+    "errors": {
+      "invalidCredentials": "邮箱或密码错误",
+      "emailExists": "该邮箱已被注册",
+      "weakPassword": "密码至少需要 6 个字符",
+      "generic": "操作失败，请稍后重试"
+    }
+  },
+  "dashboard": {
+    "title": "工作台",
+    "welcome": "欢迎回来，{name}",
+    "welcomeDesc": "从这里开始分析和优化你的内容",
+    "analyzeDesc": "分析内容表现并执行优化",
+    "historyDesc": "查看你的所有分析记录",
+    "settingsDesc": "管理你的账户信息",
+    "recentAnalyses": "最近分析",
+    "nav": {
+      "dashboard": "工作台",
+      "analyze": "内容分析与优化",
+      "history": "分析历史",
+      "settings": "账户设置",
+      "signOut": "退出登录",
+      "apiKeys": "API Keys",
+      "monitors": "品牌监控"
+    },
+    "plan": {
+      "free": "免费版",
+      "pro": "专业版",
+      "enterprise": "企业版",
+      "upgrade": "升级计划"
+    },
+    "stats": {
+      "totalAnalyses": "总分析次数",
+      "avgScore": "平均评分",
+      "recentAnalyses": "最近分析",
+      "thisMonth": "本月分析",
+      "scoreTrend": "评分趋势",
+      "strategyOverview": "策略雷达",
+      "noData": "暂无数据"
+    },
+    "analyze": {
+      "title": "内容分析与优化",
+      "desc": "分析内容表现并执行优化"
+    },
+    "history": {
+      "title": "分析历史",
+      "empty": "暂无分析记录",
+      "delete": "删除",
+      "viewDetail": "查看详情",
+      "score": "评分",
+      "date": "日期",
+      "type": "类型",
+      "all": "全部",
+      "urlType": "URL 分析",
+      "textType": "文本分析",
+      "today": "今天",
+      "thisWeek": "本周",
+      "earlier": "更早",
+      "confirmDelete": "确定要删除这条分析记录吗？此操作不可撤销。",
+      "cancel": "取消"
+    },
+    "settings": {
+      "title": "账户设置",
+      "profile": "个人资料",
+      "email": "邮箱",
+      "name": "姓名",
+      "nameDesc": "用于展示的显示名称",
+      "nameHint": "最多 32 个字符",
+      "save": "保存",
+      "saving": "保存中...",
+      "saved": "已保存",
+      "error": "保存失败，请重试",
+      "avatar": "头像",
+      "avatarHint": "点击上传新头像",
+      "avatarUploading": "上传中...",
+      "avatarSuccess": "头像已更新",
+      "avatarError": "头像上传失败",
+      "avatarTooLarge": "文件大小不能超过 2MB",
+      "language": "语言偏好",
+      "languageHint": "切换后页面将自动刷新",
+      "password": "修改密码",
+      "passwordDesc": "仅邮箱密码登录的用户可修改",
+      "currentPassword": "当前密码",
+      "newPassword": "新密码",
+      "confirmPassword": "确认新密码",
+      "passwordMismatch": "两次输入的密码不一致",
+      "passwordTooShort": "密码至少 6 个字符",
+      "passwordChanged": "密码已修改",
+      "passwordError": "密码修改失败",
+      "changePassword": "修改密码",
+      "changingPassword": "修改中...",
+      "dangerZone": "危险操作",
+      "deleteAccount": "删除账户",
+      "deleteWarning": "此操作不可撤销，所有数据将被永久删除",
+      "deleteConfirm": "确认删除",
+      "deleteConfirmText": "请输入 DELETE 确认删除账户",
+      "deleting": "删除中...",
+      "cancel": "取消"
+    }
+  },
+  "pricing": {
+    "title": "选择适合你的方案",
+    "subtitle": "从免费开始，随时升级",
+    "monthly": "月付",
+    "yearly": "年付",
+    "yearlyDiscount": "省 20%",
+    "perMonth": "/月",
+    "perYear": "/年",
+    "current": "当前方案",
+    "upgrade": "升级",
+    "getStarted": "免费开始",
+    "contactUs": "联系我们",
+    "popular": "最受欢迎",
+    "free": {
+      "name": "免费版",
+      "desc": "适合个人体验",
+      "f1": "每月 5 次分析",
+      "f2": "分析历史记录",
+      "f3": "基础策略评分"
+    },
+    "pro": {
+      "name": "专业版",
+      "desc": "适合内容创作者",
+      "f1": "每月 100 次分析",
+      "f2": "分析历史记录",
+      "f3": "报告导出",
+      "f4": "API 访问",
+      "f5": "优先支持"
+    },
+    "enterprise": {
+      "name": "企业版",
+      "desc": "适合团队和企业",
+      "f1": "无限次分析",
+      "f2": "分析历史记录",
+      "f3": "报告导出",
+      "f4": "API 访问",
+      "f5": "优先支持",
+      "f6": "自定义引擎",
+      "f7": "团队管理"
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": "免费版有什么限制？",
+      "a1": "免费版每月可进行 5 次内容分析，包含完整的策略评分和优化建议。",
+      "q2": "可以随时取消订阅吗？",
+      "a2": "可以，你可以随时取消订阅，当前计费周期结束后不再续费。",
+      "q3": "支持哪些支付方式？",
+      "a3": "我们通过 Stripe 支持信用卡和借记卡支付。",
+      "q4": "企业版如何定制？",
+      "a4": "请联系我们的销售团队，我们将根据你的需求提供定制方案。"
+    }
+  },
+  "apiKeys": {
+    "title": "API Keys",
+    "desc": "管理你的 API 密钥，用于程序化访问分析接口",
+    "create": "创建密钥",
+    "name": "密钥名称",
+    "namePlaceholder": "例如：我的应用",
+    "creating": "创建中...",
+    "empty": "暂无 API 密钥",
+    "emptyDesc": "创建一个密钥来通过 API 访问分析功能",
+    "createdAt": "创建时间",
+    "lastUsed": "最后使用",
+    "never": "从未使用",
+    "delete": "删除",
+    "confirmDelete": "确认删除此密钥？删除后无法恢复。",
+    "newKeyWarning": "请立即复制此密钥，关闭后将无法再次查看",
+    "copied": "已复制",
+    "copy": "复制"
+  },
+  "chat": {
+    "placeholder": "输入 URL 或文本进行分析与优化，或提问关于 GEO 策略的问题...",
+    "send": "发送",
+    "stop": "停止",
+    "thinking": "思考中...",
+    "analyzing": "正在分析...",
+    "newChat": "新对话",
+    "emptyTitle": "内容分析与优化",
+    "emptyDesc": "输入 URL 或文本开始分析与优化，或提问关于 GEO 策略的问题",
+    "analyzingUrl": "正在分析 URL...",
+    "analyzingText": "正在分析文本...",
+    "optimizing": "正在优化内容...",
+    "progressElapsedPrefix": "已用时",
+    "progressStopHint": "分析耗时可能较长，按 Esc 可停止",
+    "progressFetch": "抓取页面内容并提取正文",
+    "progressQuery": "生成搜索查询与评估主题",
+    "progressVerify": "调用 AI 搜索引擎进行引用验证",
+    "progressAggregate": "聚合结果并计算策略评分",
+    "progressRender": "整理可视化结果",
+    "progressRead": "读取并解析文本结构",
+    "progressScore": "评估 9 个 GEO 策略维度",
+    "progressSuggest": "生成优化建议",
+    "progressOptimizePlan": "分析原文并规划优化策略",
+    "progressOptimizeRewrite": "按策略进行改写",
+    "progressOptimizeReview": "校对并生成最终版本"
+  },
+  "monitors": {
+    "title": "品牌监控",
+    "subtitle": "追踪你的品牌在 AI 搜索中的表现",
+    "create": "创建监控",
+    "empty": "暂无品牌监控",
+    "emptyDesc": "创建一个监控来追踪品牌在 AI 搜索中的提及情况",
+    "form": {
+      "name": "监控名称",
+      "namePlaceholder": "例如：我的品牌监控",
+      "brandNames": "品牌名称",
+      "brandNamesHint": "输入品牌名和别名，回车添加",
+      "competitors": "竞争品牌",
+      "addCompetitor": "添加竞品",
+      "keywords": "行业关键词",
+      "keywordsHint": "输入行业关键词，回车添加",
+      "save": "保存",
+      "cancel": "取消",
+      "aiSuggest": "AI 生成竞品和关键词",
+      "aiSuggesting": "正在生成...",
+      "editTitle": "编辑监控"
+    },
+    "setup": {
+      "createTitle": "创建品牌监控",
+      "editTitle": "编辑品牌监控",
+      "save": "保存",
+      "saving": "保存中...",
+      "aiGenerate": "AI 一键生成竞品、关键词和问题",
+      "aiGenerating": "AI 正在分析品牌信息...",
+      "optional": "可选"
+    },
+    "brand": {
+      "title": "品牌设置",
+      "name": "监控名称",
+      "namePlaceholder": "例如：我的品牌监控",
+      "brandNameLabel": "品牌名称",
+      "brandNamePlaceholder": "例如：雅诗兰黛",
+      "website": "官网地址",
+      "websitePlaceholder": "https://example.com",
+      "description": "品牌简介",
+      "descriptionPlaceholder": "简要描述你的品牌、产品或服务...",
+      "brandNames": "品牌词",
+      "brandNamesHint": "输入品牌名和别名，回车添加",
+      "brandNamesCount": "%count%/5"
+    },
+    "competitor": {
+      "title": "竞品设置",
+      "add": "添加竞品",
+      "aiGenerate": "AI 生成",
+      "aiGenerating": "生成中...",
+      "namePlaceholder": "竞品名称",
+      "aliasPlaceholder": "别名，回车添加",
+      "aliasCount": "%count%/5"
+    },
+    "questions": {
+      "title": "AI 问题推荐",
+      "generate": "生成问题",
+      "generating": "生成中...",
+      "coreKeywords": "核心关键词",
+      "coreKeywordsHint": "输入核心关键词，回车添加",
+      "addQuestion": "添加问题",
+      "questionPlaceholder": "输入问题...",
+      "questionCount": "%count%/%total% 个问题",
+      "recommendation": "推荐/建议",
+      "comparison": "对比/评测",
+      "inquiry": "咨询/查询",
+      "save": "保存",
+      "cancel": "取消",
+      "empty": "点击「生成问题」按钮，AI 将根据核心关键词自动生成相关问题"
+    },
+    "check": {
+      "run": "运行检查",
+      "running": "检查中...",
+      "lastCheck": "上次检查",
+      "never": "从未检查",
+      "progress": "正在查询 {current}/{total}",
+      "complete": "检查完成"
+    },
+    "metrics": {
+      "mentionRate": "品牌提及率",
+      "avgPosition": "平均推荐位置",
+      "shareOfVoice": "声量占比",
+      "sentiment": "情感倾向",
+      "positive": "正面",
+      "neutral": "中性",
+      "negative": "负面"
+    },
+    "detail": {
+      "query": "查询",
+      "mentioned": "已提及",
+      "notMentioned": "未提及",
+      "position": "位置",
+      "competitors": "竞品提及",
+      "engineBreakdown": "引擎详情",
+      "aiAnswer": "AI 原文回答",
+      "checkHistory": "检查历史",
+      "noChecks": "暂无检查记录"
+    },
+    "delete": "删除监控",
+    "confirmDelete": "确定删除？所有检查记录也将被删除。",
+    "edit": "编辑"
   }
 }

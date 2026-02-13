@@ -254,6 +254,25 @@ export interface ChatResponse {
   annotations?: WebSearchAnnotation[];
 }
 
+function extractTextFromContent(content: unknown): string {
+  if (typeof content === "string") return content;
+  if (!Array.isArray(content)) return "";
+
+  let text = "";
+  for (const item of content) {
+    if (typeof item === "string") {
+      text += item;
+      continue;
+    }
+    if (!item || typeof item !== "object") continue;
+    const block = item as { text?: unknown };
+    if (typeof block.text === "string") {
+      text += block.text;
+    }
+  }
+  return text;
+}
+
 /**
  * Call AI API with chat messages (supports multiple completions and tools)
  * Returns ChatResponse[] with text and optional annotations (for web search)
@@ -265,16 +284,18 @@ export async function callAIChat(
   const opts = { ...DEFAULT_OPTIONS, n: 1, retries: 3, retryDelay: 5000, ...options };
   const requestId = Math.random().toString(36).slice(2, 8);
 
-  // 检查是否需要使用 Responses API（当使用 web_search 等内置工具时）
+  // 检查是否需要使用 Responses API
+  // 注意：Responses API 仅 OpenAI 支持，GLM 等其他 provider 使用标准 chat/completions
   const hasBuiltInTools = opts.tools?.some(t =>
     t.type === 'web_search' || t.type === 'web_search_preview'
   );
+  const useResponsesApi = hasBuiltInTools && opts.provider === 'openai';
 
   log('info', 'REQUEST', `[${requestId}] Starting chat request`, {
     provider: opts.provider,
     messageCount: messages.length,
     tools: opts.tools?.map(t => t.type),
-    useResponsesApi: hasBuiltInTools,
+    useResponsesApi,
   });
 
   // Convert ChatMessage to LangChain format
@@ -287,7 +308,7 @@ export async function callAIChat(
     }
   });
 
-  let model = createModel({ ...opts, useResponsesApi: hasBuiltInTools });
+  let model = createModel({ ...opts, useResponsesApi });
 
   // Bind tools if provided
   if (opts.tools && opts.tools.length > 0) {
@@ -309,15 +330,11 @@ export async function callAIChat(
         let text = '';
         let annotations: WebSearchAnnotation[] | undefined;
 
-        if (typeof content === 'string') {
-          text = content;
-        } else if (Array.isArray(content)) {
+        text = extractTextFromContent(content);
+        if (Array.isArray(content)) {
           // Handle array content (may contain text and annotations)
           for (const item of content) {
             const c = item as { type?: string; text?: string; annotations?: WebSearchAnnotation[] };
-            if (c.text) {
-              text += c.text;
-            }
             if (c.annotations && Array.isArray(c.annotations)) {
               annotations = c.annotations;
             }
@@ -368,6 +385,89 @@ export async function callAIChat(
   }
 
   return [] as ChatResponse[];
+}
+
+/**
+ * Call AI API with token streaming.
+ * Yields text deltas progressively.
+ */
+export async function* callAIChatStream(
+  messages: ChatMessage[],
+  options?: ChatOptions
+): AsyncGenerator<string> {
+  const opts = { ...DEFAULT_OPTIONS, retries: 2, retryDelay: 1200, ...options };
+  const requestId = Math.random().toString(36).slice(2, 8);
+
+  const hasBuiltInTools = opts.tools?.some((t) =>
+    t.type === "web_search" || t.type === "web_search_preview"
+  );
+  const useResponsesApi = hasBuiltInTools && opts.provider === "openai";
+
+  log("info", "STREAM", `[${requestId}] Starting streaming request`, {
+    provider: opts.provider,
+    messageCount: messages.length,
+    useResponsesApi,
+  });
+
+  const { HumanMessage, SystemMessage, AIMessage } = await import(
+    "@langchain/core/messages"
+  );
+  const langchainMessages = messages.map((m) => {
+    switch (m.role) {
+      case "system":
+        return new SystemMessage(m.content);
+      case "assistant":
+        return new AIMessage(m.content);
+      default:
+        return new HumanMessage(m.content);
+    }
+  });
+
+  let model = createModel({ ...opts, useResponsesApi });
+  if (opts.tools && opts.tools.length > 0) {
+    model = model.bindTools(opts.tools) as ChatOpenAI;
+  }
+
+  const startTime = Date.now();
+
+  for (let attempt = 0; attempt < opts.retries; attempt++) {
+    try {
+      let chunkCount = 0;
+      let charCount = 0;
+
+      const stream = await model.stream(langchainMessages);
+      for await (const chunk of stream) {
+        chunkCount += 1;
+        const delta = extractTextFromContent((chunk as { content?: unknown }).content);
+        if (!delta) continue;
+        charCount += delta.length;
+        yield delta;
+      }
+
+      const duration = Date.now() - startTime;
+      log("info", "STREAM", `[${requestId}] Completed in ${duration}ms`, {
+        chunkCount,
+        charCount,
+      });
+      return;
+    } catch (error) {
+      const aiError = parseError(error, opts.provider);
+      const duration = Date.now() - startTime;
+
+      log("error", "STREAM", `[${requestId}] Attempt ${attempt + 1} failed after ${duration}ms`, {
+        code: aiError.code,
+        message: aiError.message,
+        status: aiError.status,
+        retryable: aiError.retryable,
+      });
+
+      if (!aiError.retryable || attempt >= opts.retries - 1) {
+        throw new Error(aiError.message);
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, opts.retryDelay));
+    }
+  }
 }
 
 /**
@@ -478,7 +578,7 @@ async function callVolcWebSearch(
   requestId: string
 ): Promise<ChatResponse> {
   // 使用支持联网搜索的模型
-  const model = process.env.VOLC_WEB_SEARCH_MODEL || 'doubao-seed-1-6-250615';
+  const model = process.env.VOLC_WEB_SEARCH_MODEL || 'doubao-seed-1-8-251228';
 
   // 构建 input 参数（responses API 格式：content 是数组）
   const input = messages.map(m => ({

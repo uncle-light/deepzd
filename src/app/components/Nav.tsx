@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import UserMenu from "./UserMenu";
 
 const navItems = [
   { href: "/geo", key: "geo" },
@@ -11,7 +12,11 @@ const navItems = [
   { href: "/about", key: "about" },
 ];
 
-export default function Nav() {
+interface NavProps {
+  user?: { name?: string | null; avatarUrl?: string | null } | null;
+}
+
+export default function Nav({ user }: NavProps = {}) {
   const pathname = usePathname();
   const params = useParams();
   const router = useRouter();
@@ -114,6 +119,19 @@ export default function Nav() {
               </div>
             )}
           </div>
+
+          {/* Auth */}
+          <div className="w-px h-5 bg-[var(--border)] mx-2" />
+          {user ? (
+            <UserMenu locale={locale} userName={user.name} avatarUrl={user.avatarUrl} />
+          ) : (
+            <Link
+              href={`/${locale}/login`}
+              className="px-4 py-1.5 text-sm border border-[var(--border)] rounded-full text-[var(--foreground)] hover:bg-[var(--card-bg)] transition-colors"
+            >
+              {t("login")}
+            </Link>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -173,6 +191,26 @@ export default function Nav() {
             English
           </button>
         </div>
+
+        {/* Mobile Auth */}
+        {!user && (
+          <Link
+            href={`/${locale}/login`}
+            onClick={() => setIsOpen(false)}
+            className="block px-4 py-3 text-sm text-center text-[var(--foreground)] bg-[var(--card-bg)] border-b border-[var(--border)]"
+          >
+            {t("login")}
+          </Link>
+        )}
+        {user && (
+          <Link
+            href={`/${locale}/dashboard`}
+            onClick={() => setIsOpen(false)}
+            className="block px-4 py-3 text-sm text-[var(--foreground)] border-b border-[var(--border)]"
+          >
+            Dashboard
+          </Link>
+        )}
       </div>
     </nav>
   );

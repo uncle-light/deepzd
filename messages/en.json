@@ -6,9 +6,10 @@
   "nav": {
     "geo": "About GEO",
     "blog": "Blog",
-    "analyze": "Citation Test",
+    "analyze": "Content Analysis & Optimization",
     "prompts": "Prompt Tools",
-    "about": "About"
+    "about": "About",
+    "login": "Sign In"
   },
   "hero": {
     "badge": "Content Optimization for the AI Era",
@@ -134,8 +135,8 @@
   },
   "analyze": {
     "locale": "en",
-    "title": "GEO Citation Test",
-    "subtitle": "Test how likely AI will cite your content",
+    "title": "Content Analysis & Optimization",
+    "subtitle": "Analyze content performance and optimize it for better AI citation",
     "badge": "Based on Princeton University Research",
     "inputType": {
       "text": "Text",
@@ -144,6 +145,8 @@
     "textPlaceholder": "Paste your article, webpage content or any text...",
     "urlPlaceholder": "Enter webpage URL, e.g. https://example.com/article",
     "analyzeBtn": "Analyze",
+    "cancelBtn": "Cancel",
+    "retryBtn": "Retry",
     "analyzing": "Analyzing...",
     "clear": "Clear",
     "overall": "Overall Score",
@@ -177,7 +180,7 @@
       "middle": "Mid Position",
       "low": "Lower Position"
     },
-    "scoreExplanation": "Score based on actual AI citation behavior, including position, frequency, and context word count",
+    "scoreExplanation": "Overall = 60% AI citation simulation + 40% content quality assessment",
     "visibility": "AI Visibility Potential",
     "contentStats": "Content Statistics",
     "charCount": "Characters",
@@ -217,7 +220,9 @@
       "empty": "Please enter content to analyze",
       "tooShort": "Content too short (minimum 50 characters)",
       "invalidUrl": "Please enter a valid URL",
-      "failed": "Analysis failed, please try again later"
+      "failed": "Analysis failed, please try again later",
+      "optimizeFailed": "Optimization failed",
+      "optimizeRequestFailed": "Optimization request failed"
     },
     "detail": {
       "aiAnswer": "AI Answer",
@@ -233,6 +238,29 @@
       "model": "Model"
     },
     "charUnit": "chars",
+    "grade": {
+      "a": {
+        "label": "A",
+        "name": "Excellent",
+        "desc": "Content has strong AI citation potential with excellent structure and quality"
+      },
+      "b": {
+        "label": "B",
+        "name": "Good",
+        "desc": "Content has moderate AI citation potential with room for improvement"
+      },
+      "c": {
+        "label": "C",
+        "name": "Fair",
+        "desc": "Limited AI citation potential, consider following optimization suggestions"
+      },
+      "d": {
+        "label": "D",
+        "name": "Needs Work",
+        "desc": "Content needs significant optimization to improve AI citation likelihood"
+      },
+      "disclaimer": "Scores are based on simulated environments and for reference only"
+    },
     "strategy": {
       "title": "GEO 9 Optimization Strategies",
       "optimize": "Optimize",
@@ -241,7 +269,90 @@
       "optimized": "Optimized",
       "copy": "Copy",
       "cancel": "Cancel",
-      "apply": "Apply"
+      "apply": "Apply",
+      "noData": "No data"
+    },
+    "score": {
+      "urlTitle": "AI Search Citation Rate",
+      "textTitle": "Content Quality Score",
+      "citationRate": "Citation Rate",
+      "queriesCited": "queries cited",
+      "qualityScore": "Quality Score",
+      "topic": "Topic",
+      "wordCount": "words",
+      "charCount": "chars",
+      "disclaimer": "Scores are based on simulated environments and for reference only",
+      "textDisclaimer": "Text mode only performs local strategy analysis without verifying actual citations."
+    },
+    "competitors": {
+      "title": "Competitor Ranking",
+      "queries": "queries",
+      "engines": "engines"
+    },
+    "mode": {
+      "url": "URL Verification",
+      "text": "Text Analysis"
+    },
+    "urlMode": {
+      "title": "AI Search Citation Verification",
+      "subtitle": "Check if your content is cited by real AI search engines",
+      "citationRate": "Citation Rate",
+      "citedBy": "Cited",
+      "notCited": "Not Cited",
+      "competitors": "Competitors",
+      "queriesCited": "{cited}/{total} queries cited your content",
+      "engineResult": "Engine Result",
+      "answerPreview": "AI Original Answer",
+      "citationPosition": "Citation Position",
+      "noCitations": "No citations found",
+      "noAnswer": "This engine did not return an answer",
+      "queries": "queries",
+      "engines": "engines",
+      "engine": {
+        "volc": "Volcengine",
+        "glm": "GLM",
+        "openai": "OpenAI"
+      }
+    },
+    "textMode": {
+      "title": "Content Quality Assessment",
+      "subtitle": "Local analysis based on GEO 9 strategies",
+      "disclaimer": "This is a content quality assessment, not a citation prediction. After publishing, use URL mode to verify real AI citations.",
+      "qualityScore": "Quality Score"
+    },
+    "progressV2": {
+      "fetchingUrl": "Fetching webpage content...",
+      "searchingEngine": "Searching {engine}...",
+      "verifying": "Verifying citations...",
+      "analyzingQuality": "Analyzing content quality..."
+    },
+    "emptyState": {
+      "title": "Enter a URL or text to start",
+      "desc": "URL mode verifies real AI citations, text mode evaluates content quality"
+    },
+    "chat": {
+      "fetchingUrl": "Fetching page content...",
+      "analyzingContent": "Analyzing content...",
+      "contentFeatures": "Content features detected",
+      "evaluatingQuality": "Evaluating content quality...",
+      "urlFetched": "Page content fetched",
+      "topicIdentified": "Topic identified: \"{topic}\"",
+      "generatingQueries": "Generating test queries...",
+      "queriesGenerated": "Generated {count} test queries",
+      "startingVerification": "Starting multi-engine verification...",
+      "verifyingQuery": "Verifying query {index}: {query}",
+      "engineCited": "Cited your page",
+      "engineNotCited": "Not cited",
+      "verificationSummary": "Overall citation rate {rate}%, cited in {cited} of {total} queries",
+      "qualitySummary": "Quality score: {score}/100 ({grade})",
+      "optimizePrompt": "\"{strategy}\" scored low ({score}/100). Want me to optimize this dimension?",
+      "optimizeBtn": "Optimize",
+      "skipBtn": "Skip",
+      "optimizing": "Optimizing content...",
+      "optimizeDone": "Optimization complete",
+      "optimizeResult": "Key changes: {changes}",
+      "editInput": "Edit",
+      "reanalyze": "Re-analyze"
     }
   },
   "prompts": {
@@ -261,6 +372,29 @@
   "about": {
     "desc1": "A knowledge platform focused on GEO (Generative Engine Optimization).",
     "desc2": "Helping you understand content optimization in the AI search era — how to get ChatGPT, Claude, and Perplexity to cite your content.",
+    "mission": {
+      "title": "Our Mission",
+      "desc": "AI is reshaping how people access information. More users are turning to ChatGPT, Perplexity, and other AI search engines for answers instead of traditional search. DeepZD helps content creators adapt to this shift, ensuring quality content remains visible, cited, and recommended in the AI era."
+    },
+    "offerings": {
+      "title": "What We Offer",
+      "analysis": {
+        "title": "Citation Test",
+        "desc": "Simulate AI search engine behavior, test how likely your content is to be cited, and get multi-dimensional scores with optimization suggestions."
+      },
+      "knowledge": {
+        "title": "GEO Knowledge Base",
+        "desc": "Systematically organized GEO optimization strategies and best practices, based on academic research from Princeton University and other top institutions."
+      },
+      "optimization": {
+        "title": "Content Optimization",
+        "desc": "Apply 9 optimization strategies with one click, improving your content across structure, authority, citability, and more."
+      }
+    },
+    "openSource": {
+      "title": "Open & Transparent",
+      "desc": "DeepZD's analysis methods are based on published academic research. We believe transparent methodology leads to truly valuable optimization insights."
+    },
     "contact": "Get in touch"
   },
   "footer": {
@@ -446,22 +580,353 @@
   },
   "metadata": {
     "geo": {
-      "title": "What is GEO? Complete Guide to Generative Engine Optimization | DeepZD",
+      "title": "What is GEO? Complete Guide to Generative Engine Optimization",
       "description": "GEO (Generative Engine Optimization) is a content optimization strategy for AI search engines, helping your content get cited by ChatGPT, Claude, and Perplexity.",
       "ogTitle": "What is GEO? Complete Guide to Generative Engine Optimization",
       "ogDescription": "Get AI to cite your content with GEO strategies"
     },
     "about": {
-      "title": "About Us | DeepZD",
+      "title": "About Us",
       "description": "DeepZD is a knowledge platform focused on GEO (Generative Engine Optimization), helping content creators gain more visibility in the AI era.",
       "ogTitle": "About DeepZD",
       "ogDescription": "A knowledge platform focused on GEO"
     },
     "blog": {
-      "title": "GEO Blog - Generative Engine Optimization Articles | DeepZD",
+      "title": "GEO Blog - Generative Engine Optimization Articles",
       "description": "Explore the latest GEO articles, tutorials and case studies. Learn how to get your content cited by AI.",
       "ogTitle": "GEO Blog",
       "ogDescription": "Generative Engine Optimization articles and tutorials"
     }
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "name": "Full Name",
+    "or": "or",
+    "forgotPasswordLink": "Forgot password",
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Sign in to your DeepZD account",
+      "submit": "Sign In",
+      "loading": "Signing in...",
+      "google": "Continue with Google",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up"
+    },
+    "register": {
+      "title": "Sign Up",
+      "subtitle": "Create your DeepZD account",
+      "submit": "Sign Up",
+      "loading": "Creating account...",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "passwordHint": "At least 6 characters",
+      "checkEmail": "Check your email",
+      "checkEmailDesc": "We've sent a verification link to your email. Click the link to complete registration."
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "subtitle": "Enter your email and we'll send you a reset link",
+      "submit": "Send Reset Link",
+      "loading": "Sending...",
+      "backToLogin": "Back to sign in",
+      "checkEmail": "Check your email",
+      "checkEmailDesc": "A password reset link has been sent to your email"
+    },
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "emailExists": "This email is already registered",
+      "weakPassword": "Password must be at least 6 characters",
+      "generic": "Something went wrong, please try again"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back, {name}",
+    "welcomeDesc": "Start analyzing and optimizing your content",
+    "analyzeDesc": "Analyze content performance and optimize it",
+    "historyDesc": "View all your analysis records",
+    "settingsDesc": "Manage your account information",
+    "recentAnalyses": "Recent Analyses",
+    "nav": {
+      "dashboard": "Dashboard",
+      "analyze": "Analysis & Optimization",
+      "history": "History",
+      "settings": "Settings",
+      "signOut": "Sign Out",
+      "apiKeys": "API Keys",
+      "monitors": "Brand Monitor"
+    },
+    "plan": {
+      "free": "Free",
+      "pro": "Pro",
+      "enterprise": "Enterprise",
+      "upgrade": "Upgrade Plan"
+    },
+    "stats": {
+      "totalAnalyses": "Total Analyses",
+      "avgScore": "Average Score",
+      "recentAnalyses": "Recent Analyses",
+      "thisMonth": "This Month",
+      "scoreTrend": "Score Trend",
+      "strategyOverview": "Strategy Overview",
+      "noData": "No data yet"
+    },
+    "analyze": {
+      "title": "Content Analysis & Optimization",
+      "desc": "Analyze content performance and optimize it for better AI citation"
+    },
+    "history": {
+      "title": "Analysis History",
+      "empty": "No analyses yet",
+      "delete": "Delete",
+      "viewDetail": "View Details",
+      "score": "Score",
+      "date": "Date",
+      "type": "Type",
+      "all": "All",
+      "urlType": "URL Analysis",
+      "textType": "Text Analysis",
+      "today": "Today",
+      "thisWeek": "This Week",
+      "earlier": "Earlier",
+      "confirmDelete": "Are you sure you want to delete this analysis? This action cannot be undone.",
+      "cancel": "Cancel"
+    },
+    "settings": {
+      "title": "Account Settings",
+      "profile": "Profile",
+      "email": "Email",
+      "name": "Name",
+      "nameDesc": "Your display name",
+      "nameHint": "Max 32 characters",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved",
+      "error": "Failed to save, please try again",
+      "avatar": "Avatar",
+      "avatarHint": "Click to upload a new avatar",
+      "avatarUploading": "Uploading...",
+      "avatarSuccess": "Avatar updated",
+      "avatarError": "Failed to upload avatar",
+      "avatarTooLarge": "File size must be under 2MB",
+      "language": "Language",
+      "languageHint": "Page will refresh after switching",
+      "password": "Change Password",
+      "passwordDesc": "Only available for email/password users",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password",
+      "passwordMismatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "passwordChanged": "Password changed",
+      "passwordError": "Failed to change password",
+      "changePassword": "Change Password",
+      "changingPassword": "Changing...",
+      "dangerZone": "Danger Zone",
+      "deleteAccount": "Delete Account",
+      "deleteWarning": "This action cannot be undone. All data will be permanently deleted",
+      "deleteConfirm": "Confirm Delete",
+      "deleteConfirmText": "Type DELETE to confirm account deletion",
+      "deleting": "Deleting...",
+      "cancel": "Cancel"
+    }
+  },
+  "pricing": {
+    "title": "Choose Your Plan",
+    "subtitle": "Start free, upgrade anytime",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "yearlyDiscount": "Save 20%",
+    "perMonth": "/mo",
+    "perYear": "/yr",
+    "current": "Current Plan",
+    "upgrade": "Upgrade",
+    "getStarted": "Get Started Free",
+    "contactUs": "Contact Us",
+    "popular": "Most Popular",
+    "free": {
+      "name": "Free",
+      "desc": "For personal use",
+      "f1": "5 analyses per month",
+      "f2": "Analysis history",
+      "f3": "Basic strategy scores"
+    },
+    "pro": {
+      "name": "Pro",
+      "desc": "For content creators",
+      "f1": "100 analyses per month",
+      "f2": "Analysis history",
+      "f3": "Report export",
+      "f4": "API access",
+      "f5": "Priority support"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "desc": "For teams and businesses",
+      "f1": "Unlimited analyses",
+      "f2": "Analysis history",
+      "f3": "Report export",
+      "f4": "API access",
+      "f5": "Priority support",
+      "f6": "Custom engines",
+      "f7": "Team management"
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "What are the Free plan limitations?",
+      "a1": "The Free plan includes 5 content analyses per month with full strategy scores and optimization suggestions.",
+      "q2": "Can I cancel anytime?",
+      "a2": "Yes, you can cancel your subscription at any time. It remains active until the end of the current billing period.",
+      "q3": "What payment methods are supported?",
+      "a3": "We accept credit and debit cards through Stripe.",
+      "q4": "How does Enterprise customization work?",
+      "a4": "Contact our sales team and we'll create a custom plan tailored to your needs."
+    }
+  },
+  "apiKeys": {
+    "title": "API Keys",
+    "desc": "Manage your API keys for programmatic access to the analysis API",
+    "create": "Create Key",
+    "name": "Key Name",
+    "namePlaceholder": "e.g. My App",
+    "creating": "Creating...",
+    "empty": "No API keys yet",
+    "emptyDesc": "Create a key to access the analysis API programmatically",
+    "createdAt": "Created",
+    "lastUsed": "Last Used",
+    "never": "Never",
+    "delete": "Delete",
+    "confirmDelete": "Are you sure? This key will be permanently deleted.",
+    "newKeyWarning": "Copy this key now. You won't be able to see it again.",
+    "copied": "Copied",
+    "copy": "Copy"
+  },
+  "chat": {
+    "placeholder": "Enter a URL or text to analyze and optimize, or ask about GEO strategy...",
+    "send": "Send",
+    "stop": "Stop",
+    "thinking": "Thinking...",
+    "analyzing": "Analyzing...",
+    "newChat": "New Chat",
+    "emptyTitle": "Content Analysis & Optimization",
+    "emptyDesc": "Enter a URL or text to start analysis and optimization, or ask about GEO strategy",
+    "analyzingUrl": "Analyzing URL...",
+    "analyzingText": "Analyzing text...",
+    "optimizing": "Optimizing content...",
+    "progressElapsedPrefix": "Elapsed",
+    "progressStopHint": "This may take some time. Press Esc to stop",
+    "progressFetch": "Fetching page content and extracting text",
+    "progressQuery": "Generating search queries and topic",
+    "progressVerify": "Verifying citations across AI search engines",
+    "progressAggregate": "Aggregating results and scoring strategies",
+    "progressRender": "Preparing visualized results",
+    "progressRead": "Reading and parsing text structure",
+    "progressScore": "Scoring 9 GEO strategy dimensions",
+    "progressSuggest": "Generating optimization suggestions",
+    "progressOptimizePlan": "Analyzing content and planning optimization",
+    "progressOptimizeRewrite": "Rewriting by selected strategy",
+    "progressOptimizeReview": "Reviewing and finalizing output"
+  },
+  "monitors": {
+    "title": "Brand Monitor",
+    "subtitle": "Track your brand visibility in AI search",
+    "create": "Create Monitor",
+    "empty": "No brand monitors yet",
+    "emptyDesc": "Create a monitor to track how your brand appears in AI search results",
+    "form": {
+      "name": "Monitor Name",
+      "namePlaceholder": "e.g. My Brand Monitor",
+      "brandNames": "Brand Names",
+      "brandNamesHint": "Type brand name or alias, press Enter to add",
+      "competitors": "Competitor Brands",
+      "addCompetitor": "Add Competitor",
+      "keywords": "Industry Keywords",
+      "keywordsHint": "Type industry keyword, press Enter to add",
+      "save": "Save",
+      "cancel": "Cancel",
+      "aiSuggest": "AI suggest competitors & keywords",
+      "aiSuggesting": "Generating...",
+      "editTitle": "Edit Monitor"
+    },
+    "setup": {
+      "createTitle": "Create Brand Monitor",
+      "editTitle": "Edit Brand Monitor",
+      "save": "Save",
+      "saving": "Saving...",
+      "aiGenerate": "AI Auto-Generate Competitors, Keywords & Questions",
+      "aiGenerating": "AI is analyzing brand info...",
+      "optional": "Optional"
+    },
+    "brand": {
+      "title": "Brand Settings",
+      "name": "Monitor Name",
+      "namePlaceholder": "e.g. My Brand Monitor",
+      "brandNameLabel": "Brand Name",
+      "brandNamePlaceholder": "e.g. Estée Lauder",
+      "website": "Website",
+      "websitePlaceholder": "https://example.com",
+      "description": "Brand Description",
+      "descriptionPlaceholder": "Briefly describe your brand, product or service...",
+      "brandNames": "Brand Names",
+      "brandNamesHint": "Type brand name or alias, press Enter to add",
+      "brandNamesCount": "%count%/5"
+    },
+    "competitor": {
+      "title": "Competitor Settings",
+      "add": "Add Competitor",
+      "aiGenerate": "AI Generate",
+      "aiGenerating": "Generating...",
+      "namePlaceholder": "Competitor name",
+      "aliasPlaceholder": "Alias, press Enter to add",
+      "aliasCount": "%count%/5"
+    },
+    "questions": {
+      "title": "AI Question Recommendations",
+      "generate": "Generate Questions",
+      "generating": "Generating...",
+      "coreKeywords": "Core Keywords",
+      "coreKeywordsHint": "Type core keyword, press Enter to add",
+      "addQuestion": "Add Question",
+      "questionPlaceholder": "Enter a question...",
+      "questionCount": "%count%/%total% questions",
+      "recommendation": "Recommendation",
+      "comparison": "Comparison",
+      "inquiry": "Inquiry",
+      "save": "Save",
+      "cancel": "Cancel",
+      "empty": "Click \"Generate Questions\" to let AI create relevant questions from your core keywords"
+    },
+    "check": {
+      "run": "Run Check",
+      "running": "Checking...",
+      "lastCheck": "Last Check",
+      "never": "Never",
+      "progress": "Querying {current}/{total}",
+      "complete": "Check Complete"
+    },
+    "metrics": {
+      "mentionRate": "Mention Rate",
+      "avgPosition": "Avg Position",
+      "shareOfVoice": "Share of Voice",
+      "sentiment": "Sentiment",
+      "positive": "Positive",
+      "neutral": "Neutral",
+      "negative": "Negative"
+    },
+    "detail": {
+      "query": "Query",
+      "mentioned": "Mentioned",
+      "notMentioned": "Not Mentioned",
+      "position": "Position",
+      "competitors": "Competitors",
+      "engineBreakdown": "Engine Breakdown",
+      "aiAnswer": "AI Answer",
+      "checkHistory": "Check History",
+      "noChecks": "No checks yet"
+    },
+    "delete": "Delete Monitor",
+    "confirmDelete": "Are you sure? All check records will also be deleted.",
+    "edit": "Edit"
   }
 }
