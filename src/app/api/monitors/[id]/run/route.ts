@@ -98,6 +98,7 @@ export async function POST(request: NextRequest, context: RouteContext) {
     searchVolume: r.search_volume,
     sortOrder: r.sort_order,
     enabled: r.enabled,
+    tags: r.tags ?? [],
   }));
 
   // 5. Create check record (status=running)

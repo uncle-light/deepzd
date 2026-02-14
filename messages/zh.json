@@ -893,6 +893,9 @@
       "recommendation": "推荐/建议",
       "comparison": "对比/评测",
       "inquiry": "咨询/查询",
+      "evaluation": "评价/口碑",
+      "tutorial": "教程/指南",
+      "pricing": "价格/选购",
       "save": "保存",
       "cancel": "取消",
       "empty": "点击「生成问题」按钮，AI 将根据核心关键词自动生成相关问题"

@@ -73,7 +73,12 @@ export default function MonitorSetup({
       const res = await fetch("/api/monitors/ai-setup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ brandName: brandName.trim(), locale }),
+        body: JSON.stringify({
+          brandName: brandName.trim(),
+          brandDescription: brandDescription.trim(),
+          brandWebsite: brandWebsite.trim(),
+          locale,
+        }),
       });
       if (!res.ok) throw new Error("Failed");
       const data = await res.json();
@@ -105,6 +110,7 @@ export default function MonitorSetup({
             searchVolume: q.searchVolume ?? 0,
             sortOrder: groupMap.get(kw)!.questions.length,
             enabled: true,
+            tags: [],
           });
         }
         setQuestions(Array.from(groupMap.values()));
@@ -207,28 +213,28 @@ export default function MonitorSetup({
   const isCreate = !monitorId;
 
   return (
-    <div className="max-w-2xl mx-auto pb-24">
+    <div className="max-w-3xl mx-auto pb-24">
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-12">
         <Link
           href={`/${locale}/dashboard/monitors`}
-          className="inline-flex items-center gap-1.5 text-xs text-[var(--gray-500)] hover:text-[var(--foreground)] transition-colors mb-4"
+          className="inline-flex items-center gap-1.5 text-sm text-[var(--gray-500)] hover:text-[var(--foreground)] transition-colors mb-6"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
+          <ArrowLeft className="w-4 h-4" />
           {locale === "zh" ? "返回监控列表" : "Back to monitors"}
         </Link>
-        <h1 className="text-lg font-semibold text-[var(--foreground)] tracking-tight">
+        <h1 className="text-3xl font-bold text-[var(--foreground)] tracking-tight">
           {isCreate ? ts("createTitle") : ts("editTitle")}
         </h1>
-        <p className="text-sm text-[var(--gray-500)] mt-1">
+        <p className="text-sm text-[var(--gray-500)] mt-2">
           {locale === "zh"
             ? "配置品牌信息，AI 将自动监控您的品牌在搜索引擎中的表现"
             : "Configure brand info. AI will monitor your brand visibility in search engines."}
         </p>
       </div>
 
-      {/* Step 1: Brand */}
-      <div className="space-y-8">
+      {/* Sections */}
+      <div className="divide-y divide-[var(--border)]">
         <BrandSettingsSection
           name={name}
           setName={setName}
@@ -260,18 +266,20 @@ export default function MonitorSetup({
 
         {/* AI one-click generate (create mode only) */}
         {isCreate && (
-          <button
-            onClick={handleAISetup}
-            disabled={generating || !brandName.trim()}
-            className="group w-full flex items-center justify-center gap-2.5 py-3.5 text-sm font-medium rounded-lg bg-gradient-to-r from-[var(--surface-muted)] to-[var(--background)] border border-[var(--border)] text-[var(--foreground)] hover:border-[var(--gray-400)] transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            {generating ? (
-              <Loader2 className="w-4 h-4 animate-spin" />
-            ) : (
-              <Sparkles className="w-4 h-4 text-[var(--gray-500)] group-hover:text-[var(--foreground)] transition-colors" />
-            )}
-            {generating ? ts("aiGenerating") : ts("aiGenerate")}
-          </button>
+          <div className="py-8">
+            <button
+              onClick={handleAISetup}
+              disabled={generating || !brandName.trim()}
+              className="group w-full flex items-center justify-center gap-2.5 h-12 text-sm font-medium rounded-lg border border-dashed border-[var(--gray-300)] text-[var(--foreground)] hover:border-[var(--foreground)] hover:bg-[var(--surface-muted)] transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              {generating ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <Sparkles className="w-4 h-4 text-[var(--gray-400)] group-hover:text-[var(--foreground)] transition-colors" />
+              )}
+              {generating ? ts("aiGenerating") : ts("aiGenerate")}
+            </button>
+          </div>
         )}
 
         {/* Step 2: Competitors */}
@@ -313,6 +321,9 @@ export default function MonitorSetup({
             recommendation: tq("recommendation"),
             comparison: tq("comparison"),
             inquiry: tq("inquiry"),
+            evaluation: tq("evaluation"),
+            tutorial: tq("tutorial"),
+            pricing: tq("pricing"),
             save: tq("save"),
             cancel: tq("cancel"),
             empty: tq("empty"),
@@ -323,21 +334,21 @@ export default function MonitorSetup({
 
       {/* Sticky save bar */}
       <div className="fixed bottom-0 left-0 right-0 md:left-[220px] z-20 border-t border-[var(--border)] bg-[var(--background)]/80 backdrop-blur-sm">
-        <div className="max-w-2xl mx-auto flex items-center justify-between px-4 py-3 md:px-6">
+        <div className="max-w-3xl mx-auto flex items-center justify-between px-6 py-4">
           <div className="flex-1">
             {error && (
-              <p className="text-xs text-red-500">{error}</p>
+              <p className="text-sm text-red-500">{error}</p>
             )}
           </div>
           <button
             onClick={handleSave}
             disabled={saving}
-            className="flex items-center gap-1.5 px-5 py-2 text-sm font-medium rounded-md bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-opacity disabled:opacity-50"
+            className="flex items-center gap-2 px-8 h-10 text-sm font-medium rounded-md bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-opacity disabled:opacity-50"
           >
             {saving ? (
-              <Loader2 className="w-3.5 h-3.5 animate-spin" />
+              <Loader2 className="w-4 h-4 animate-spin" />
             ) : (
-              <Save className="w-3.5 h-3.5" />
+              <Save className="w-4 h-4" />
             )}
             {saving ? ts("saving") : ts("save")}
           </button>

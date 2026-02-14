@@ -97,11 +97,11 @@ export default function CompetitorSettingsSection({
   };
 
   return (
-    <section>
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-[13px] font-medium text-[var(--foreground)]">
+    <section className="py-8">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-base font-semibold text-[var(--foreground)]">
           {labels.title}
-          <span className="ml-1.5 text-[var(--gray-400)] font-normal">({labels.optional})</span>
+          <span className="ml-2 text-[var(--gray-400)] font-normal text-xs">({labels.optional})</span>
         </h2>
         <div className="flex items-center gap-2">
           {brandNames.length > 0 && (
@@ -111,18 +111,18 @@ export default function CompetitorSettingsSection({
               className="flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md text-[var(--gray-500)] hover:text-[var(--foreground)] transition-colors disabled:opacity-50"
             >
               {suggesting ? (
-                <Loader2 className="w-3 h-3 animate-spin" />
+                <Loader2 className="w-3.5 h-3.5 animate-spin" />
               ) : (
-                <Sparkles className="w-3 h-3" />
+                <Sparkles className="w-3.5 h-3.5" />
               )}
               {suggesting ? labels.aiGenerating : labels.aiGenerate}
             </button>
           )}
           <button
             onClick={addCompetitor}
-            className="flex items-center gap-1 px-2.5 py-1 text-xs rounded-md border border-[var(--border)] text-[var(--foreground)] hover:bg-[var(--surface-muted)] transition-colors"
+            className="flex items-center gap-1.5 px-3 h-8 text-xs rounded-md border border-[var(--border)] text-[var(--foreground)] hover:bg-[var(--surface-muted)] transition-colors"
           >
-            <Plus className="w-3 h-3" />
+            <Plus className="w-3.5 h-3.5" />
             {labels.add}
           </button>
         </div>
@@ -135,23 +135,23 @@ export default function CompetitorSettingsSection({
           </p>
         </div>
       ) : (
-        <div className="space-y-2">
+        <div className="space-y-3">
           {competitors.map((comp, idx) => (
             <div
               key={idx}
-              className="group rounded-lg border border-[var(--border)] transition-colors hover:border-[var(--gray-400)]"
+              className="group rounded-lg border border-[var(--border)] transition-colors hover:border-[var(--gray-300)]"
             >
               {editingIdx === idx ? (
-                <div className="p-3 space-y-2">
+                <div className="p-4 space-y-3">
                   <input
                     type="text"
                     value={comp.name}
                     onChange={(e) => updateName(idx, e.target.value)}
                     placeholder={labels.namePlaceholder}
-                    className="w-full px-3 py-1.5 text-sm rounded-md border border-[var(--border)] bg-transparent text-[var(--foreground)] placeholder:text-[var(--gray-400)] focus:outline-none focus:ring-1 focus:ring-[var(--gray-400)]"
+                    className="w-full px-3 h-10 text-sm rounded-md border border-[var(--border)] bg-transparent text-[var(--foreground)] placeholder:text-[var(--gray-400)] focus:outline-none focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent transition-shadow"
                     autoFocus
                   />
-                  <div className="flex flex-wrap gap-1.5 p-2 rounded-md border border-[var(--border)] min-h-[32px]">
+                  <div className="flex flex-wrap gap-1.5 p-2.5 rounded-md border border-[var(--border)] min-h-[36px]">
                     {comp.aliases.map((alias) => (
                       <span
                         key={alias}
@@ -180,7 +180,7 @@ export default function CompetitorSettingsSection({
                   </div>
                 </div>
               ) : (
-                <div className="flex items-center gap-3 px-3 py-2.5">
+                <div className="flex items-center gap-3 px-4 py-3">
                   <div className="flex-1 min-w-0 flex items-center gap-2">
                     <span className="text-sm text-[var(--foreground)]">
                       {comp.name || (locale === "zh" ? "未命名" : "Unnamed")}
@@ -190,7 +190,7 @@ export default function CompetitorSettingsSection({
                         {comp.aliases.map((a) => (
                           <span
                             key={a}
-                            className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--surface-muted)] text-[var(--gray-500)]"
+                            className="text-xs px-1.5 py-0.5 rounded bg-[var(--surface-muted)] text-[var(--gray-500)]"
                           >
                             {a}
                           </span>
@@ -203,13 +203,13 @@ export default function CompetitorSettingsSection({
                       onClick={() => setEditingIdx(editingIdx === idx ? null : idx)}
                       className="p-1.5 rounded text-[var(--gray-400)] hover:text-[var(--foreground)] transition-colors"
                     >
-                      <Pencil className="w-3 h-3" />
+                      <Pencil className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => removeCompetitor(idx)}
                       className="p-1.5 rounded text-[var(--gray-400)] hover:text-red-500 transition-colors"
                     >
-                      <Trash2 className="w-3 h-3" />
+                      <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>

@@ -24,16 +24,26 @@ interface AISetupResult {
   questions: { coreKeyword: string; question: string; intentType: string; searchVolume: number }[];
 }
 
-function buildPrompt(brandName: string, locale: string): string {
+function buildPrompt(brandName: string, locale: string, description?: string, website?: string, websiteContent?: string): string {
+  const contextLines: string[] = [];
+  if (description) contextLines.push(locale === "zh" ? `业务描述：${description}` : `Business description: ${description}`);
+  if (website) contextLines.push(locale === "zh" ? `官网：${website}` : `Website: ${website}`);
+  if (websiteContent) contextLines.push(locale === "zh"
+    ? `以下是从官网抓取的内容摘要（请据此准确分析品牌的行业、产品和服务）：\n${websiteContent}`
+    : `The following is content extracted from the website (use this to accurately analyze the brand's industry, products and services):\n${websiteContent}`);
+  const contextBlock = contextLines.length > 0
+    ? `\n${contextLines.join("\n")}\n`
+    : "";
+
   if (locale === "zh") {
-    return `你是一个品牌竞争分析和 AI 搜索优化专家。根据以下品牌名称，完成全面的品牌分析：
+    return `你是一个品牌竞争分析和 AI 搜索优化专家。根据以下品牌信息，完成全面的品牌分析：
 
-品牌名称：${brandName}
-
+品牌名称：${brandName}${contextBlock}
+${!contextBlock ? "⚠️ 如果你不了解这个品牌，请根据品牌名称推测其可能的行业和业务方向，并据此生成合理的分析结果。不要编造不存在的官网地址。\n" : ""}
 请生成以下信息：
 1. brandNames: 该品牌的所有常见名称和别名（包括中文名、英文名、缩写、常见简称等），3-5 个
 2. website: 该品牌的官方网站 URL（如果不确定，返回空字符串）
-3. description: 一段简短的品牌描述（50-100字）
+3. description: 一段简短的品牌描述（50-100字）${description ? "，基于用户提供的描述进行扩展" : ""}
 4. competitors: 3-5 个主要竞争品牌，每个包含名称和别名
 5. coreKeywords: 5-8 个该行业的核心产品/服务关键词（用户会搜索的品类词，不要包含任何品牌名）
 6. questions: 针对每个核心关键词，生成 2-3 个用户可能向 AI 搜索引擎提问的**通用行业问题**
@@ -61,14 +71,14 @@ function buildPrompt(brandName: string, locale: string): string {
 }`;
   }
 
-  return `You are a brand competitive analysis and AI search optimization expert. Based on the following brand name, perform a comprehensive brand analysis:
+  return `You are a brand competitive analysis and AI search optimization expert. Based on the following brand information, perform a comprehensive brand analysis:
 
-Brand name: ${brandName}
-
+Brand name: ${brandName}${contextBlock}
+${!contextBlock ? "⚠️ If you are not familiar with this brand, infer its likely industry and business based on the name, and generate reasonable analysis results. Do NOT fabricate website URLs.\n" : ""}
 Generate the following:
 1. brandNames: All common names and aliases for this brand (including local name, English name, abbreviations, common short forms), 3-5 items
 2. website: The brand's official website URL (empty string if unsure)
-3. description: A brief brand description (50-100 words)
+3. description: A brief brand description (50-100 words)${description ? ", expanding on the user-provided description" : ""}
 4. competitors: 3-5 main competitor brands, each with name and aliases
 5. coreKeywords: 5-8 core product/service category keywords for this industry (generic category terms users would search, do NOT include any brand names)
 6. questions: For each core keyword, generate 2-3 **generic industry questions** users might ask AI search engines
@@ -98,6 +108,30 @@ Return strictly in this JSON format, no extra text:
 
 const VALID_INTENTS = new Set(["recommendation", "comparison", "inquiry"]);
 
+/** Fetch website text content, return empty string on failure. */
+async function fetchWebsiteContent(url: string): Promise<string> {
+  try {
+    const normalized = url.startsWith("http") ? url : `https://${url}`;
+    const res = await fetch(normalized, {
+      signal: AbortSignal.timeout(8000),
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; DeepZD/1.0)" },
+    });
+    if (!res.ok) return "";
+    const html = await res.text();
+    // Strip tags, scripts, styles → plain text
+    const text = html
+      .replace(/<script[\s\S]*?<\/script>/gi, "")
+      .replace(/<style[\s\S]*?<\/style>/gi, "")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    // Truncate to ~2000 chars to keep prompt reasonable
+    return text.slice(0, 2000);
+  } catch {
+    return "";
+  }
+}
+
 export async function POST(request: NextRequest) {
   const supabase = await createClient();
   const {
@@ -106,8 +140,10 @@ export async function POST(request: NextRequest) {
   if (!user) return jsonError("Unauthorized", 401);
 
   const body = await request.json();
-  const { brandName, locale = "zh" } = body as {
+  const { brandName, brandDescription = "", brandWebsite = "", locale = "zh" } = body as {
     brandName: string;
+    brandDescription?: string;
+    brandWebsite?: string;
     locale: string;
   };
 
@@ -116,8 +152,14 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    // Fetch website content if URL provided
+    let websiteContent = "";
+    if (brandWebsite?.trim()) {
+      websiteContent = await fetchWebsiteContent(brandWebsite.trim());
+    }
+
     const provider = getDefaultProvider();
-    const prompt = buildPrompt(brandName.trim(), locale);
+    const prompt = buildPrompt(brandName.trim(), locale, brandDescription?.trim(), brandWebsite?.trim(), websiteContent);
 
     const responses = await callAIChat(
       [{ role: "user", content: prompt }],

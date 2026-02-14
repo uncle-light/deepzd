@@ -30,7 +30,13 @@ export interface BrandMonitor {
 // Question config (pre-generated, editable)
 // ---------------------------------------------------------------------------
 
-export type QuestionIntentType = 'recommendation' | 'comparison' | 'inquiry';
+export type QuestionIntentType =
+  | 'recommendation'
+  | 'comparison'
+  | 'inquiry'
+  | 'evaluation'
+  | 'tutorial'
+  | 'pricing';
 
 export interface MonitorQuestion {
   id: string;
@@ -41,6 +47,7 @@ export interface MonitorQuestion {
   searchVolume: number;
   sortOrder: number;
   enabled: boolean;
+  tags: string[];
 }
 
 export interface QuestionGroup {

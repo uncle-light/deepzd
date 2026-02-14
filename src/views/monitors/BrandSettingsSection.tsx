@@ -33,7 +33,7 @@ interface BrandSettingsSectionProps {
 }
 
 const inputClass =
-  "w-full px-3 py-2 text-sm rounded-md border border-[var(--border)] bg-transparent text-[var(--foreground)] placeholder:text-[var(--gray-400)] focus:outline-none focus:ring-1 focus:ring-[var(--gray-400)] transition-shadow";
+  "w-full px-3 h-10 text-sm rounded-md border border-[var(--border)] bg-transparent text-[var(--foreground)] placeholder:text-[var(--gray-400)] focus:outline-none focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent transition-shadow";
 
 export default function BrandSettingsSection({
   name,
@@ -68,16 +68,16 @@ export default function BrandSettingsSection({
   };
 
   return (
-    <section>
-      <h2 className="text-[13px] font-medium text-[var(--foreground)] mb-4">
+    <section className="py-8">
+      <h2 className="text-base font-semibold text-[var(--foreground)] mb-6">
         {labels.title}
       </h2>
 
-      <div className="space-y-4">
+      <div className="space-y-5">
         {/* Monitor name + Brand name: two columns */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs text-[var(--gray-500)] mb-1.5">
+            <label className="block text-sm font-medium text-[var(--foreground)] mb-2">
               {labels.name} <span className="text-red-500">*</span>
             </label>
             <input
@@ -89,7 +89,7 @@ export default function BrandSettingsSection({
             />
           </div>
           <div>
-            <label className="block text-xs text-[var(--gray-500)] mb-1.5">
+            <label className="block text-sm font-medium text-[var(--foreground)] mb-2">
               {labels.brandName} <span className="text-red-500">*</span>
             </label>
             <input
@@ -104,9 +104,9 @@ export default function BrandSettingsSection({
 
         {/* Website + Description: stacked */}
         <div>
-          <label className="block text-xs text-[var(--gray-500)] mb-1.5">
+          <label className="block text-sm font-medium text-[var(--foreground)] mb-2">
             {labels.website}
-            <span className="ml-1 text-[var(--gray-400)]">({labels.optional})</span>
+            <span className="ml-1.5 text-[var(--gray-400)] font-normal text-xs">({labels.optional})</span>
           </label>
           <input
             type="url"
@@ -118,26 +118,26 @@ export default function BrandSettingsSection({
         </div>
 
         <div>
-          <label className="block text-xs text-[var(--gray-500)] mb-1.5">
+          <label className="block text-sm font-medium text-[var(--foreground)] mb-2">
             {labels.description}
-            <span className="ml-1 text-[var(--gray-400)]">({labels.optional})</span>
+            <span className="ml-1.5 text-[var(--gray-400)] font-normal text-xs">({labels.optional})</span>
           </label>
           <textarea
             value={brandDescription}
             onChange={(e) => setBrandDescription(e.target.value)}
             placeholder={labels.descriptionPlaceholder}
             rows={2}
-            className={`${inputClass} resize-none`}
+            className="w-full px-3 py-2.5 text-sm rounded-md border border-[var(--border)] bg-transparent text-[var(--foreground)] placeholder:text-[var(--gray-400)] focus:outline-none focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent transition-shadow resize-none"
           />
         </div>
 
         {/* Brand names (tag input) */}
         <div>
-          <label className="block text-xs text-[var(--gray-500)] mb-1.5">
+          <label className="block text-sm font-medium text-[var(--foreground)] mb-2">
             {labels.brandNames} <span className="text-red-500">*</span>
           </label>
           <div
-            className="flex flex-wrap gap-1.5 p-2 rounded-md border border-[var(--border)] min-h-[38px] cursor-text focus-within:ring-1 focus-within:ring-[var(--gray-400)] transition-shadow"
+            className="flex flex-wrap gap-2 p-2.5 rounded-md border border-[var(--border)] min-h-[42px] cursor-text focus-within:ring-2 focus-within:ring-[var(--foreground)] focus-within:border-transparent transition-shadow"
             onClick={() => brandRef.current?.focus()}
           >
             {brandNames.map((tag) => (
@@ -168,7 +168,7 @@ export default function BrandSettingsSection({
               className="flex-1 min-w-[100px] text-sm bg-transparent text-[var(--foreground)] placeholder:text-[var(--gray-400)] focus:outline-none"
             />
           </div>
-          <p className="text-[10px] text-[var(--gray-400)] mt-1">
+          <p className="text-xs text-[var(--gray-400)] mt-1.5">
             {labels.brandNamesCount.replace("%count%", String(brandNames.length))}
           </p>
         </div>

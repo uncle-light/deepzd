@@ -30,6 +30,7 @@ export async function PUT(request: NextRequest, context: RouteContext) {
     if (body.sortOrder !== undefined) updates.sort_order = body.sortOrder;
     if (body.enabled !== undefined) updates.enabled = body.enabled;
     if (body.coreKeyword !== undefined) updates.core_keyword = body.coreKeyword;
+    if (body.tags !== undefined) updates.tags = body.tags;
 
     if (Object.keys(updates).length === 0) {
       return jsonError('No fields to update');

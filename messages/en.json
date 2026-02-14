@@ -893,6 +893,9 @@
       "recommendation": "Recommendation",
       "comparison": "Comparison",
       "inquiry": "Inquiry",
+      "evaluation": "Evaluation",
+      "tutorial": "Tutorial",
+      "pricing": "Pricing",
       "save": "Save",
       "cancel": "Cancel",
       "empty": "Click \"Generate Questions\" to let AI create relevant questions from your core keywords"

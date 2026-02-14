@@ -53,6 +53,7 @@ export async function GET(_request: NextRequest, context: RouteContext) {
       searchVolume: row.search_volume,
       sortOrder: row.sort_order,
       enabled: row.enabled,
+      tags: row.tags ?? [],
     };
     const list = groupMap.get(q.coreKeyword) ?? [];
     list.push(q);
@@ -85,7 +86,7 @@ export async function POST(request: NextRequest, context: RouteContext) {
 
   try {
     const body = await request.json();
-    const { coreKeyword, question, intentType, searchVolume, sortOrder } = body;
+    const { coreKeyword, question, intentType, searchVolume, sortOrder, tags } = body;
 
     if (!coreKeyword || !question) {
       return jsonError('coreKeyword and question are required');
@@ -101,6 +102,7 @@ export async function POST(request: NextRequest, context: RouteContext) {
         intent_type: intentType ?? 'recommendation',
         search_volume: searchVolume ?? 0,
         sort_order: sortOrder ?? 0,
+        tags: Array.isArray(tags) ? tags : [],
       })
       .select()
       .single();

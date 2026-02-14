@@ -25,6 +25,9 @@ interface QuestionSettingsSectionProps {
     recommendation: string;
     comparison: string;
     inquiry: string;
+    evaluation: string;
+    tutorial: string;
+    pricing: string;
     save: string;
     cancel: string;
     empty: string;
@@ -106,6 +109,7 @@ export default function QuestionSettingsSection({
             searchVolume: row.search_volume,
             sortOrder: row.sort_order,
             enabled: row.enabled,
+            tags: row.tags ?? [],
           };
           const list = groupMap.get(q.coreKeyword) ?? [];
           list.push(q);
@@ -129,7 +133,35 @@ export default function QuestionSettingsSection({
           }),
         }).catch(() => null);
 
-        if (!res || !res.ok) {
+        if (res && res.ok) {
+          const data = await res.json();
+          const groupMap = new Map<string, MonitorQuestion[]>();
+          for (const g of questions) {
+            groupMap.set(g.coreKeyword, [...g.questions]);
+          }
+          for (const row of data.questions ?? []) {
+            const q: MonitorQuestion = {
+              id: `temp-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+              monitorId: "",
+              coreKeyword: row.coreKeyword,
+              question: row.question,
+              intentType: row.intentType,
+              searchVolume: row.searchVolume ?? 0,
+              sortOrder: (groupMap.get(row.coreKeyword)?.length ?? 0),
+              enabled: true,
+              tags: [],
+            };
+            const list = groupMap.get(q.coreKeyword) ?? [];
+            list.push(q);
+            groupMap.set(q.coreKeyword, list);
+          }
+          setQuestions(
+            Array.from(groupMap.entries()).map(([coreKeyword, qs]) => ({
+              coreKeyword,
+              questions: qs,
+            })),
+          );
+        } else {
           const newGroups = coreKeywords
             .filter((kw) => !questions.some((g) => g.coreKeyword === kw))
             .map((kw) => ({ coreKeyword: kw, questions: [] as MonitorQuestion[] }));
@@ -148,7 +180,7 @@ export default function QuestionSettingsSection({
   const handleUpdateQuestion = (
     groupIdx: number,
     qId: string,
-    data: { question?: string; intentType?: QuestionIntentType; enabled?: boolean },
+    data: { question?: string; intentType?: QuestionIntentType; enabled?: boolean; tags?: string[] },
   ) => {
     setQuestions(
       questions.map((g, gi) =>
@@ -168,6 +200,7 @@ export default function QuestionSettingsSection({
       if (data.question !== undefined) body.question = data.question;
       if (data.intentType !== undefined) body.intentType = data.intentType;
       if (data.enabled !== undefined) body.enabled = data.enabled;
+      if (data.tags !== undefined) body.tags = data.tags;
 
       fetch(`/api/monitors/${monitorId}/questions/${qId}`, {
         method: "PUT",
@@ -208,6 +241,7 @@ export default function QuestionSettingsSection({
       searchVolume: 0,
       sortOrder: questions[groupIdx]?.questions.length ?? 0,
       enabled: true,
+      tags: [],
     };
 
     setQuestions(
@@ -245,34 +279,34 @@ export default function QuestionSettingsSection({
   };
 
   return (
-    <section>
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-[13px] font-medium text-[var(--foreground)]">
+    <section className="py-8">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-base font-semibold text-[var(--foreground)]">
           {labels.title}
-          <span className="ml-1.5 text-[var(--gray-400)] font-normal">({labels.optional})</span>
+          <span className="ml-2 text-[var(--gray-400)] font-normal text-xs">({labels.optional})</span>
         </h2>
         <button
           onClick={handleGenerate}
           disabled={generating || coreKeywords.length === 0}
-          className="flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
+          className="flex items-center gap-1.5 px-3 h-8 text-xs rounded-md bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed"
         >
           {generating ? (
-            <Loader2 className="w-3 h-3 animate-spin" />
+            <Loader2 className="w-3.5 h-3.5 animate-spin" />
           ) : (
-            <Sparkles className="w-3 h-3" />
+            <Sparkles className="w-3.5 h-3.5" />
           )}
           {generating ? labels.generating : labels.generate}
         </button>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-5">
         {/* Core keywords tag input */}
         <div>
-          <label className="block text-xs text-[var(--gray-500)] mb-1.5">
+          <label className="block text-sm font-medium text-[var(--foreground)] mb-2">
             {labels.coreKeywords}
           </label>
           <div
-            className="flex flex-wrap gap-1.5 p-2 rounded-md border border-[var(--border)] min-h-[38px] cursor-text focus-within:ring-1 focus-within:ring-[var(--gray-400)] transition-shadow"
+            className="flex flex-wrap gap-2 p-2.5 rounded-md border border-[var(--border)] min-h-[42px] cursor-text focus-within:ring-2 focus-within:ring-[var(--foreground)] focus-within:border-transparent transition-shadow"
             onClick={() => kwRef.current?.focus()}
           >
             {coreKeywords.map((kw) => (
@@ -320,11 +354,11 @@ export default function QuestionSettingsSection({
           return (
             <div
               key={group.coreKeyword}
-              className="rounded-lg border border-[var(--border)] transition-colors hover:border-[var(--gray-400)]"
+              className="rounded-lg border border-[var(--border)] transition-colors hover:border-[var(--gray-300)]"
             >
               <button
                 onClick={() => toggleExpand(group.coreKeyword)}
-                className="w-full flex items-center gap-2 px-3 py-2.5 text-left"
+                className="w-full flex items-center gap-2.5 px-4 py-3 text-left"
               >
                 {isExpanded ? (
                   <ChevronDown className="w-3.5 h-3.5 text-[var(--gray-400)] shrink-0" />
@@ -334,7 +368,7 @@ export default function QuestionSettingsSection({
                 <span className="text-sm font-medium text-[var(--foreground)]">
                   {group.coreKeyword}
                 </span>
-                <span className="text-[10px] text-[var(--gray-500)]">
+                <span className="text-xs text-[var(--gray-500)]">
                   {labels.questionCount
                     .replace("%count%", String(enabledCount))
                     .replace("%total%", String(group.questions.length))}
@@ -352,11 +386,15 @@ export default function QuestionSettingsSection({
                         intentType={q.intentType}
                         searchVolume={q.searchVolume}
                         enabled={q.enabled}
+                        tags={q.tags}
                         locale={locale}
                         labels={{
                           recommendation: labels.recommendation,
                           comparison: labels.comparison,
                           inquiry: labels.inquiry,
+                          evaluation: labels.evaluation,
+                          tutorial: labels.tutorial,
+                          pricing: labels.pricing,
                           save: labels.save,
                           cancel: labels.cancel,
                         }}
@@ -369,13 +407,13 @@ export default function QuestionSettingsSection({
                   {/* Add question inline */}
                   <div className="border-t border-[var(--border)]">
                     {addingTo === group.coreKeyword ? (
-                      <div className="flex items-center gap-2 px-3 py-2">
+                      <div className="flex items-center gap-2 px-4 py-3">
                         <input
                           type="text"
                           value={newQuestion}
                           onChange={(e) => setNewQuestion(e.target.value)}
                           placeholder={labels.questionPlaceholder}
-                          className="flex-1 px-3 py-1.5 text-sm rounded-md border border-[var(--border)] bg-transparent text-[var(--foreground)] placeholder:text-[var(--gray-400)] focus:outline-none focus:ring-1 focus:ring-[var(--gray-400)]"
+                          className="flex-1 px-3 h-10 text-sm rounded-md border border-[var(--border)] bg-transparent text-[var(--foreground)] placeholder:text-[var(--gray-400)] focus:outline-none focus:ring-2 focus:ring-[var(--foreground)] focus:border-transparent"
                           autoFocus
                           onKeyDown={(e) => {
                             if (e.key === "Enter") handleAddQuestion(gi, group.coreKeyword);
@@ -404,9 +442,9 @@ export default function QuestionSettingsSection({
                     ) : (
                       <button
                         onClick={() => setAddingTo(group.coreKeyword)}
-                        className="flex items-center gap-1 px-3 py-2 text-xs text-[var(--gray-500)] hover:text-[var(--foreground)] transition-colors"
+                        className="flex items-center gap-1.5 px-4 py-2.5 text-xs text-[var(--gray-500)] hover:text-[var(--foreground)] transition-colors"
                       >
-                        <Plus className="w-3 h-3" />
+                        <Plus className="w-3.5 h-3.5" />
                         {labels.addQuestion}
                       </button>
                     )}

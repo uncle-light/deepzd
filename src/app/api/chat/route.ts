@@ -17,6 +17,7 @@ import {
   runChatAgentPlan,
   runGeoAgent,
   streamGeoChatReply,
+  type GeoAgentExecution,
 } from "@/lib/geo/graph";
 import { createClient } from "@/lib/supabase/server";
 import { checkRateLimit, getClientIp, RATE_LIMITS } from "@/lib/rate-limit";
@@ -97,6 +98,37 @@ function localizedFailure(locale: "zh" | "en", detail?: string): string {
       : "Analysis failed, please try again";
   if (!detail) return base;
   return `${base}: ${detail}`;
+}
+
+/** Fire-and-forget: persist analysis result to analyses table */
+async function persistAnalysis(
+  userId: string,
+  execution: Extract<GeoAgentExecution, { kind: "analyze" }>
+): Promise<void> {
+  try {
+    const supabase = await createClient();
+    const { input, output } = execution;
+
+    if (input.inputType === "url") {
+      await supabase.from("analyses").insert({
+        user_id: userId,
+        content_type: "url",
+        url: input.content,
+        score: Math.round((output.overallCitationRate ?? 0) * 100),
+        results: output,
+      });
+    } else {
+      await supabase.from("analyses").insert({
+        user_id: userId,
+        content_type: "text",
+        content: input.content.slice(0, 500),
+        score: output.score,
+        results: output,
+      });
+    }
+  } catch (err) {
+    console.error("[chat:persistAnalysis]", err);
+  }
 }
 
 // ============================================
@@ -231,6 +263,7 @@ export async function POST(request: NextRequest) {
               toolCallId,
               output: execution.output,
             });
+            if (userId) persistAnalysis(userId, execution);
             writer.write({ type: "finish-step" });
             writer.write({ type: "finish", finishReason: "tool-calls" });
             return;
